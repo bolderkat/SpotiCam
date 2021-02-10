@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505304D25D3BB5000BF6521 /* AppDelegate.m */; };
+		6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305025D3BB5000BF6521 /* SceneDelegate.m */; };
+		6505305425D3BB5000BF6521 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305325D3BB5000BF6521 /* ViewController.m */; };
+		6505305725D3BB5000BF6521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6505305525D3BB5000BF6521 /* Main.storyboard */; };
+		6505305925D3BB5100BF6521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6505305825D3BB5100BF6521 /* Assets.xcassets */; };
+		6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6505305A25D3BB5100BF6521 /* LaunchScreen.storyboard */; };
+		6505305F25D3BB5100BF6521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305E25D3BB5100BF6521 /* main.m */; };
+		6505306925D3BB5100BF6521 /* SpotiCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505306825D3BB5100BF6521 /* SpotiCamTests.m */; };
+		6505307425D3BB5100BF6521 /* SpotiCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505307325D3BB5100BF6521 /* SpotiCamUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6505306525D3BB5100BF6521 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6505304125D3BB5000BF6521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6505304825D3BB5000BF6521;
+			remoteInfo = SpotiCam;
+		};
+		6505307025D3BB5100BF6521 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6505304125D3BB5000BF6521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6505304825D3BB5000BF6521;
+			remoteInfo = SpotiCam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6505304925D3BB5000BF6521 /* SpotiCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6505304C25D3BB5000BF6521 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6505304D25D3BB5000BF6521 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6505304F25D3BB5000BF6521 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		6505305025D3BB5000BF6521 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		6505305225D3BB5000BF6521 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6505305325D3BB5000BF6521 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6505305625D3BB5000BF6521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6505305825D3BB5100BF6521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6505305B25D3BB5100BF6521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6505305D25D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6505305E25D3BB5100BF6521 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6505306425D3BB5100BF6521 /* SpotiCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotiCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6505306825D3BB5100BF6521 /* SpotiCamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotiCamTests.m; sourceTree = "<group>"; };
+		6505306A25D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6505306F25D3BB5100BF6521 /* SpotiCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotiCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6505307325D3BB5100BF6521 /* SpotiCamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotiCamUITests.m; sourceTree = "<group>"; };
+		6505307525D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6505304625D3BB5000BF6521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6505306125D3BB5100BF6521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6505306C25D3BB5100BF6521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6505304025D3BB5000BF6521 = {
+			isa = PBXGroup;
+			children = (
+				6505304B25D3BB5000BF6521 /* SpotiCam */,
+				6505306725D3BB5100BF6521 /* SpotiCamTests */,
+				6505307225D3BB5100BF6521 /* SpotiCamUITests */,
+				6505304A25D3BB5000BF6521 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6505304A25D3BB5000BF6521 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6505304925D3BB5000BF6521 /* SpotiCam.app */,
+				6505306425D3BB5100BF6521 /* SpotiCamTests.xctest */,
+				6505306F25D3BB5100BF6521 /* SpotiCamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6505304B25D3BB5000BF6521 /* SpotiCam */ = {
+			isa = PBXGroup;
+			children = (
+				6505304C25D3BB5000BF6521 /* AppDelegate.h */,
+				6505304D25D3BB5000BF6521 /* AppDelegate.m */,
+				6505304F25D3BB5000BF6521 /* SceneDelegate.h */,
+				6505305025D3BB5000BF6521 /* SceneDelegate.m */,
+				6505305225D3BB5000BF6521 /* ViewController.h */,
+				6505305325D3BB5000BF6521 /* ViewController.m */,
+				6505305525D3BB5000BF6521 /* Main.storyboard */,
+				6505305825D3BB5100BF6521 /* Assets.xcassets */,
+				6505305A25D3BB5100BF6521 /* LaunchScreen.storyboard */,
+				6505305D25D3BB5100BF6521 /* Info.plist */,
+				6505305E25D3BB5100BF6521 /* main.m */,
+			);
+			path = SpotiCam;
+			sourceTree = "<group>";
+		};
+		6505306725D3BB5100BF6521 /* SpotiCamTests */ = {
+			isa = PBXGroup;
+			children = (
+				6505306825D3BB5100BF6521 /* SpotiCamTests.m */,
+				6505306A25D3BB5100BF6521 /* Info.plist */,
+			);
+			path = SpotiCamTests;
+			sourceTree = "<group>";
+		};
+		6505307225D3BB5100BF6521 /* SpotiCamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6505307325D3BB5100BF6521 /* SpotiCamUITests.m */,
+				6505307525D3BB5100BF6521 /* Info.plist */,
+			);
+			path = SpotiCamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6505304825D3BB5000BF6521 /* SpotiCam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6505307825D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCam" */;
+			buildPhases = (
+				6505304525D3BB5000BF6521 /* Sources */,
+				6505304625D3BB5000BF6521 /* Frameworks */,
+				6505304725D3BB5000BF6521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpotiCam;
+			productName = SpotiCam;
+			productReference = 6505304925D3BB5000BF6521 /* SpotiCam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6505306325D3BB5100BF6521 /* SpotiCamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6505307B25D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCamTests" */;
+			buildPhases = (
+				6505306025D3BB5100BF6521 /* Sources */,
+				6505306125D3BB5100BF6521 /* Frameworks */,
+				6505306225D3BB5100BF6521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6505306625D3BB5100BF6521 /* PBXTargetDependency */,
+			);
+			name = SpotiCamTests;
+			productName = SpotiCamTests;
+			productReference = 6505306425D3BB5100BF6521 /* SpotiCamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6505306E25D3BB5100BF6521 /* SpotiCamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6505307E25D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCamUITests" */;
+			buildPhases = (
+				6505306B25D3BB5100BF6521 /* Sources */,
+				6505306C25D3BB5100BF6521 /* Frameworks */,
+				6505306D25D3BB5100BF6521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6505307125D3BB5100BF6521 /* PBXTargetDependency */,
+			);
+			name = SpotiCamUITests;
+			productName = SpotiCamUITests;
+			productReference = 6505306F25D3BB5100BF6521 /* SpotiCamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6505304125D3BB5000BF6521 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					6505304825D3BB5000BF6521 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					6505306325D3BB5100BF6521 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6505304825D3BB5000BF6521;
+					};
+					6505306E25D3BB5100BF6521 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 6505304825D3BB5000BF6521;
+					};
+				};
+			};
+			buildConfigurationList = 6505304425D3BB5000BF6521 /* Build configuration list for PBXProject "SpotiCam" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6505304025D3BB5000BF6521;
+			productRefGroup = 6505304A25D3BB5000BF6521 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6505304825D3BB5000BF6521 /* SpotiCam */,
+				6505306325D3BB5100BF6521 /* SpotiCamTests */,
+				6505306E25D3BB5100BF6521 /* SpotiCamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6505304725D3BB5000BF6521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */,
+				6505305925D3BB5100BF6521 /* Assets.xcassets in Resources */,
+				6505305725D3BB5000BF6521 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6505306225D3BB5100BF6521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6505306D25D3BB5100BF6521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6505304525D3BB5000BF6521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6505305425D3BB5000BF6521 /* ViewController.m in Sources */,
+				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
+				6505305F25D3BB5100BF6521 /* main.m in Sources */,
+				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6505306025D3BB5100BF6521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6505306925D3BB5100BF6521 /* SpotiCamTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6505306B25D3BB5100BF6521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6505307425D3BB5100BF6521 /* SpotiCamUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6505306625D3BB5100BF6521 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6505304825D3BB5000BF6521 /* SpotiCam */;
+			targetProxy = 6505306525D3BB5100BF6521 /* PBXContainerItemProxy */;
+		};
+		6505307125D3BB5100BF6521 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6505304825D3BB5000BF6521 /* SpotiCam */;
+			targetProxy = 6505307025D3BB5100BF6521 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6505305525D3BB5000BF6521 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6505305625D3BB5000BF6521 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6505305A25D3BB5100BF6521 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6505305B25D3BB5100BF6521 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6505307625D3BB5100BF6521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6505307725D3BB5100BF6521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6505307925D3BB5100BF6521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				INFOPLIST_FILE = SpotiCam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6505307A25D3BB5100BF6521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				INFOPLIST_FILE = SpotiCam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6505307C25D3BB5100BF6521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				INFOPLIST_FILE = SpotiCamTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpotiCam.app/SpotiCam";
+			};
+			name = Debug;
+		};
+		6505307D25D3BB5100BF6521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				INFOPLIST_FILE = SpotiCamTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpotiCam.app/SpotiCam";
+			};
+			name = Release;
+		};
+		6505307F25D3BB5100BF6521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				INFOPLIST_FILE = SpotiCamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpotiCam;
+			};
+			name = Debug;
+		};
+		6505308025D3BB5100BF6521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33755HM6BY;
+				INFOPLIST_FILE = SpotiCamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SpotiCam;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6505304425D3BB5000BF6521 /* Build configuration list for PBXProject "SpotiCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6505307625D3BB5100BF6521 /* Debug */,
+				6505307725D3BB5100BF6521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6505307825D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6505307925D3BB5100BF6521 /* Debug */,
+				6505307A25D3BB5100BF6521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6505307B25D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6505307C25D3BB5100BF6521 /* Debug */,
+				6505307D25D3BB5100BF6521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6505307E25D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6505307F25D3BB5100BF6521 /* Debug */,
+				6505308025D3BB5100BF6521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6505304125D3BB5000BF6521 /* Project object */;
+}
