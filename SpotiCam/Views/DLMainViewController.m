@@ -1,17 +1,17 @@
 //
-//  ViewController.m
+//  DLMainViewController.m
 //  SpotiCam
 //
 //  Created by Daniel Luo on 2/9/21.
 //
 
-#import "ViewController.h"
+#import "DLMainViewController.h"
 
-@interface ViewController ()
+@interface DLMainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation DLMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
