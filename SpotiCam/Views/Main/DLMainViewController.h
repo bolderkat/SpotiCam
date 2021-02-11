@@ -6,9 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLMainCoordinator.h"
 
 @interface DLMainViewController : UIViewController
-
+@property (weak, nonatomic) DLMainCoordinator *coordinator;
 
 @end
 

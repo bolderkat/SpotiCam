@@ -16,6 +16,8 @@
 		6505306925D3BB5100BF6521 /* SpotiCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505306825D3BB5100BF6521 /* SpotiCamTests.m */; };
 		6505307425D3BB5100BF6521 /* SpotiCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505307325D3BB5100BF6521 /* SpotiCamUITests.m */; };
 		6505308725D4871D00BF6521 /* DLMainCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505308625D4871D00BF6521 /* DLMainCoordinator.m */; };
+		652BD6F425D4B388004F8198 /* DLProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* DLProcessingViewController.m */; };
+		652BD6F525D4B388004F8198 /* DLProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* DLProcessingViewController.xib */; };
 		652E18B625D48B1500692F5C /* DLMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* DLMainView.xib */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,9 @@
 		6505307525D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6505308525D4871D00BF6521 /* DLMainCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLMainCoordinator.h; sourceTree = "<group>"; };
 		6505308625D4871D00BF6521 /* DLMainCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLMainCoordinator.m; sourceTree = "<group>"; };
+		652BD6F125D4B388004F8198 /* DLProcessingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLProcessingViewController.h; sourceTree = "<group>"; };
+		652BD6F225D4B388004F8198 /* DLProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLProcessingViewController.m; sourceTree = "<group>"; };
+		652BD6F325D4B388004F8198 /* DLProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DLProcessingViewController.xib; sourceTree = "<group>"; };
 		652E18B525D48B1500692F5C /* DLMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DLMainView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,11 +156,30 @@
 		6505308B25D4898300BF6521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				652BD6F025D4B377004F8198 /* Processing */,
+				652E18C025D4ABEF00692F5C /* Main */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		652BD6F025D4B377004F8198 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				652BD6F125D4B388004F8198 /* DLProcessingViewController.h */,
+				652BD6F225D4B388004F8198 /* DLProcessingViewController.m */,
+				652BD6F325D4B388004F8198 /* DLProcessingViewController.xib */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		652E18C025D4ABEF00692F5C /* Main */ = {
+			isa = PBXGroup;
+			children = (
 				6505305225D3BB5000BF6521 /* DLMainViewController.h */,
 				6505305325D3BB5000BF6521 /* DLMainViewController.m */,
 				652E18B525D48B1500692F5C /* DLMainView.xib */,
 			);
-			path = Views;
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */,
+				652BD6F525D4B388004F8198 /* DLProcessingViewController.xib in Resources */,
 				652E18B625D48B1500692F5C /* DLMainView.xib in Resources */,
 				6505305925D3BB5100BF6521 /* Assets.xcassets in Resources */,
 			);
@@ -290,6 +315,7 @@
 				6505305425D3BB5000BF6521 /* DLMainViewController.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
 				6505308725D4871D00BF6521 /* DLMainCoordinator.m in Sources */,
+				652BD6F425D4B388004F8198 /* DLProcessingViewController.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
 				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,
 			);

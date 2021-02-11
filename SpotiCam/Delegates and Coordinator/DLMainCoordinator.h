@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property UINavigationController *navigationController;
 - (instancetype)initWithWindow:(UIWindow*)window;
 - (void)start;
+- (void)goToProcessingViewWithImage:(UIImage*)image;
 
 @end
 
