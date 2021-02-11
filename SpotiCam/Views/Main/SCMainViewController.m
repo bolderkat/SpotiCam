@@ -1,17 +1,17 @@
 //
-//  DLMainViewController.m
+//  SCMainViewController.m
 //  SpotiCam
 //
 //  Created by Daniel Luo on 2/9/21.
 //
 
-#import "DLMainViewController.h"
+#import "SCMainViewController.h"
 
-@interface DLMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SCMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic) UIImagePickerController *imagePicker;
 @end
 
-@implementation DLMainViewController
+@implementation SCMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

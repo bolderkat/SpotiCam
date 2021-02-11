@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505304D25D3BB5000BF6521 /* AppDelegate.m */; };
 		6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305025D3BB5000BF6521 /* SceneDelegate.m */; };
-		6505305425D3BB5000BF6521 /* DLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305325D3BB5000BF6521 /* DLMainViewController.m */; };
+		6505305425D3BB5000BF6521 /* SCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305325D3BB5000BF6521 /* SCMainViewController.m */; };
 		6505305925D3BB5100BF6521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6505305825D3BB5100BF6521 /* Assets.xcassets */; };
 		6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6505305A25D3BB5100BF6521 /* LaunchScreen.storyboard */; };
 		6505305F25D3BB5100BF6521 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305E25D3BB5100BF6521 /* main.m */; };
 		6505306925D3BB5100BF6521 /* SpotiCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505306825D3BB5100BF6521 /* SpotiCamTests.m */; };
 		6505307425D3BB5100BF6521 /* SpotiCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505307325D3BB5100BF6521 /* SpotiCamUITests.m */; };
-		6505308725D4871D00BF6521 /* DLMainCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505308625D4871D00BF6521 /* DLMainCoordinator.m */; };
-		652BD6F425D4B388004F8198 /* DLProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* DLProcessingViewController.m */; };
-		652BD6F525D4B388004F8198 /* DLProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* DLProcessingViewController.xib */; };
-		652E18B625D48B1500692F5C /* DLMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* DLMainView.xib */; };
+		6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505308625D4871D00BF6521 /* SCMainCoordinator.m */; };
+		652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* SCProcessingViewController.m */; };
+		652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */; };
+		652E18B625D48B1500692F5C /* SCMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* SCMainView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +44,8 @@
 		6505304D25D3BB5000BF6521 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6505304F25D3BB5000BF6521 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		6505305025D3BB5000BF6521 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		6505305225D3BB5000BF6521 /* DLMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLMainViewController.h; sourceTree = "<group>"; };
-		6505305325D3BB5000BF6521 /* DLMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLMainViewController.m; sourceTree = "<group>"; };
+		6505305225D3BB5000BF6521 /* SCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMainViewController.h; sourceTree = "<group>"; };
+		6505305325D3BB5000BF6521 /* SCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMainViewController.m; sourceTree = "<group>"; };
 		6505305825D3BB5100BF6521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6505305B25D3BB5100BF6521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6505305D25D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,12 +56,12 @@
 		6505306F25D3BB5100BF6521 /* SpotiCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotiCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6505307325D3BB5100BF6521 /* SpotiCamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotiCamUITests.m; sourceTree = "<group>"; };
 		6505307525D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6505308525D4871D00BF6521 /* DLMainCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLMainCoordinator.h; sourceTree = "<group>"; };
-		6505308625D4871D00BF6521 /* DLMainCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLMainCoordinator.m; sourceTree = "<group>"; };
-		652BD6F125D4B388004F8198 /* DLProcessingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLProcessingViewController.h; sourceTree = "<group>"; };
-		652BD6F225D4B388004F8198 /* DLProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLProcessingViewController.m; sourceTree = "<group>"; };
-		652BD6F325D4B388004F8198 /* DLProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DLProcessingViewController.xib; sourceTree = "<group>"; };
-		652E18B525D48B1500692F5C /* DLMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DLMainView.xib; sourceTree = "<group>"; };
+		6505308525D4871D00BF6521 /* SCMainCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMainCoordinator.h; sourceTree = "<group>"; };
+		6505308625D4871D00BF6521 /* SCMainCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMainCoordinator.m; sourceTree = "<group>"; };
+		652BD6F125D4B388004F8198 /* SCProcessingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCProcessingViewController.h; sourceTree = "<group>"; };
+		652BD6F225D4B388004F8198 /* SCProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCProcessingViewController.m; sourceTree = "<group>"; };
+		652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCProcessingViewController.xib; sourceTree = "<group>"; };
+		652E18B525D48B1500692F5C /* SCMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCMainView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +147,8 @@
 				6505304D25D3BB5000BF6521 /* AppDelegate.m */,
 				6505304F25D3BB5000BF6521 /* SceneDelegate.h */,
 				6505305025D3BB5000BF6521 /* SceneDelegate.m */,
-				6505308525D4871D00BF6521 /* DLMainCoordinator.h */,
-				6505308625D4871D00BF6521 /* DLMainCoordinator.m */,
+				6505308525D4871D00BF6521 /* SCMainCoordinator.h */,
+				6505308625D4871D00BF6521 /* SCMainCoordinator.m */,
 			);
 			path = "Delegates and Coordinator";
 			sourceTree = "<group>";
@@ -165,9 +165,9 @@
 		652BD6F025D4B377004F8198 /* Processing */ = {
 			isa = PBXGroup;
 			children = (
-				652BD6F125D4B388004F8198 /* DLProcessingViewController.h */,
-				652BD6F225D4B388004F8198 /* DLProcessingViewController.m */,
-				652BD6F325D4B388004F8198 /* DLProcessingViewController.xib */,
+				652BD6F125D4B388004F8198 /* SCProcessingViewController.h */,
+				652BD6F225D4B388004F8198 /* SCProcessingViewController.m */,
+				652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -175,9 +175,9 @@
 		652E18C025D4ABEF00692F5C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				6505305225D3BB5000BF6521 /* DLMainViewController.h */,
-				6505305325D3BB5000BF6521 /* DLMainViewController.m */,
-				652E18B525D48B1500692F5C /* DLMainView.xib */,
+				6505305225D3BB5000BF6521 /* SCMainViewController.h */,
+				6505305325D3BB5000BF6521 /* SCMainViewController.m */,
+				652E18B525D48B1500692F5C /* SCMainView.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -285,8 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */,
-				652BD6F525D4B388004F8198 /* DLProcessingViewController.xib in Resources */,
-				652E18B625D48B1500692F5C /* DLMainView.xib in Resources */,
+				652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */,
+				652E18B625D48B1500692F5C /* SCMainView.xib in Resources */,
 				6505305925D3BB5100BF6521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,10 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6505305425D3BB5000BF6521 /* DLMainViewController.m in Sources */,
+				6505305425D3BB5000BF6521 /* SCMainViewController.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
-				6505308725D4871D00BF6521 /* DLMainCoordinator.m in Sources */,
-				652BD6F425D4B388004F8198 /* DLProcessingViewController.m in Sources */,
+				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
+				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
 				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,
 			);

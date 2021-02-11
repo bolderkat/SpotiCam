@@ -22,7 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:windowScene.coordinateSpace.bounds];
     self.window.windowScene = windowScene;
     
-    self.coordinator = [[DLMainCoordinator alloc] initWithWindow:self.window];
+    self.coordinator = [[SCMainCoordinator alloc] initWithWindow:self.window];
     [self.coordinator start];
     
     

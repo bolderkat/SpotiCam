@@ -1,17 +1,17 @@
 //
-//  DLProcessingViewController.m
+//  SCProcessingViewController.m
 //  SpotiCam
 //
 //  Created by Daniel Luo on 2/10/21.
 //
 
-#import "DLProcessingViewController.h"
+#import "SCProcessingViewController.h"
 
-@interface DLProcessingViewController ()
+@interface SCProcessingViewController ()
 
 @end
 
-@implementation DLProcessingViewController
+@implementation SCProcessingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

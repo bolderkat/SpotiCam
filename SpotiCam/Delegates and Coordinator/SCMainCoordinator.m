@@ -5,15 +5,15 @@
 //  Created by Daniel Luo on 2/10/21.
 //
 
-#import "DLMainCoordinator.h"
-#import "DLMainViewController.h"
-#import "DLProcessingViewController.h"
+#import "SCMainCoordinator.h"
+#import "SCMainViewController.h"
+#import "SCProcessingViewController.h"
 
-@interface DLMainCoordinator ()
+@interface SCMainCoordinator ()
 @property NSMutableArray *childCoordinators;
 @end
 
-@implementation DLMainCoordinator
+@implementation SCMainCoordinator
 - (instancetype)initWithWindow:(UIWindow *)window {
     self = [super init];
     if (!self) return nil;
@@ -25,7 +25,7 @@
 - (void)start {
     self.navigationController = [UINavigationController new];
     
-    DLMainViewController *vc = [DLMainViewController new];
+    SCMainViewController *vc = [SCMainViewController new];
     vc.coordinator = self;
     
     [self.navigationController pushViewController:vc animated:NO];
@@ -35,7 +35,7 @@
 }
 
 - (void)goToProcessingViewWithImage:(UIImage*)image {
-    DLProcessingViewController *vc = [DLProcessingViewController new];
+    SCProcessingViewController *vc = [SCProcessingViewController new];
     vc.coordinator = self;
     vc.image = image;
     

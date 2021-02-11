@@ -1,5 +1,5 @@
 //
-//  DLMainCoordinator.h
+//  SCMainCoordinator.h
 //  SpotiCam
 //
 //  Created by Daniel Luo on 2/10/21.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DLMainCoordinator : NSObject
+@interface SCMainCoordinator : NSObject
 @property UIWindow *window;
 @property UINavigationController *navigationController;
 - (instancetype)initWithWindow:(UIWindow*)window;
