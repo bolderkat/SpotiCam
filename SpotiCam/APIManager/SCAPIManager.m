@@ -30,7 +30,14 @@
     CGFloat sFactor = [self applyModerateSlopeToSaturation:s];
     CGFloat bFactor = [self applyBrightnessCurveToBrightness:b];
     
-    return hFactor * sFactor * bFactor;
+    CGFloat danceability = hFactor * sFactor * bFactor;
+    if (danceability < 0.0) {
+        danceability = 0.0;
+    } else if (danceability > 1.0) {
+        danceability = 1.0;
+    }
+    
+    return danceability;
 }
 
 - (CGFloat)calculateEnergyWithHue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)b {
@@ -38,7 +45,14 @@
     CGFloat sFactor = [self applyMildSlopeToSaturation:s];
     CGFloat bFactor = [self applyBrightnessCurveToBrightness:b];
     
-    return hFactor * sFactor * bFactor;
+    CGFloat energy = hFactor * sFactor * bFactor;
+    if (energy < 0.0) {
+        energy = 0.0;
+    } else if (energy > 1.0) {
+        energy = 1.0;
+    }
+    
+    return energy;
 }
 
 - (CGFloat) calculateValenceWithHue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)b {
@@ -46,7 +60,14 @@
     CGFloat sFactor = [self applyMildSlopeToSaturation:s];
     CGFloat bFactor = [self applyBrightnessCurveToBrightness:b];
     
-    return hFactor * sFactor * bFactor;
+    CGFloat valence = hFactor * sFactor * bFactor;
+    if (valence < 0.0) {
+        valence = 0.0;
+    } else if (valence > 1.0) {
+        valence = 1.0;
+    }
+    
+    return valence;
 }
 
 
