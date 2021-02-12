@@ -19,6 +19,7 @@
 		652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* SCProcessingViewController.m */; };
 		652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */; };
 		652E18B625D48B1500692F5C /* SCMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* SCMainView.xib */; };
+		65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64F2D25D710CE0083E07C /* SCAPIManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		652BD6F225D4B388004F8198 /* SCProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCProcessingViewController.m; sourceTree = "<group>"; };
 		652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCProcessingViewController.xib; sourceTree = "<group>"; };
 		652E18B525D48B1500692F5C /* SCMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCMainView.xib; sourceTree = "<group>"; };
+		65C64F2C25D710CE0083E07C /* SCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAPIManager.h; sourceTree = "<group>"; };
+		65C64F2D25D710CE0083E07C /* SCAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAPIManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		6505304B25D3BB5000BF6521 /* SpotiCam */ = {
 			isa = PBXGroup;
 			children = (
+				65C64F2B25D710B40083E07C /* APIManager */,
 				6505308425D486A000BF6521 /* Delegates and Coordinator */,
 				6505308B25D4898300BF6521 /* Views */,
 				6505305825D3BB5100BF6521 /* Assets.xcassets */,
@@ -180,6 +184,15 @@
 				652E18B525D48B1500692F5C /* SCMainView.xib */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		65C64F2B25D710B40083E07C /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				65C64F2C25D710CE0083E07C /* SCAPIManager.h */,
+				65C64F2D25D710CE0083E07C /* SCAPIManager.m */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6505305425D3BB5000BF6521 /* SCMainViewController.m in Sources */,
+				65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
 				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
 				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
