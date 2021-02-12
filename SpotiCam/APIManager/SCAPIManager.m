@@ -31,13 +31,7 @@
     CGFloat bFactor = [self applyBrightnessCurveToBrightness:b];
     
     CGFloat danceability = hFactor * sFactor * bFactor;
-    if (danceability < 0.0) {
-        danceability = 0.0;
-    } else if (danceability > 1.0) {
-        danceability = 1.0;
-    }
-    
-    return danceability;
+    return [self constrainValueBetweenZeroAndOne:danceability];
 }
 
 - (CGFloat)calculateEnergyWithHue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)b {
@@ -46,13 +40,7 @@
     CGFloat bFactor = [self applyBrightnessCurveToBrightness:b];
     
     CGFloat energy = hFactor * sFactor * bFactor;
-    if (energy < 0.0) {
-        energy = 0.0;
-    } else if (energy > 1.0) {
-        energy = 1.0;
-    }
-    
-    return energy;
+    return [self constrainValueBetweenZeroAndOne:energy];
 }
 
 - (CGFloat) calculateValenceWithHue:(CGFloat)h saturation:(CGFloat)s brightness:(CGFloat)b {
@@ -61,13 +49,17 @@
     CGFloat bFactor = [self applyBrightnessCurveToBrightness:b];
     
     CGFloat valence = hFactor * sFactor * bFactor;
-    if (valence < 0.0) {
-        valence = 0.0;
-    } else if (valence > 1.0) {
-        valence = 1.0;
+    return [self constrainValueBetweenZeroAndOne:valence];
+}
+
+- (CGFloat)constrainValueBetweenZeroAndOne:(CGFloat)x {
+    if (x < 0.0) {
+        x = 0.0;
+    } else if (x > 1.0) {
+        x = 1.0;
     }
     
-    return valence;
+    return x;
 }
 
 
