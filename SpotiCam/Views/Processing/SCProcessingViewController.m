@@ -56,6 +56,7 @@
     CGFloat h, s, b, a;
     [averageColor getHue:&h saturation:&s brightness:&b alpha:&a];
     s += 0.25;
+    if (s > 1.0) s = 1.0;
     
     return [UIColor colorWithHue:h saturation:s brightness:b alpha:a];
     

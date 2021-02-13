@@ -76,7 +76,7 @@
 
 - (CGFloat)applyBrightnessCurveToBrightness:(CGFloat)x {
     // Starts low and increases with input value
-    return -0.8184 * pow(x, 3) + 1.7978 * pow(x, 2) + 0.0301 * x - 0.0023;
+    return 3.2124 * pow(x, 4) - 9.2086 * pow(x, 3) + 7.7728 * pow(x, 2) - 0.7952 * x + 0.0053;
 }
 
 - (CGFloat)applyValenceCurveToHue:(CGFloat)x {
@@ -89,7 +89,7 @@
 }
 
 - (CGFloat)applyModerateSlopeToSaturation:(CGFloat)x {
-    return 0.5 * x + 0.5;
+    return 0.75 * x + 0.25;
 }
 
 
