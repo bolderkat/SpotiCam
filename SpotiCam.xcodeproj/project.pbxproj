@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		413E607DE47AD09AF46FC44E /* Pods_SpotiCamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF2261616169A27C04F9F60 /* Pods_SpotiCamTests.framework */; };
 		6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505304D25D3BB5000BF6521 /* AppDelegate.m */; };
 		6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305025D3BB5000BF6521 /* SceneDelegate.m */; };
 		6505305425D3BB5000BF6521 /* SCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505305325D3BB5000BF6521 /* SCMainViewController.m */; };
@@ -20,6 +21,8 @@
 		652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */; };
 		652E18B625D48B1500692F5C /* SCMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* SCMainView.xib */; };
 		65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64F2D25D710CE0083E07C /* SCAPIManager.m */; };
+		AEA943AAA4AFC22114A78144 /* Pods_SpotiCam_SpotiCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */; };
+		B2F3FF80EAFCF03E84915068 /* Pods_SpotiCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A64128AA36402716E5BCEEF /* Pods-SpotiCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCamTests.debug.xcconfig"; path = "Target Support Files/Pods-SpotiCamTests/Pods-SpotiCamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotiCam_SpotiCamUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1995AB949165A2DD88EAA747 /* Pods-SpotiCam-SpotiCamUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCam-SpotiCamUITests.release.xcconfig"; path = "Target Support Files/Pods-SpotiCam-SpotiCamUITests/Pods-SpotiCam-SpotiCamUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4E7174D29DBF1389FF307ED5 /* Pods-SpotiCam-SpotiCamUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCam-SpotiCamUITests.debug.xcconfig"; path = "Target Support Files/Pods-SpotiCam-SpotiCamUITests/Pods-SpotiCam-SpotiCamUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6505304925D3BB5000BF6521 /* SpotiCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6505304C25D3BB5000BF6521 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6505304D25D3BB5000BF6521 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -65,6 +72,11 @@
 		652E18B525D48B1500692F5C /* SCMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCMainView.xib; sourceTree = "<group>"; };
 		65C64F2C25D710CE0083E07C /* SCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAPIManager.h; sourceTree = "<group>"; };
 		65C64F2D25D710CE0083E07C /* SCAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAPIManager.m; sourceTree = "<group>"; };
+		670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCamTests.release.xcconfig"; path = "Target Support Files/Pods-SpotiCamTests/Pods-SpotiCamTests.release.xcconfig"; sourceTree = "<group>"; };
+		6DF2261616169A27C04F9F60 /* Pods_SpotiCamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotiCamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12544D67CC058993DF99A3D /* Pods-SpotiCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCam.release.xcconfig"; path = "Target Support Files/Pods-SpotiCam/Pods-SpotiCam.release.xcconfig"; sourceTree = "<group>"; };
+		F52D1FECF96D3F709022E1D0 /* Pods-SpotiCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCam.debug.xcconfig"; path = "Target Support Files/Pods-SpotiCam/Pods-SpotiCam.debug.xcconfig"; sourceTree = "<group>"; };
+		F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotiCam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F3FF80EAFCF03E84915068 /* Pods_SpotiCam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				413E607DE47AD09AF46FC44E /* Pods_SpotiCamTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +100,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA943AAA4AFC22114A78144 /* Pods_SpotiCam_SpotiCamUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62D3B5F3BE39A85220FC69CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */,
+				0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */,
+				6DF2261616169A27C04F9F60 /* Pods_SpotiCamTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6505304025D3BB5000BF6521 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +124,8 @@
 				6505306725D3BB5100BF6521 /* SpotiCamTests */,
 				6505307225D3BB5100BF6521 /* SpotiCamUITests */,
 				6505304A25D3BB5000BF6521 /* Products */,
+				F6AF60B220DA4512CEBAC3F1 /* Pods */,
+				62D3B5F3BE39A85220FC69CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +222,20 @@
 			path = APIManager;
 			sourceTree = "<group>";
 		};
+		F6AF60B220DA4512CEBAC3F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F52D1FECF96D3F709022E1D0 /* Pods-SpotiCam.debug.xcconfig */,
+				A12544D67CC058993DF99A3D /* Pods-SpotiCam.release.xcconfig */,
+				4E7174D29DBF1389FF307ED5 /* Pods-SpotiCam-SpotiCamUITests.debug.xcconfig */,
+				1995AB949165A2DD88EAA747 /* Pods-SpotiCam-SpotiCamUITests.release.xcconfig */,
+				0A64128AA36402716E5BCEEF /* Pods-SpotiCamTests.debug.xcconfig */,
+				670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6505307825D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCam" */;
 			buildPhases = (
+				50045F33F834B9AC130D8F95 /* [CP] Check Pods Manifest.lock */,
 				6505304525D3BB5000BF6521 /* Sources */,
 				6505304625D3BB5000BF6521 /* Frameworks */,
 				6505304725D3BB5000BF6521 /* Resources */,
+				116AEAAFBEBF2A05505AB7C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6505307B25D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCamTests" */;
 			buildPhases = (
+				EE44060CD645BDF4C67F9710 /* [CP] Check Pods Manifest.lock */,
 				6505306025D3BB5100BF6521 /* Sources */,
 				6505306125D3BB5100BF6521 /* Frameworks */,
 				6505306225D3BB5100BF6521 /* Resources */,
@@ -237,9 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6505307E25D3BB5100BF6521 /* Build configuration list for PBXNativeTarget "SpotiCamUITests" */;
 			buildPhases = (
+				44506F9B6DEA8154BD2AC4BF /* [CP] Check Pods Manifest.lock */,
 				6505306B25D3BB5100BF6521 /* Sources */,
 				6505306C25D3BB5100BF6521 /* Frameworks */,
 				6505306D25D3BB5100BF6521 /* Resources */,
+				27E56CC1D21F93F56130A6E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,6 +365,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		116AEAAFBEBF2A05505AB7C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotiCam/Pods-SpotiCam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotiCam/Pods-SpotiCam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpotiCam/Pods-SpotiCam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27E56CC1D21F93F56130A6E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotiCam-SpotiCamUITests/Pods-SpotiCam-SpotiCamUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotiCam-SpotiCamUITests/Pods-SpotiCam-SpotiCamUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpotiCam-SpotiCamUITests/Pods-SpotiCam-SpotiCamUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44506F9B6DEA8154BD2AC4BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotiCam-SpotiCamUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50045F33F834B9AC130D8F95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotiCam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE44060CD645BDF4C67F9710 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotiCamTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6505304525D3BB5000BF6521 /* Sources */ = {
@@ -492,6 +641,7 @@
 		};
 		6505307925D3BB5100BF6521 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F52D1FECF96D3F709022E1D0 /* Pods-SpotiCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -510,6 +660,7 @@
 		};
 		6505307A25D3BB5100BF6521 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A12544D67CC058993DF99A3D /* Pods-SpotiCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -528,6 +679,7 @@
 		};
 		6505307C25D3BB5100BF6521 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A64128AA36402716E5BCEEF /* Pods-SpotiCamTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +700,7 @@
 		};
 		6505307D25D3BB5100BF6521 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -568,6 +721,7 @@
 		};
 		6505307F25D3BB5100BF6521 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E7174D29DBF1389FF307ED5 /* Pods-SpotiCam-SpotiCamUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33755HM6BY;
@@ -586,6 +740,7 @@
 		};
 		6505308025D3BB5100BF6521 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1995AB949165A2DD88EAA747 /* Pods-SpotiCam-SpotiCamUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33755HM6BY;
