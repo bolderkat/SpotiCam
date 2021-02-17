@@ -28,7 +28,9 @@ static NSString *const kAppAuthStateKey = @"authState";
 - (void)saveState {
     // TODO: persist with keychain instead
     NSError *error = nil;
-    NSData *archivedAuthState = [NSKeyedArchiver archivedDataWithRootObject:self.authState requiringSecureCoding:NO error:&error];
+    NSData *archivedAuthState = [NSKeyedArchiver archivedDataWithRootObject:self.authState
+                                                      requiringSecureCoding:NO
+                                                                      error:&error];
     if (error != nil) {
         NSLog(@"%@", [error localizedDescription]);
         return;
@@ -58,6 +60,12 @@ static NSString *const kAppAuthStateKey = @"authState";
     }
     _authState = authState;
     _authState.stateChangeDelegate = self;
+    [self stateChanged];
+}
+
+- (void)stateChanged {
+    [self saveState];
+    
 }
 
 
