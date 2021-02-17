@@ -8,6 +8,8 @@
 #import "SCMainCoordinator.h"
 #import "SCMainViewController.h"
 #import "SCProcessingViewController.h"
+#import "SCAuthViewController.h"
+#import "SCGenresViewController.h"
 
 @interface SCMainCoordinator ()
 @property NSMutableArray *childCoordinators;
@@ -19,19 +21,38 @@
     if (!self) return nil;
     
     self.window = window;
+    self.authManager = [SCAuthManager new];
+    self.authManager.coordinator = self;
+    [self.authManager loadState];
     return self;
 }
 
 - (void)start {
     self.navigationController = [UINavigationController new];
     
-    SCMainViewController *vc = [SCMainViewController new];
-    vc.coordinator = self;
-    
-    [self.navigationController pushViewController:vc animated:NO];
-    
+    if (self.authManager.authState == nil) {
+        UIViewController <Coordinated> *vc = [SCAuthViewController new];
+        self.authManager.viewController = vc;
+        vc.coordinator = self;
+        [self.navigationController pushViewController:vc animated:NO];
+    } else {
+        [self proceedAfterAuth];
+    }
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+}
+
+- (void)proceedAfterAuth {
+    UIViewController <Coordinated> *vc;
+    NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:@"genres"];
+    
+    if (genres == nil || [genres count] == 0) {
+        vc = [SCGenresViewController new];
+    } else {
+        vc = [SCMainViewController new];
+    }
+    vc.coordinator = self;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)goToProcessingViewWithImage:(UIImage*)image {

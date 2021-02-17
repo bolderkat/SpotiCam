@@ -8,11 +8,13 @@
 #import "SCAuthManager.h"
 #import "AppAuth.h"
 #import "AppDelegate.h"
+#import "SCMainCoordinator.h"
 
 typedef void (^PostRegistrationCallback)(OIDServiceConfiguration *configuration,
                                          OIDRegistrationResponse *registrationResponse);
 
 static NSString *const kIssuer = @"https://accounts.spotify.com/authorize";
+static NSString *const kTokenEndpoint = @"https://accounts.spotify.com/api/token";
 static NSString *const kClientID = @"38c7c609489149489ca5736800605f90";
 static NSString *const kRedirectURI = @"io.dangiesoft.SpotiCam:/oauth2redirect/spotify";
 static NSString *const kAppAuthStateKey = @"authState";
@@ -69,8 +71,13 @@ static NSString *const kAppAuthStateKey = @"authState";
 }
 
 
-- (void)doAuthWithAutoCodeExchange:(OIDServiceConfiguration *)configuration {
+- (void)doAuthWithAutoCodeExchange {
+    NSURL *issuer = [NSURL URLWithString:kIssuer];
+    NSURL *tokenEndpoint = [NSURL URLWithString:kTokenEndpoint];
     NSURL *redirectURI = [NSURL URLWithString:kRedirectURI];
+    
+    OIDServiceConfiguration *configuration =
+    [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:issuer tokenEndpoint:tokenEndpoint];
     
     OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
@@ -89,6 +96,7 @@ static NSString *const kAppAuthStateKey = @"authState";
         if (authState) {
             NSLog(@"Got authorization tokens. Access token: %@", authState.lastTokenResponse.accessToken);
             [self setAuthState:authState];
+            [self.coordinator proceedAfterAuth];
         } else {
             NSLog(@"Authorizationerror: %@", [error localizedDescription]);
             [self setAuthState:nil];

@@ -20,7 +20,11 @@
 		652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* SCProcessingViewController.m */; };
 		652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */; };
 		652E18B625D48B1500692F5C /* SCMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* SCMainView.xib */; };
+		653AF21725DDA430005F532C /* SCGenresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF21525DDA430005F532C /* SCGenresViewController.m */; };
+		653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653AF21625DDA430005F532C /* SCGenresViewController.xib */; };
 		6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FCF825DC84F900AA5541 /* SCAuthManager.m */; };
+		6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FD0E25DCB14A00AA5541 /* SCAuthViewController.m */; };
+		6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587FD0F25DCB14A00AA5541 /* SCAuthViewController.xib */; };
 		65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64F2D25D710CE0083E07C /* SCAPIManager.m */; };
 		AEA943AAA4AFC22114A78144 /* Pods_SpotiCam_SpotiCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */; };
 		B2F3FF80EAFCF03E84915068 /* Pods_SpotiCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */; };
@@ -71,8 +75,14 @@
 		652BD6F225D4B388004F8198 /* SCProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCProcessingViewController.m; sourceTree = "<group>"; };
 		652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCProcessingViewController.xib; sourceTree = "<group>"; };
 		652E18B525D48B1500692F5C /* SCMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCMainView.xib; sourceTree = "<group>"; };
+		653AF21425DDA430005F532C /* SCGenresViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCGenresViewController.h; sourceTree = "<group>"; };
+		653AF21525DDA430005F532C /* SCGenresViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCGenresViewController.m; sourceTree = "<group>"; };
+		653AF21625DDA430005F532C /* SCGenresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCGenresViewController.xib; sourceTree = "<group>"; };
 		6587FCF725DC84F900AA5541 /* SCAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthManager.h; sourceTree = "<group>"; };
 		6587FCF825DC84F900AA5541 /* SCAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAuthManager.m; sourceTree = "<group>"; };
+		6587FD0D25DCB14A00AA5541 /* SCAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthViewController.h; sourceTree = "<group>"; };
+		6587FD0E25DCB14A00AA5541 /* SCAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAuthViewController.m; sourceTree = "<group>"; };
+		6587FD0F25DCB14A00AA5541 /* SCAuthViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCAuthViewController.xib; sourceTree = "<group>"; };
 		65C64F2C25D710CE0083E07C /* SCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAPIManager.h; sourceTree = "<group>"; };
 		65C64F2D25D710CE0083E07C /* SCAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAPIManager.m; sourceTree = "<group>"; };
 		670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCamTests.release.xcconfig"; path = "Target Support Files/Pods-SpotiCamTests/Pods-SpotiCamTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +202,7 @@
 			children = (
 				6587FD0025DCAA6000AA5541 /* Auth */,
 				652E18C025D4ABEF00692F5C /* Main */,
+				653AF21325DDA418005F532C /* Genres */,
 				652BD6F025D4B377004F8198 /* Processing */,
 			);
 			path = Views;
@@ -217,9 +228,22 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		653AF21325DDA418005F532C /* Genres */ = {
+			isa = PBXGroup;
+			children = (
+				653AF21425DDA430005F532C /* SCGenresViewController.h */,
+				653AF21525DDA430005F532C /* SCGenresViewController.m */,
+				653AF21625DDA430005F532C /* SCGenresViewController.xib */,
+			);
+			path = Genres;
+			sourceTree = "<group>";
+		};
 		6587FD0025DCAA6000AA5541 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				6587FD0D25DCB14A00AA5541 /* SCAuthViewController.h */,
+				6587FD0E25DCB14A00AA5541 /* SCAuthViewController.m */,
+				6587FD0F25DCB14A00AA5541 /* SCAuthViewController.xib */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -355,9 +379,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */,
 				6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */,
 				652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */,
 				652E18B625D48B1500692F5C /* SCMainView.xib in Resources */,
+				653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */,
 				6505305925D3BB5100BF6521 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,10 +515,12 @@
 				6505305425D3BB5000BF6521 /* SCMainViewController.m in Sources */,
 				65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
+				6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */,
 				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
 				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
 				6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
+				653AF21725DDA430005F532C /* SCGenresViewController.m in Sources */,
 				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

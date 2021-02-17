@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "SCMainCoordinator.h"
 
-@interface SCMainViewController : UIViewController
+@interface SCMainViewController : UIViewController <Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 
 @end
