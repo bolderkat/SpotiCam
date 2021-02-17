@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* SCProcessingViewController.m */; };
 		652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */; };
 		652E18B625D48B1500692F5C /* SCMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* SCMainView.xib */; };
+		6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FCF825DC84F900AA5541 /* SCAuthManager.m */; };
 		65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64F2D25D710CE0083E07C /* SCAPIManager.m */; };
 		AEA943AAA4AFC22114A78144 /* Pods_SpotiCam_SpotiCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */; };
 		B2F3FF80EAFCF03E84915068 /* Pods_SpotiCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */; };
@@ -70,6 +71,8 @@
 		652BD6F225D4B388004F8198 /* SCProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCProcessingViewController.m; sourceTree = "<group>"; };
 		652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCProcessingViewController.xib; sourceTree = "<group>"; };
 		652E18B525D48B1500692F5C /* SCMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCMainView.xib; sourceTree = "<group>"; };
+		6587FCF725DC84F900AA5541 /* SCAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthManager.h; sourceTree = "<group>"; };
+		6587FCF825DC84F900AA5541 /* SCAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAuthManager.m; sourceTree = "<group>"; };
 		65C64F2C25D710CE0083E07C /* SCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAPIManager.h; sourceTree = "<group>"; };
 		65C64F2D25D710CE0083E07C /* SCAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAPIManager.m; sourceTree = "<group>"; };
 		670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCamTests.release.xcconfig"; path = "Target Support Files/Pods-SpotiCamTests/Pods-SpotiCamTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,8 +190,9 @@
 		6505308B25D4898300BF6521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				652BD6F025D4B377004F8198 /* Processing */,
+				6587FD0025DCAA6000AA5541 /* Auth */,
 				652E18C025D4ABEF00692F5C /* Main */,
+				652BD6F025D4B377004F8198 /* Processing */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,11 +217,20 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		6587FD0025DCAA6000AA5541 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		65C64F2B25D710B40083E07C /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
 				65C64F2C25D710CE0083E07C /* SCAPIManager.h */,
 				65C64F2D25D710CE0083E07C /* SCAPIManager.m */,
+				6587FCF725DC84F900AA5541 /* SCAuthManager.h */,
+				6587FCF825DC84F900AA5541 /* SCAuthManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -232,7 +245,6 @@
 				0A64128AA36402716E5BCEEF /* Pods-SpotiCamTests.debug.xcconfig */,
 				670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -479,6 +491,7 @@
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
 				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
 				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
+				6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
 				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,
 			);
@@ -652,7 +665,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCam;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dangiesoft.SpotiCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -671,7 +684,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bolderkat.SpotiCam;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dangiesoft.SpotiCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

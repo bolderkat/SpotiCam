@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppAuth.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,19 @@
     return YES;
 }
 
+// Handle inbound URLs from redirects after AppAuth authorization requests
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    // Sends the URL to the current auth flow (if any) which will process it if it relates to an auth response.
+    if ([_currentAuthorizationFlow resumeExternalUserAgentFlowWithURL:url]) {
+        _currentAuthorizationFlow = nil;
+        return YES;
+    }
+    
+    // Additional URL handling (if any) goes here.
+    return NO;
+}
 
 #pragma mark - UISceneSession lifecycle
 
