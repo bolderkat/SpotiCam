@@ -8,9 +8,11 @@
 #import "SCGenresViewController.h"
 #import "SCAPIManager.h"
 #import <OIDAuthState.h>
+#import "SCGenre.h"
 
 @interface SCGenresViewController ()
-@property (nonatomic) NSArray<NSString*> *genres;
+@property (nonatomic) NSArray<SCGenre*> *genres;
+@property (nonatomic) NSMutableArray<NSString*> *selectedGenres;
 @property (weak, nonatomic) IBOutlet UITableView *genreTable;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property UITableViewDiffableDataSource *dataSource;
@@ -22,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Select Genres";
+    self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
     [self configureDataSource];
     [self configureTableView];
     [self configureSearchBar];
@@ -44,10 +47,15 @@
         [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array) {
             NSMutableArray *capitalizedArray = [NSMutableArray array];
             for (NSString *item in array) {
-                [capitalizedArray addObject:[(NSString*)item capitalizedString]];
+                NSString *capitalizedName = [item capitalizedString];
+                SCGenre *genre = [[SCGenre alloc] initWithName:capitalizedName isChecked:NO];
+                [capitalizedArray addObject:genre];
             }
             self.genres = [NSArray arrayWithArray:capitalizedArray];
-            [self updateTableView];
+            __weak typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf updateTableView];
+            });
         }];
     }];
 }
@@ -56,7 +64,8 @@
 - (void)configureDataSource {
     self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, id title) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"genreCell"];
-        cell.textLabel.text = [self.genres objectAtIndex:indexPath.row];
+        cell.textLabel.text = [self.genres objectAtIndex:indexPath.row].name;
+        cell.accessoryType = [self.genres objectAtIndex:indexPath.row].isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         return cell;
     }];
 }
@@ -65,7 +74,7 @@
     NSDiffableDataSourceSnapshot *snapshot = [NSDiffableDataSourceSnapshot new];
     [snapshot appendSectionsWithIdentifiers:@[@"Main"]];
     [snapshot appendItemsWithIdentifiers:self.genres];
-    [self.dataSource applySnapshot:snapshot animatingDifferences:YES];
+    [self.dataSource applySnapshot:snapshot animatingDifferences:NO];
     
 }
 
@@ -74,7 +83,28 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SCGenre *selectedGenre = self.genres[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([self.selectedGenres count] == 5 &&
+        selectedGenre.isChecked &&
+        [self.selectedGenres containsObject:selectedGenre.name]) {
+        // If user unchecking 5th genre
+        selectedGenre.isChecked = NO;
+        [self.selectedGenres removeObject:selectedGenre.name];
+    } else if ([self.selectedGenres count] == 5) {
+        // Do nothing if trying to check a 6th genre
+        // TODO: Maybe display an error message?
+        return;
+    } else if ([self.selectedGenres containsObject:selectedGenre.name]) {
+        [self.selectedGenres removeObject:selectedGenre.name];
+        selectedGenre.isChecked = !selectedGenre.isChecked;
+    } else {
+        [self.selectedGenres addObject:selectedGenre.name];
+        selectedGenre.isChecked = !selectedGenre.isChecked;
+    }
+
+    [self updateTableView];
 }
 
 
