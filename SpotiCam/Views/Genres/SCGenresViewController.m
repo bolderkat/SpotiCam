@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureViewController];
-    self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
+    [self loadSelectedGenres];
     [self configureDataSource];
     [self configureTableView];
     [self configureSearchBar];
@@ -46,6 +46,13 @@
     [self updateUI];
 }
 
+- (void)loadSelectedGenres {
+    self.selectedGenres = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"] mutableCopy];
+    if (self.selectedGenres == nil) {
+        self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
+    }
+}
+
 - (void)configureSearchBar {
     self.searchBar.delegate = self;
     self.searchBar.searchTextField.textColor = [UIColor whiteColor];
@@ -61,7 +68,13 @@
             NSMutableArray *capitalizedArray = [NSMutableArray array];
             for (NSString *item in array) {
                 NSString *capitalizedName = [item capitalizedString];
-                SCGenre *genre = [[SCGenre alloc] initWithName:capitalizedName isChecked:NO];
+                BOOL isChecked = NO;
+                
+                if ([self.selectedGenres containsObject:capitalizedName]) {
+                    isChecked = YES;
+                }
+                
+                SCGenre *genre = [[SCGenre alloc] initWithName:capitalizedName isChecked:isChecked];
                 [capitalizedArray addObject:genre];
             }
             self.genres = [NSArray arrayWithArray:capitalizedArray];
