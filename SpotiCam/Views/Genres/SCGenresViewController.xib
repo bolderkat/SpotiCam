@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="genreTable" destination="kff-vn-mwj" id="h4B-06-fLF"/>
                 <outlet property="searchBar" destination="8iC-dl-WHw" id="bp1-WF-07S"/>
+                <outlet property="selectedGenreLabel" destination="3MF-is-l14" id="nnt-WT-76l"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,32 +22,65 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kff-vn-mwj">
-                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="698"/>
                 </tableView>
-                <searchBar contentMode="redraw" barStyle="black" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iC-dl-WHw">
+                <searchBar contentMode="redraw" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iC-dl-WHw">
                     <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="dMo-Sf-NDz"/>
                     </constraints>
                     <color key="tintColor" systemColor="systemGreenColor"/>
-                    <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-WH-6Pk">
+                    <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAa-xc-6d2">
+                            <rect key="frame" x="0.0" y="8" width="414" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MF-is-l14">
+                                    <rect key="frame" x="16" y="22" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="9Hf-qr-jCt" firstAttribute="trailing" secondItem="3MF-is-l14" secondAttribute="trailing" id="5Qf-a1-FGy"/>
+                                <constraint firstItem="3MF-is-l14" firstAttribute="leading" secondItem="9Hf-qr-jCt" secondAttribute="leading" constant="16" id="6ln-O5-WCD"/>
+                                <constraint firstAttribute="height" constant="44" id="9ze-8h-E6m"/>
+                                <constraint firstItem="3MF-is-l14" firstAttribute="centerY" secondItem="9Hf-qr-jCt" secondAttribute="centerY" constant="22" id="IZr-JX-hMv"/>
+                                <constraint firstItem="3MF-is-l14" firstAttribute="centerY" secondItem="HAa-xc-6d2" secondAttribute="centerY" id="Jnh-qm-Wzr"/>
+                            </constraints>
+                            <viewLayoutGuide key="contentLayoutGuide" id="9Hf-qr-jCt"/>
+                            <viewLayoutGuide key="frameLayoutGuide" id="5Ar-Uq-b0t"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="HAa-xc-6d2" secondAttribute="trailing" id="Agi-KZ-5hh"/>
+                        <constraint firstAttribute="bottom" secondItem="HAa-xc-6d2" secondAttribute="bottom" constant="8" id="GFy-LI-TvC"/>
+                        <constraint firstAttribute="height" constant="60" id="OyX-J6-25i"/>
+                        <constraint firstItem="HAa-xc-6d2" firstAttribute="top" secondItem="j5a-WH-6Pk" secondAttribute="top" constant="8" id="mtD-gV-5Er"/>
+                        <constraint firstItem="HAa-xc-6d2" firstAttribute="leading" secondItem="j5a-WH-6Pk" secondAttribute="leading" id="pzg-5h-KqK"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="kff-vn-mwj" secondAttribute="trailing" id="3dz-0Y-Mo2"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="4ti-Xd-n5C"/>
+                <constraint firstItem="j5a-WH-6Pk" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="CAs-Nh-yQ5"/>
+                <constraint firstItem="j5a-WH-6Pk" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="JCy-PM-Myc"/>
                 <constraint firstItem="kff-vn-mwj" firstAttribute="top" secondItem="8iC-dl-WHw" secondAttribute="bottom" id="Jme-KK-kzZ"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="OIf-La-SkE"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="kff-vn-mwj" secondAttribute="bottom" id="UvQ-Js-aX8"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="XSL-eN-05s"/>
+                <constraint firstItem="j5a-WH-6Pk" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="f4x-hF-SFt"/>
+                <constraint firstItem="j5a-WH-6Pk" firstAttribute="top" secondItem="kff-vn-mwj" secondAttribute="bottom" id="wJf-vi-aCL"/>
                 <constraint firstItem="kff-vn-mwj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xrk-yx-Bdq"/>
             </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
+            <point key="canvasLocation" x="134.78260869565219" y="130.58035714285714"/>
         </view>
     </objects>
     <resources>

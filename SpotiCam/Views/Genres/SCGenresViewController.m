@@ -15,6 +15,7 @@
 @property (nonatomic) NSMutableArray<NSString*> *selectedGenres;
 @property (weak, nonatomic) IBOutlet UITableView *genreTable;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UILabel *selectedGenreLabel;
 @property UITableViewDiffableDataSource *dataSource;
 
 @end
@@ -23,10 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Select Genres";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.barTintColor = [UIColor systemGreenColor];
-    [self.navigationController.navigationBar setTranslucent:NO];
+    [self configureViewController];
     self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
     [self configureDataSource];
     [self configureTableView];
@@ -35,7 +33,18 @@
 }
 
 
-
+- (void)configureViewController {
+    self.title = @"Select Genres";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.barTintColor = [UIColor systemGreenColor];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:@"Done"
+                                              style:UIBarButtonItemStyleDone
+                                              target:self
+                                              action:@selector(doneButtonPressed)];
+    [self updateUI];
+}
 
 - (void)configureSearchBar {
     self.searchBar.delegate = self;
@@ -47,7 +56,7 @@
         if (error) {
             NSLog(@"Error fetching fresh tokens: %@", [error localizedDescription]);
         }
-        // TODO: show spinner until genres have been fetched 
+        // TODO: show spinner until genres have been fetched
         [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array) {
             NSMutableArray *capitalizedArray = [NSMutableArray array];
             for (NSString *item in array) {
@@ -56,6 +65,7 @@
                 [capitalizedArray addObject:genre];
             }
             self.genres = [NSArray arrayWithArray:capitalizedArray];
+            
             __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf updateTableView];
@@ -64,14 +74,28 @@
     }];
 }
 
+- (void)updateUI {
+    self.selectedGenreLabel.text = [self.selectedGenres componentsJoinedByString:@", "];
+    
+    if ([self.selectedGenres count] == 0) {
+        [self.navigationItem.rightBarButtonItem setTintColor:[UIColor clearColor]];
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    } else {
+        [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    }
+}
+
+- (void)doneButtonPressed {
+    [[NSUserDefaults standardUserDefaults] setObject:self.selectedGenres forKey:@"selectedGenres"];
+}
+
 #pragma mark - Table View Diffable Data Source and Delegate
 - (void)configureDataSource {
     self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, id title) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"genreCell"];
         cell.textLabel.text = [self.genres objectAtIndex:indexPath.row].name;
-        cell.textLabel.textColor = [UIColor whiteColor];
         cell.accessoryType = [self.genres objectAtIndex:indexPath.row].isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-        cell.backgroundColor = [UIColor darkGrayColor];
         cell.tintColor = [UIColor systemGreenColor];
         return cell;
     }];
@@ -112,6 +136,7 @@
     }
 
     [self updateTableView];
+    [self updateUI];
 }
 
 
