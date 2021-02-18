@@ -44,7 +44,7 @@
 
 - (void)proceedAfterAuth {
     UIViewController <Coordinated> *vc;
-    NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:@"genres"];
+    NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"];
     
     if (genres == nil || [genres count] == 0) {
         vc = [SCGenresViewController new];
@@ -56,6 +56,7 @@
     vc.coordinator = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 - (void)goToProcessingViewWithImage:(UIImage*)image {
     SCProcessingViewController *vc = [SCProcessingViewController new];
