@@ -48,6 +48,8 @@
     
     if (genres == nil || [genres count] == 0) {
         vc = [SCGenresViewController new];
+        [self.navigationController setNavigationBarHidden:NO];
+        vc.navigationItem.hidesBackButton = YES;
     } else {
         vc = [SCMainViewController new];
     }
