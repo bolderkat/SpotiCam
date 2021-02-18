@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCGenresViewController">
             <connections>
                 <outlet property="genreTable" destination="kff-vn-mwj" id="h4B-06-fLF"/>
+                <outlet property="searchBar" destination="8iC-dl-WHw" id="bp1-WF-07S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +21,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kff-vn-mwj">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8iC-dl-WHw">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="dMo-Sf-NDz"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="kff-vn-mwj" secondAttribute="trailing" id="3dz-0Y-Mo2"/>
-                <constraint firstItem="kff-vn-mwj" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="7gD-TA-L3R"/>
+                <constraint firstItem="8iC-dl-WHw" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="4ti-Xd-n5C"/>
+                <constraint firstItem="kff-vn-mwj" firstAttribute="top" secondItem="8iC-dl-WHw" secondAttribute="bottom" id="Jme-KK-kzZ"/>
+                <constraint firstItem="8iC-dl-WHw" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="OIf-La-SkE"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="kff-vn-mwj" secondAttribute="bottom" id="UvQ-Js-aX8"/>
+                <constraint firstItem="8iC-dl-WHw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="XSL-eN-05s"/>
                 <constraint firstItem="kff-vn-mwj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xrk-yx-Bdq"/>
             </constraints>
-            <point key="canvasLocation" x="133" y="132"/>
+            <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
         </view>
     </objects>
     <resources>

@@ -13,6 +13,35 @@
 
 @implementation SCAPIManager
 
++ (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*))completion {
+    NSString *urlString = @"https://api.spotify.com/v1/recommendations/available-genre-seeds";
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSString *authValue = [NSString stringWithFormat:@"Bearer %@", token];
+    
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    sessionConfig.HTTPAdditionalHeaders = @{@"Authorization": authValue};
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
+    
+    [[session dataTaskWithURL:url
+                               completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Error fetching genre seeds from Spotify API: %@", [error localizedDescription]);
+            return;
+        }
+        
+        NSError *err;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        if (err) {
+            NSLog(@"Failed to serialize JSON: %@", [err localizedDescription]);
+            return;
+        }
+        
+        NSArray *genreSeeds = dict[@"genres"];
+        completion(genreSeeds);
+    }] resume];
+}
+
 - (instancetype)initWithColor:(UIColor *)color {
     CGFloat h, s, b, a;
     [color getHue:&h saturation:&s brightness:&b alpha:&a];
