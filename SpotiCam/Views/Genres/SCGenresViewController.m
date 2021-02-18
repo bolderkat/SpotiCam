@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Select Genres";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.barTintColor = [UIColor systemGreenColor];
+    [self.navigationController.navigationBar setTranslucent:NO];
     self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
     [self configureDataSource];
     [self configureTableView];
@@ -36,6 +39,7 @@
 
 - (void)configureSearchBar {
     self.searchBar.delegate = self;
+    self.searchBar.searchTextField.textColor = [UIColor whiteColor];
 }
 
 - (void)fetchGenres {
@@ -43,7 +47,7 @@
         if (error) {
             NSLog(@"Error fetching fresh tokens: %@", [error localizedDescription]);
         }
-        
+        // TODO: show spinner until genres have been fetched 
         [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array) {
             NSMutableArray *capitalizedArray = [NSMutableArray array];
             for (NSString *item in array) {
@@ -65,7 +69,10 @@
     self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, id title) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"genreCell"];
         cell.textLabel.text = [self.genres objectAtIndex:indexPath.row].name;
+        cell.textLabel.textColor = [UIColor whiteColor];
         cell.accessoryType = [self.genres objectAtIndex:indexPath.row].isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        cell.backgroundColor = [UIColor darkGrayColor];
+        cell.tintColor = [UIColor systemGreenColor];
         return cell;
     }];
 }
