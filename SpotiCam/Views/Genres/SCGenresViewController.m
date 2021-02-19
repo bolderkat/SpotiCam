@@ -12,6 +12,7 @@
 
 @interface SCGenresViewController ()
 @property (nonatomic) NSArray<SCGenre*> *genres;
+@property (nonatomic) NSArray<SCGenre*> *searchResults;
 @property (nonatomic) NSMutableArray<NSString*> *selectedGenres;
 @property (weak, nonatomic) IBOutlet UITableView *genreTable;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -24,8 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureViewController];
     [self loadSelectedGenres];
+    [self configureViewController];
     [self configureDataSource];
     [self configureTableView];
     [self configureSearchBar];
@@ -53,11 +54,6 @@
     }
 }
 
-- (void)configureSearchBar {
-    self.searchBar.delegate = self;
-    self.searchBar.searchTextField.textColor = [UIColor whiteColor];
-}
-
 - (void)fetchGenres {
     [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
         if (error) {
@@ -81,7 +77,7 @@
             
             __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf updateTableView];
+                [weakSelf applyTableViewSnapshot];
             });
         }];
     }];
@@ -108,18 +104,21 @@
 - (void)configureDataSource {
     self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, id title) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"genreCell"];
-        cell.textLabel.text = [self.genres objectAtIndex:indexPath.row].name;
-        cell.accessoryType = [self.genres objectAtIndex:indexPath.row].isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+        NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
+        cell.textLabel.text = [array objectAtIndex:indexPath.row].name;
+        cell.accessoryType = [array objectAtIndex:indexPath.row].isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         cell.tintColor = [UIColor systemGreenColor];
         return cell;
     }];
 }
 
--(void)updateTableView {
+-(void)applyTableViewSnapshot {
     NSDiffableDataSourceSnapshot *snapshot = [NSDiffableDataSourceSnapshot new];
     [snapshot appendSectionsWithIdentifiers:@[@"Main"]];
-    [snapshot appendItemsWithIdentifiers:self.genres];
-    [self.dataSource applySnapshot:snapshot animatingDifferences:NO];
+    
+    NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
+    [snapshot appendItemsWithIdentifiers:array];
+    [self.dataSource applySnapshot:snapshot animatingDifferences:YES];
     
 }
 
@@ -128,7 +127,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SCGenre *selectedGenre = self.genres[indexPath.row];
+    NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
+    SCGenre *selectedGenre = array[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if ([self.selectedGenres count] == 5 &&
@@ -149,11 +149,38 @@
         selectedGenre.isChecked = !selectedGenre.isChecked;
     }
 
-    [self updateTableView];
     [self updateUI];
+    [self.genreTable reloadData];
 }
 
+#pragma mark- Search Bar Delegate
+- (void)configureSearchBar {
+    self.searchBar.delegate = self;
+    self.searchBar.searchTextField.textColor = [UIColor whiteColor];
+}
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if ([searchText isEqualToString:@""]) {
+        self.searchResults = nil;
+        [self applyTableViewSnapshot];
+        return;
+    }
+    // Case-insensitive search with punctuation (-) ignored
+    NSString* processedSearch = [[[searchText lowercaseString]
+                                  componentsSeparatedByCharactersInSet:[[NSCharacterSet letterCharacterSet] invertedSet]]
+                                 componentsJoinedByString:@""];
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(SCGenre* obj, NSDictionary<NSString *,id> * _Nullable bindings) {
+        NSString* processedGenre = [[[obj.name lowercaseString]
+                                     componentsSeparatedByCharactersInSet:[[NSCharacterSet letterCharacterSet] invertedSet]]
+                                    componentsJoinedByString:@""];
+        return [processedGenre containsString:processedSearch];
+    }];
+    
+    self.searchResults = [self.genres filteredArrayUsingPredicate:predicate];
+    [self applyTableViewSnapshot];
+    
+    
+}
 
 
 @end
