@@ -95,6 +95,16 @@
     }
 }
 
+- (void)showGenreQuantityAlert {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"Genre limit reached"
+                                message:@"Spotify's track recommendation service allows selection of up to 5 genres."
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)doneButtonPressed {
     [[NSUserDefaults standardUserDefaults] setObject:self.selectedGenres forKey:@"selectedGenres"];
     [self.coordinator proceedAfterAuth];
@@ -138,8 +148,8 @@
         selectedGenre.isChecked = NO;
         [self.selectedGenres removeObject:selectedGenre.name];
     } else if ([self.selectedGenres count] == 5) {
-        // Do nothing if trying to check a 6th genre
-        // TODO: Maybe display an error message?
+        // Show alert if trying to check a 6th genre
+        [self showGenreQuantityAlert];
         return;
     } else if ([self.selectedGenres containsObject:selectedGenre.name]) {
         [self.selectedGenres removeObject:selectedGenre.name];
