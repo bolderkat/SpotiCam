@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *genreTable;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *selectedGenreLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property SCGenreTableDataSource *dataSource;
 
 @end
@@ -28,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.genreTable setHidden:YES];
     [self loadSelectedGenres];
     [self configureViewController];
     [self configureDataSource];
@@ -58,6 +60,7 @@
 }
 
 - (void)fetchGenres {
+    [self.activityIndicator startAnimating];
     [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error fetching fresh tokens: %@", [error localizedDescription]);
@@ -81,6 +84,9 @@
             
             __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.genreTable setHidden:NO];
+                [self.activityIndicator stopAnimating];
+                [self.activityIndicator setHidden:YES];
                 [weakSelf applyTableViewSnapshot];
             });
         }];
