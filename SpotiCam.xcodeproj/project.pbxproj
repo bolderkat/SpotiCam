@@ -23,6 +23,7 @@
 		653AF21725DDA430005F532C /* SCGenresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF21525DDA430005F532C /* SCGenresViewController.m */; };
 		653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653AF21625DDA430005F532C /* SCGenresViewController.xib */; };
 		653AF22525DE4CAE005F532C /* SCGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF22425DE4CAE005F532C /* SCGenre.m */; };
+		653AF23525DF630A005F532C /* SCGenreTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF23425DF630A005F532C /* SCGenreTableDataSource.m */; };
 		6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FCF825DC84F900AA5541 /* SCAuthManager.m */; };
 		6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FD0E25DCB14A00AA5541 /* SCAuthViewController.m */; };
 		6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587FD0F25DCB14A00AA5541 /* SCAuthViewController.xib */; };
@@ -81,6 +82,8 @@
 		653AF21625DDA430005F532C /* SCGenresViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCGenresViewController.xib; sourceTree = "<group>"; };
 		653AF22325DE4CAE005F532C /* SCGenre.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCGenre.h; sourceTree = "<group>"; };
 		653AF22425DE4CAE005F532C /* SCGenre.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCGenre.m; sourceTree = "<group>"; };
+		653AF23325DF630A005F532C /* SCGenreTableDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCGenreTableDataSource.h; sourceTree = "<group>"; };
+		653AF23425DF630A005F532C /* SCGenreTableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCGenreTableDataSource.m; sourceTree = "<group>"; };
 		6587FCF725DC84F900AA5541 /* SCAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthManager.h; sourceTree = "<group>"; };
 		6587FCF825DC84F900AA5541 /* SCAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAuthManager.m; sourceTree = "<group>"; };
 		6587FD0D25DCB14A00AA5541 /* SCAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthViewController.h; sourceTree = "<group>"; };
@@ -234,6 +237,7 @@
 		653AF21325DDA418005F532C /* Genres */ = {
 			isa = PBXGroup;
 			children = (
+				653AF23225DF62E3005F532C /* SCGenreTableDataSource */,
 				653AF22225DE4C74005F532C /* SCGenre */,
 				653AF21425DDA430005F532C /* SCGenresViewController.h */,
 				653AF21525DDA430005F532C /* SCGenresViewController.m */,
@@ -249,6 +253,15 @@
 				653AF22425DE4CAE005F532C /* SCGenre.m */,
 			);
 			path = SCGenre;
+			sourceTree = "<group>";
+		};
+		653AF23225DF62E3005F532C /* SCGenreTableDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				653AF23325DF630A005F532C /* SCGenreTableDataSource.h */,
+				653AF23425DF630A005F532C /* SCGenreTableDataSource.m */,
+			);
+			path = SCGenreTableDataSource;
 			sourceTree = "<group>";
 		};
 		6587FD0025DCAA6000AA5541 /* Auth */ = {
@@ -530,6 +543,7 @@
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
 				6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */,
 				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
+				653AF23525DF630A005F532C /* SCGenreTableDataSource.m in Sources */,
 				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
 				6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,

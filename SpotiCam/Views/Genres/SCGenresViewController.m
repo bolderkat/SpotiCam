@@ -9,15 +9,18 @@
 #import "SCAPIManager.h"
 #import <OIDAuthState.h>
 #import "SCGenre.h"
+#import "SCGenreTableDataSource.h"
 
 @interface SCGenresViewController ()
 @property (nonatomic) NSArray<SCGenre*> *genres;
+@property (nonatomic) NSMutableArray<NSString*> *genreFirstLetters;
+@property (nonatomic) NSMutableArray<NSMutableArray<SCGenre*>*> *genresIndexedByFirstLetter;
 @property (nonatomic) NSArray<SCGenre*> *searchResults;
 @property (nonatomic) NSMutableArray<NSString*> *selectedGenres;
 @property (weak, nonatomic) IBOutlet UITableView *genreTable;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *selectedGenreLabel;
-@property UITableViewDiffableDataSource *dataSource;
+@property SCGenreTableDataSource *dataSource;
 
 @end
 
@@ -74,6 +77,7 @@
                 [capitalizedArray addObject:genre];
             }
             self.genres = [NSArray arrayWithArray:capitalizedArray];
+            [self indexGenresByFirstLetter];
             
             __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -81,6 +85,22 @@
             });
         }];
     }];
+}
+
+- (void)indexGenresByFirstLetter {
+    self.genreFirstLetters = [NSMutableArray array];
+    self.genresIndexedByFirstLetter = [NSMutableArray array];
+    NSInteger index = 0;
+    for (SCGenre* genre in self.genres) {
+        NSString *firstLetter = [genre.name substringToIndex:1];
+        if (![self.genreFirstLetters containsObject:firstLetter]) {
+            [self.genreFirstLetters addObject:firstLetter];
+            index = [self.genreFirstLetters indexOfObject:firstLetter];
+            [self.genresIndexedByFirstLetter addObject:[NSMutableArray arrayWithObject:genre]];
+        } else {
+            [self.genresIndexedByFirstLetter[index] addObject:genre];
+        }
+    }
 }
 
 - (void)updateUI {
@@ -112,11 +132,11 @@
 
 #pragma mark - Table View Diffable Data Source and Delegate
 - (void)configureDataSource {
-    self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, id title) {
+    self.dataSource = [[SCGenreTableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCGenre *genre) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"genreCell"];
-        NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
-        cell.textLabel.text = [array objectAtIndex:indexPath.row].name;
-        cell.accessoryType = [array objectAtIndex:indexPath.row].isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+//        NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
+        cell.textLabel.text = genre.name;
+        cell.accessoryType = genre.isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         cell.tintColor = [UIColor systemGreenColor];
         return cell;
     }];
@@ -124,20 +144,26 @@
 
 -(void)applyTableViewSnapshot {
     NSDiffableDataSourceSnapshot *snapshot = [NSDiffableDataSourceSnapshot new];
-    [snapshot appendSectionsWithIdentifiers:@[@"Main"]];
-    
-    NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
-    [snapshot appendItemsWithIdentifiers:array];
+    if (self.searchResults == nil) {
+        [snapshot appendSectionsWithIdentifiers:self.genreFirstLetters];
+        for (int i = 0; i < [self.genreFirstLetters count]; i++) {
+            [snapshot appendItemsWithIdentifiers:self.genresIndexedByFirstLetter[i]
+                       intoSectionWithIdentifier:self.genreFirstLetters[i]];
+        }
+    } else {
+        [snapshot appendSectionsWithIdentifiers:@[@"Main"]];
+        [snapshot appendItemsWithIdentifiers:self.searchResults];
+    }
     [self.dataSource applySnapshot:snapshot animatingDifferences:YES];
-    
 }
 
 - (void)configureTableView {
     self.genreTable.delegate = self;
+    self.genreTable.sectionIndexColor = [UIColor systemGreenColor];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
+    NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genresIndexedByFirstLetter[indexPath.section] : self.searchResults;
     SCGenre *selectedGenre = array[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -163,10 +189,10 @@
     [self.genreTable reloadData];
 }
 
+
 #pragma mark- Search Bar Delegate
 - (void)configureSearchBar {
     self.searchBar.delegate = self;
-    self.searchBar.searchTextField.textColor = [UIColor whiteColor];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
