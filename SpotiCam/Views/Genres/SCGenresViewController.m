@@ -56,6 +56,9 @@
     self.selectedGenres = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"] mutableCopy];
     if (self.selectedGenres == nil) {
         self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
+        
+        
+        // TODO: remove genre from array if no longer present among genres fetched from Spotify
     }
 }
 
