@@ -86,9 +86,9 @@
             
             __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.genreTable setHidden:NO];
-                [self.activityIndicator stopAnimating];
-                [self.activityIndicator setHidden:YES];
+                [weakSelf.genreTable setHidden:NO];
+                [weakSelf.activityIndicator stopAnimating];
+                [weakSelf.activityIndicator setHidden:YES];
                 [weakSelf applyTableViewSnapshot];
             });
         }];
