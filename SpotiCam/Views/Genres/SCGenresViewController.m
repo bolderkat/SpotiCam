@@ -65,7 +65,6 @@
         if (error) {
             NSLog(@"Error fetching fresh tokens: %@", [error localizedDescription]);
         }
-        // TODO: show spinner until genres have been fetched
         [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array) {
             NSMutableArray *capitalizedArray = [NSMutableArray array];
             for (NSString *item in array) {
