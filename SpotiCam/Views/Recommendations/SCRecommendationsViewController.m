@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Recommendations";
     [self.trackTable setHidden:YES];
     [self fetchTrackRecommendations];
     [self configureDataSource];
