@@ -4,17 +4,23 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
 
 DEPENDENCIES:
   - AppAuth
+  - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - AppAuth
+    - SDWebImage
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
 
-PODFILE CHECKSUM: dedf8fd37fba089c018afdd49000a9088bb20060
+PODFILE CHECKSUM: 06dca0cbe6e26d0a0f31e6f13149d3861879028e
 
 COCOAPODS: 1.10.1
