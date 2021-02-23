@@ -7,7 +7,7 @@
 
 #import "SCAPIManager.h"
 #import <OIDAuthState.h>
-#import "SCTrack.h"
+
 
 
 @interface SCAPIManager ()
@@ -56,7 +56,7 @@
     return self;
 }
 
-- (void)fetchTrackRecommendations {
+- (void)fetchTrackRecommendationsWithCompletion:(void (^)(NSArray<SCTrack*>*))completion {
     [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error fetching fresh tokens for track recommendations: %@", [error localizedDescription]);
@@ -92,12 +92,13 @@
                 NSLog(@"Failed to serialize track recommendation JSON: %@", [err localizedDescription]);
                 return;
             }
-            NSArray *tracks = [self parseTracksFromJSON:dict];
+            NSArray<SCTrack*> *tracks = [self parseTracksFromJSON:dict];
+            completion(tracks);
         }] resume];
     }];
 }
 
-- (NSArray*)parseTracksFromJSON:(NSDictionary*)dict {
+- (NSArray<SCTrack*>*)parseTracksFromJSON:(NSDictionary*)dict {
     NSArray *trackData = dict[@"tracks"];
     NSMutableArray *parsedTracks = [NSMutableArray array];
     

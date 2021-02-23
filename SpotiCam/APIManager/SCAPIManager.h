@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SCMainCoordinator.h"
+#import "SCTrack.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*))completion;
 - (instancetype)initWithColor:(UIColor *)color coordinator:(SCMainCoordinator*)coordinator;
-- (void)fetchTrackRecommendations;
+- (void)fetchTrackRecommendationsWithCompletion:(void (^)(NSArray<SCTrack*>*))completion;
 
 @end
 

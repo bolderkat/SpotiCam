@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *trackTitle;
 @property (nonatomic) NSString *albumTitle;
 @property (nonatomic) NSArray<NSDictionary*> *albumArtURLs; // 3 URLs at key "url": 640x640, 300x300, 64x64
-@property (nonatomic) NSArray<NSDictionary*> *artists; // Dictionary keys: name, uri, id, external_urls, href, type
+@property (nonatomic) NSArray<NSString*> *artists; // Dictionary keys: name, uri, id, external_urls, href, type
 @property (nonatomic) NSNumber *duration; // milliseconds
 
 - (instancetype)initWithJSON:(NSDictionary*)dict;

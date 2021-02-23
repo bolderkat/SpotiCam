@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCRecommendationsViewController : UIViewController
+@interface SCRecommendationsViewController : UIViewController <UITableViewDelegate, Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 @property (nonatomic) SCAPIManager *apiManager;
 
