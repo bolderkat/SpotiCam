@@ -6,6 +6,7 @@
 //
 
 #import "SCAPIManager.h"
+#import <OIDAuthState.h>
 
 
 @interface SCAPIManager ()
@@ -52,6 +53,46 @@
     self.valence = [self calculateValenceWithHue:h saturation:s brightness:b];
     self.coordinator = coordinator;
     return self;
+}
+
+- (void)fetchTrackRecommendations {
+    [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error fetching fresh tokens for track recommendations: %@", [error localizedDescription]);
+        }
+        // Build API Query
+        NSInteger trackLimit = 20;
+        NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"];
+        NSMutableArray *lowercaseGenres = [NSMutableArray array];
+        for (NSString *genre in genres) {
+            [lowercaseGenres addObject:[genre lowercaseString]];
+        }
+        NSString *genreString = [lowercaseGenres componentsJoinedByString:@"%2C"];
+        NSString *urlString = [NSString stringWithFormat:@"https://api.spotify.com/v1/recommendations?limit=%ld&seed_genres=%@&target_danceability=%.2f&target_energy=%.2f&target_valence=%.2f", trackLimit, genreString, self.danceability, self.energy, self.valence];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSString *authValue = [NSString stringWithFormat:@"Bearer %@", accessToken];
+        
+        
+        // URL session with query
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        sessionConfig.HTTPAdditionalHeaders= @{@"Authorization": authValue};
+        
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
+        
+        [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error fetching track recommendations: %@", [error localizedDescription]);
+                return;
+            }
+            
+            NSError *err;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+            if (err) {
+                NSLog(@"Failed to serialize track recommendation JSON: %@", [err localizedDescription]);
+                return;
+            }
+        }] resume];
+    }];
 }
 
 

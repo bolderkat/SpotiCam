@@ -15,9 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Danceability: %.2f", self.apiManager.danceability);
-    NSLog(@"Energy: %.2f", self.apiManager.energy);
-    NSLog(@"Valence: %.2f", self.apiManager.valence);
+    [self.apiManager fetchTrackRecommendations];
 }
 
 - (instancetype)initWithNibName:( NSString * _Nullable)nibNameOrNil

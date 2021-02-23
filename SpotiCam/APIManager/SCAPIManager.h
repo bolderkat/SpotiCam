@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*))completion;
 - (instancetype)initWithColor:(UIColor *)color coordinator:(SCMainCoordinator*)coordinator;
+- (void)fetchTrackRecommendations;
 
 @end
 
