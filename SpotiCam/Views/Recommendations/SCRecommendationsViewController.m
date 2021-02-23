@@ -7,6 +7,7 @@
 
 #import "SCRecommendationsViewController.h"
 #import "SCTrack.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SCRecommendationsViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -57,10 +58,11 @@
 - (void)configureDataSource {
     self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.trackTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCTrack *track) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"trackCell"];
-        UIListContentConfiguration *content = [cell defaultContentConfiguration];
-        content.text = track.trackTitle;
-        content.secondaryText = [track.artists componentsJoinedByString:@", "];
-        cell.contentConfiguration = content;
+        cell.textLabel.text = track.trackTitle;
+        cell.detailTextLabel.text = [track.artists componentsJoinedByString:@", "];
+        NSString *imageURLString = track.albumArtURLs[2][@"url"];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageURLString]
+                          placeholderImage:[UIImage systemImageNamed:@"music.note"]];
         return cell;
     }];
 }
