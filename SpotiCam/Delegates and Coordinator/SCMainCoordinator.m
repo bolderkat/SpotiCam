@@ -10,6 +10,8 @@
 #import "SCProcessingViewController.h"
 #import "SCAuthViewController.h"
 #import "SCGenresViewController.h"
+#import "SCRecommendationsViewController.h"
+#import "SCAPIManager.h"
 
 @interface SCMainCoordinator ()
 @property NSMutableArray *childCoordinators;
@@ -64,6 +66,15 @@
     vc.image = image;
     
     [self.navigationController pushViewController:vc animated:NO];
+}
+
+- (void)goToRecommendationsViewWithAPIManager:(SCAPIManager*)apiManager {
+    SCRecommendationsViewController *vc = [[SCRecommendationsViewController alloc]
+                                           initWithNibName:nil
+                                           bundle:nil
+                                           apiManager:apiManager];
+    vc.coordinator = self;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SCAuthManager.h"
 
+@class SCAPIManager;
+
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -21,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)start;
 - (void)proceedAfterAuth;
 - (void)goToProcessingViewWithImage:(UIImage*)image;
+- (void)goToRecommendationsViewWithAPIManager:(SCAPIManager*)apiManager;
 
 @end
 

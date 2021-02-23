@@ -9,6 +9,7 @@
 #import "SCAPIManager.h"
 
 @interface SCProcessingViewController ()
+@property (nonatomic) SCAPIManager *apiManager;
 @property (weak, nonatomic) IBOutlet UILabel *danceabilityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *energyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valenceLabel;
@@ -63,15 +64,19 @@
 }
 
 -(void)calculateTrackAttributesFromColor:(UIColor*)color {
-    SCAPIManager *apiManager = [[SCAPIManager alloc]initWithColor:color];
+    self.apiManager = [[SCAPIManager alloc]initWithColor:color coordinator:self.coordinator];
     
     CGFloat h, s, b, a;
     [self.dominantColor getHue:&h saturation:&s brightness:&b alpha:&a];
-    self.danceabilityLabel.text = [NSString stringWithFormat:@"Danceability: %.2f", apiManager.danceability];
-    self.energyLabel.text = [NSString stringWithFormat:@"Energy: %.2f", apiManager.energy];
-    self.valenceLabel.text = [NSString stringWithFormat:@"Valence: %.2f", apiManager.valence];
+    self.danceabilityLabel.text = [NSString stringWithFormat:@"Danceability: %.2f", self.apiManager.danceability];
+    self.energyLabel.text = [NSString stringWithFormat:@"Energy: %.2f", self.apiManager.energy];
+    self.valenceLabel.text = [NSString stringWithFormat:@"Valence: %.2f", self.apiManager.valence];
     self.hLabel.text = [NSString stringWithFormat:@"H: %.2f", h];
     self.sLabel.text = [NSString stringWithFormat:@"S: %.2f", s];
     self.bLabel.text = [NSString stringWithFormat:@"B: %.2f", b];
 }
+- (IBAction)getTracksTapped:(UIButton *)sender {
+    [self.coordinator goToRecommendationsViewWithAPIManager:self.apiManager];
+}
+
 @end

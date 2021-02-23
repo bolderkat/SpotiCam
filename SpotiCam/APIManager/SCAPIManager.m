@@ -7,7 +7,9 @@
 
 #import "SCAPIManager.h"
 
+
 @interface SCAPIManager ()
+@property (weak, nonatomic) SCMainCoordinator *coordinator;
 
 @end
 
@@ -42,12 +44,13 @@
     }] resume];
 }
 
-- (instancetype)initWithColor:(UIColor *)color {
+- (instancetype)initWithColor:(UIColor *)color coordinator:(SCMainCoordinator*)coordinator {
     CGFloat h, s, b, a;
     [color getHue:&h saturation:&s brightness:&b alpha:&a];
     self.danceability = [self calculateDanceabilityWithHue:h saturation:s brightness:b];
     self.energy = [self calculateEnergyWithHue:h saturation:s brightness:b];
     self.valence = [self calculateValenceWithHue:h saturation:s brightness:b];
+    self.coordinator = coordinator;
     return self;
 }
 

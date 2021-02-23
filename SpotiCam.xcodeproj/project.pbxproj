@@ -17,6 +17,8 @@
 		6505306925D3BB5100BF6521 /* SpotiCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505306825D3BB5100BF6521 /* SpotiCamTests.m */; };
 		6505307425D3BB5100BF6521 /* SpotiCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505307325D3BB5100BF6521 /* SpotiCamUITests.m */; };
 		6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505308625D4871D00BF6521 /* SCMainCoordinator.m */; };
+		651B0BDE25E4A5F000A93B34 /* SCRecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651B0BDC25E4A5F000A93B34 /* SCRecommendationsViewController.m */; };
+		651B0BDF25E4A5F000A93B34 /* SCRecommendationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651B0BDD25E4A5F000A93B34 /* SCRecommendationsViewController.xib */; };
 		652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* SCProcessingViewController.m */; };
 		652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */; };
 		652E18B625D48B1500692F5C /* SCMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652E18B525D48B1500692F5C /* SCMainView.xib */; };
@@ -73,6 +75,9 @@
 		6505307525D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6505308525D4871D00BF6521 /* SCMainCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMainCoordinator.h; sourceTree = "<group>"; };
 		6505308625D4871D00BF6521 /* SCMainCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMainCoordinator.m; sourceTree = "<group>"; };
+		651B0BDB25E4A5F000A93B34 /* SCRecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRecommendationsViewController.h; sourceTree = "<group>"; };
+		651B0BDC25E4A5F000A93B34 /* SCRecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRecommendationsViewController.m; sourceTree = "<group>"; };
+		651B0BDD25E4A5F000A93B34 /* SCRecommendationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCRecommendationsViewController.xib; sourceTree = "<group>"; };
 		652BD6F125D4B388004F8198 /* SCProcessingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCProcessingViewController.h; sourceTree = "<group>"; };
 		652BD6F225D4B388004F8198 /* SCProcessingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCProcessingViewController.m; sourceTree = "<group>"; };
 		652BD6F325D4B388004F8198 /* SCProcessingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCProcessingViewController.xib; sourceTree = "<group>"; };
@@ -210,8 +215,19 @@
 				652E18C025D4ABEF00692F5C /* Main */,
 				653AF21325DDA418005F532C /* Genres */,
 				652BD6F025D4B377004F8198 /* Processing */,
+				651B0BD725E4A5A300A93B34 /* Recommendations */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		651B0BD725E4A5A300A93B34 /* Recommendations */ = {
+			isa = PBXGroup;
+			children = (
+				651B0BDB25E4A5F000A93B34 /* SCRecommendationsViewController.h */,
+				651B0BDC25E4A5F000A93B34 /* SCRecommendationsViewController.m */,
+				651B0BDD25E4A5F000A93B34 /* SCRecommendationsViewController.xib */,
+			);
+			path = Recommendations;
 			sourceTree = "<group>";
 		};
 		652BD6F025D4B377004F8198 /* Processing */ = {
@@ -407,6 +423,7 @@
 			files = (
 				6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */,
 				6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */,
+				651B0BDF25E4A5F000A93B34 /* SCRecommendationsViewController.xib in Resources */,
 				652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */,
 				652E18B625D48B1500692F5C /* SCMainView.xib in Resources */,
 				653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */,
@@ -547,6 +564,7 @@
 				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
 				6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
+				651B0BDE25E4A5F000A93B34 /* SCRecommendationsViewController.m in Sources */,
 				653AF22525DE4CAE005F532C /* SCGenre.m in Sources */,
 				653AF21725DDA430005F532C /* SCGenresViewController.m in Sources */,
 				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,

@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SCMainCoordinator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat valence;
 
 + (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*))completion;
-- (instancetype)initWithColor:(UIColor*)color;
+- (instancetype)initWithColor:(UIColor *)color coordinator:(SCMainCoordinator*)coordinator;
 
 @end
 
