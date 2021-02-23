@@ -26,6 +26,7 @@
 		653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653AF21625DDA430005F532C /* SCGenresViewController.xib */; };
 		653AF22525DE4CAE005F532C /* SCGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF22425DE4CAE005F532C /* SCGenre.m */; };
 		653AF23525DF630A005F532C /* SCGenreTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF23425DF630A005F532C /* SCGenreTableDataSource.m */; };
+		657969EA25E4E03000CA377C /* SCTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 657969E925E4E03000CA377C /* SCTrack.m */; };
 		6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FCF825DC84F900AA5541 /* SCAuthManager.m */; };
 		6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FD0E25DCB14A00AA5541 /* SCAuthViewController.m */; };
 		6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587FD0F25DCB14A00AA5541 /* SCAuthViewController.xib */; };
@@ -89,6 +90,8 @@
 		653AF22425DE4CAE005F532C /* SCGenre.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCGenre.m; sourceTree = "<group>"; };
 		653AF23325DF630A005F532C /* SCGenreTableDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCGenreTableDataSource.h; sourceTree = "<group>"; };
 		653AF23425DF630A005F532C /* SCGenreTableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCGenreTableDataSource.m; sourceTree = "<group>"; };
+		657969E825E4E03000CA377C /* SCTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTrack.h; sourceTree = "<group>"; };
+		657969E925E4E03000CA377C /* SCTrack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTrack.m; sourceTree = "<group>"; };
 		6587FCF725DC84F900AA5541 /* SCAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthManager.h; sourceTree = "<group>"; };
 		6587FCF825DC84F900AA5541 /* SCAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAuthManager.m; sourceTree = "<group>"; };
 		6587FD0D25DCB14A00AA5541 /* SCAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthViewController.h; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		6505304B25D3BB5000BF6521 /* SpotiCam */ = {
 			isa = PBXGroup;
 			children = (
+				657969E625E4E01200CA377C /* Models */,
 				65C64F2B25D710B40083E07C /* APIManager */,
 				6505308425D486A000BF6521 /* Delegates and Coordinator */,
 				6505308B25D4898300BF6521 /* Views */,
@@ -254,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				653AF23225DF62E3005F532C /* SCGenreTableDataSource */,
-				653AF22225DE4C74005F532C /* SCGenre */,
 				653AF21425DDA430005F532C /* SCGenresViewController.h */,
 				653AF21525DDA430005F532C /* SCGenresViewController.m */,
 				653AF21625DDA430005F532C /* SCGenresViewController.xib */,
@@ -278,6 +281,24 @@
 				653AF23425DF630A005F532C /* SCGenreTableDataSource.m */,
 			);
 			path = SCGenreTableDataSource;
+			sourceTree = "<group>";
+		};
+		657969E625E4E01200CA377C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				657969E725E4E01900CA377C /* SCTrack */,
+				653AF22225DE4C74005F532C /* SCGenre */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		657969E725E4E01900CA377C /* SCTrack */ = {
+			isa = PBXGroup;
+			children = (
+				657969E825E4E03000CA377C /* SCTrack.h */,
+				657969E925E4E03000CA377C /* SCTrack.m */,
+			);
+			path = SCTrack;
 			sourceTree = "<group>";
 		};
 		6587FD0025DCAA6000AA5541 /* Auth */ = {
@@ -556,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6505305425D3BB5000BF6521 /* SCMainViewController.m in Sources */,
+				657969EA25E4E03000CA377C /* SCTrack.m in Sources */,
 				65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
 				6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */,

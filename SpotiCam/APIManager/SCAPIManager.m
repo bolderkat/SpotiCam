@@ -7,6 +7,7 @@
 
 #import "SCAPIManager.h"
 #import <OIDAuthState.h>
+#import "SCTrack.h"
 
 
 @interface SCAPIManager ()
@@ -91,8 +92,19 @@
                 NSLog(@"Failed to serialize track recommendation JSON: %@", [err localizedDescription]);
                 return;
             }
+            NSArray *tracks = [self parseTracksFromJSON:dict];
         }] resume];
     }];
+}
+
+- (NSArray*)parseTracksFromJSON:(NSDictionary*)dict {
+    NSArray *trackData = dict[@"tracks"];
+    NSMutableArray *parsedTracks = [NSMutableArray array];
+    
+    for (NSDictionary *track in trackData) {
+        [parsedTracks addObject:[[SCTrack alloc] initWithJSON:track]];
+    }
+    return [NSArray arrayWithArray:parsedTracks];
 }
 
 
