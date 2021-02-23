@@ -58,11 +58,21 @@
 - (void)configureDataSource {
     self.dataSource = [[UITableViewDiffableDataSource alloc] initWithTableView:self.trackTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCTrack *track) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"trackCell"];
-        cell.textLabel.text = track.trackTitle;
-        cell.detailTextLabel.text = [track.artists componentsJoinedByString:@", "];
-        NSString *imageURLString = track.albumArtURLs[2][@"url"];
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageURLString]
-                          placeholderImage:[UIImage systemImageNamed:@"music.note"]];
+        UIListContentConfiguration *content = [cell defaultContentConfiguration];
+        content.text = track.trackTitle;
+        content.secondaryText = [track.artists componentsJoinedByString:@", "];
+        
+        content.image = [UIImage systemImageNamed:@"music.note"];
+        cell.contentConfiguration = content;
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        NSString *imageURLString = track.albumArtURLs[2][@"url"]; // 64x64 image
+        [manager loadImageWithURL:[NSURL URLWithString:imageURLString]
+                          options:0
+                         progress:nil
+                        completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+            content.image = image;
+            cell.contentConfiguration = content;
+        }];
         return cell;
     }];
 }
@@ -76,6 +86,7 @@
 
 - (void)configureTableView {
     self.trackTable.delegate = self;
+    self.trackTable.rowHeight = 64;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
