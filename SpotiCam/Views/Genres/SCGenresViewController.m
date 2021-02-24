@@ -41,9 +41,6 @@
 
 - (void)configureViewController {
     self.title = @"Select Genres";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.barTintColor = [UIColor systemGreenColor];
-    [self.navigationController.navigationBar setTranslucent:NO];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithTitle:@"Done"
                                               style:UIBarButtonItemStyleDone

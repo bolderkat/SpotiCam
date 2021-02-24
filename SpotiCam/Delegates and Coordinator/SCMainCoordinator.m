@@ -31,6 +31,11 @@
 
 - (void)start {
     self.navigationController = [UINavigationController new];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.barTintColor = [UIColor systemGreenColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
     
     if (self.authManager.authState == nil) {
         UIViewController <Coordinated> *vc = [SCAuthViewController new];
