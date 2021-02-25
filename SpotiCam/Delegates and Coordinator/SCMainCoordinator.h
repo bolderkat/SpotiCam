@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithWindow:(UIWindow*)window;
 - (void)start;
 - (void)proceedAfterAuth;
+- (void)dismissGenresView;
 - (void)goToSettingsView;
 - (void)goToProcessingViewWithImage:(UIImage*)image;
 - (void)goToRecommendationsViewWithAPIManager:(SCAPIManager*)apiManager;

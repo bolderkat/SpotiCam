@@ -132,7 +132,7 @@
 
 - (void)doneButtonPressed {
     [[NSUserDefaults standardUserDefaults] setObject:self.selectedGenres forKey:@"selectedGenres"];
-    [self.coordinator proceedAfterAuth];
+    [self.coordinator dismissGenresView];
 }
 
 #pragma mark - Table View Diffable Data Source and Delegate

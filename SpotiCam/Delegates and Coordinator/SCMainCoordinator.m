@@ -65,6 +65,16 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)dismissGenresView {
+    // Proceed to main VC if onboarding, otherwise return user to settings VC
+    NSInteger currentNavIndex = [self.navigationController.viewControllers count];
+    if ([self.navigationController.viewControllers[currentNavIndex - 2] isKindOfClass:[SCAuthViewController class]]) {
+        [self proceedAfterAuth];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)goToSettingsView {
     SCSettingsViewController *vc = [SCSettingsViewController new];
     vc.coordinator = self;
@@ -91,11 +101,10 @@
 }
 
 - (void)openGenresFromSettings {
-//    SCGenresViewController *vc = [SCGenresViewController new];
-//    vc.coordinator = self;
-//
-//    [self.navigationController pushViewController:vc animated:YES];
-    NSLog(@"Open genres");
+    SCGenresViewController *vc = [SCGenresViewController new];
+    vc.coordinator = self;
+
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)openTipJar {
