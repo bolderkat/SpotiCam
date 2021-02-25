@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,6 +41,21 @@
                         <action selector="chooseFromLibraryTapped:" destination="-1" eventType="touchUpInside" id="R94-kN-Mfw"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6m-c8-M8U">
+                    <rect key="frame" x="354" y="54" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="iDm-xQ-XN6"/>
+                        <constraint firstAttribute="width" constant="40" id="igN-o6-b7R"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <imageReference key="image" image="gearshape.fill" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="settingsButtonTapped:" destination="-1" eventType="touchUpInside" id="aB1-eK-JhS"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,13 +66,16 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gXr-8c-Rev" secondAttribute="trailing" id="W06-Ft-TrT"/>
                 <constraint firstItem="z68-D1-dcl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Zhi-qb-0Tz"/>
                 <constraint firstItem="z68-D1-dcl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="byB-ir-SlH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="m6m-c8-M8U" secondAttribute="trailing" constant="20" id="jLN-ty-epL"/>
                 <constraint firstItem="gXr-8c-Rev" firstAttribute="top" secondItem="z68-D1-dcl" secondAttribute="bottom" id="q6m-tp-R1J"/>
                 <constraint firstAttribute="bottom" secondItem="gXr-8c-Rev" secondAttribute="bottom" id="x8L-rd-wHp"/>
+                <constraint firstItem="m6m-c8-M8U" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="ypK-oa-Ek0"/>
             </constraints>
-            <point key="canvasLocation" x="79.710144927536234" y="131.91964285714286"/>
+            <point key="canvasLocation" x="74" y="129"/>
         </view>
     </objects>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

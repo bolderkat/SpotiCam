@@ -7,7 +7,7 @@
 
 #import "SCMainViewController.h"
 
-@interface SCMainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SCMainViewController () 
 @property (nonatomic) UIImagePickerController *imagePicker;
 @end
 
@@ -33,6 +33,10 @@
 
 - (IBAction)chooseFromLibraryTapped:(UIButton *)sender {
     NSLog(@"Gray");
+}
+
+- (IBAction)settingsButtonTapped:(UIButton *)sender {
+    [self.coordinator goToSettingsView];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {

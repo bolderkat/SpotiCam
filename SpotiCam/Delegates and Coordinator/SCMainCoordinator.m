@@ -9,6 +9,7 @@
 #import "SCMainViewController.h"
 #import "SCProcessingViewController.h"
 #import "SCAuthViewController.h"
+#import "SCSettingsViewController.h"
 #import "SCGenresViewController.h"
 #import "SCRecommendationsViewController.h"
 #import "SCAPIManager.h"
@@ -64,6 +65,13 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)goToSettingsView {
+    SCSettingsViewController *vc = [SCSettingsViewController new];
+    vc.coordinator = self;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 - (void)goToProcessingViewWithImage:(UIImage*)image {
     SCProcessingViewController *vc = [SCProcessingViewController new];
