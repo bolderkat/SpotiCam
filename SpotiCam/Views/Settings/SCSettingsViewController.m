@@ -49,10 +49,6 @@
     self.popularity = [[NSUserDefaults standardUserDefaults] floatForKey:@"popularity"] ?: 0.0;
 }
 
-- (void)doneButtonPressed {
-    
-}
-
 
 
 
@@ -64,10 +60,11 @@
         if ([rowVM.title isEqualToString:@"Slider"]) {
             SCPopularityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCPopularityTableViewCell"
                                                                               forIndexPath:indexPath];
-//            cell.sliderDidChange(float popularity) = {
-//                self.popularity = popularity
-//            }
             cell.slider.value = self.popularity;
+            cell.sliderDidChange = ^(float value) {
+                [[NSUserDefaults standardUserDefaults] setFloat:value forKey:@"popularity"];
+                self.popularity = value;
+            };
             return cell;
         } else {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
