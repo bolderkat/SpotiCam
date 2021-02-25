@@ -64,12 +64,13 @@
         // Build API Query
         NSInteger trackLimit = 20;
         NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"];
+        long popularity = [[NSUserDefaults standardUserDefaults] integerForKey:@"popularity"] ?: 0;
         NSMutableArray *lowercaseGenres = [NSMutableArray array];
         for (NSString *genre in genres) {
             [lowercaseGenres addObject:[genre lowercaseString]];
         }
         NSString *genreString = [lowercaseGenres componentsJoinedByString:@"%2C"];
-        NSString *urlString = [NSString stringWithFormat:@"https://api.spotify.com/v1/recommendations?limit=%ld&seed_genres=%@&target_danceability=%.2f&target_energy=%.2f&target_valence=%.2f", trackLimit, genreString, self.danceability, self.energy, self.valence];
+        NSString *urlString = [NSString stringWithFormat:@"https://api.spotify.com/v1/recommendations?limit=%ld&seed_genres=%@&target_danceability=%.2f&target_energy=%.2f&min_popularity=%ld&target_valence=%.2f", trackLimit, genreString, self.danceability, self.energy, popularity, self.valence];
         NSURL *url = [NSURL URLWithString:urlString];
         NSString *authValue = [NSString stringWithFormat:@"Bearer %@", accessToken];
         

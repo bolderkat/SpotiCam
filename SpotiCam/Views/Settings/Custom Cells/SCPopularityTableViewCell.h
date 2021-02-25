@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCPopularityTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (nonatomic, copy, nullable) void (^sliderDidChange)(float);
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+@property (nonatomic, copy, nullable) void (^sliderDidChange)(long);
 
 @end
 

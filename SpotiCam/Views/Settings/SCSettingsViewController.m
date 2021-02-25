@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *settingsTable;
 @property (nonatomic) SCSettingsTableDataSource *dataSource;
 @property (nonatomic, copy) NSArray<SCSettingsRowCellViewModel*> *settingsRows;
-@property (nonatomic) float popularity;
+@property (nonatomic) long popularity;
 @end
 
 @implementation SCSettingsViewController
@@ -46,7 +46,7 @@
 }
 
 - (void)loadPopularityValue {
-    self.popularity = [[NSUserDefaults standardUserDefaults] floatForKey:@"popularity"] ?: 0.0;
+    self.popularity = [[NSUserDefaults standardUserDefaults] integerForKey:@"popularity"] ?: 0;
 }
 
 
@@ -61,8 +61,9 @@
             SCPopularityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCPopularityTableViewCell"
                                                                               forIndexPath:indexPath];
             cell.slider.value = self.popularity;
-            cell.sliderDidChange = ^(float value) {
-                [[NSUserDefaults standardUserDefaults] setFloat:value forKey:@"popularity"];
+            cell.numberLabel.text = [NSString stringWithFormat:@"%ld", self.popularity];
+            cell.sliderDidChange = ^(long value) {
+                [[NSUserDefaults standardUserDefaults] setInteger:value forKey:@"popularity"];
                 self.popularity = value;
             };
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

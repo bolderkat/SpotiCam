@@ -25,7 +25,9 @@
 }
 
 - (IBAction)sliderMoved:(UISlider *)sender {
-    self.sliderDidChange(sender.value);
+    long rounded = roundf(sender.value);
+    self.sliderDidChange(rounded);
+    self.numberLabel.text = [NSString stringWithFormat:@"%ld", rounded];
 }
 
 
