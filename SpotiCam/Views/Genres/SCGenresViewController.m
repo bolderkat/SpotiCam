@@ -137,9 +137,10 @@
 
 #pragma mark - Table View Diffable Data Source and Delegate
 - (void)configureDataSource {
-    self.dataSource = [[SCGenreTableDataSource alloc] initWithTableView:self.genreTable cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCGenre *genre) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"genreCell"];
-//        NSArray<SCGenre*> *array = (self.searchResults == nil) ? self.genres : self.searchResults;
+    self.dataSource = [[SCGenreTableDataSource alloc] initWithTableView:self.genreTable
+                                                           cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCGenre *genre) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                       reuseIdentifier:@"genreCell"];
         cell.textLabel.text = genre.name;
         cell.accessoryType = genre.isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         cell.tintColor = [UIColor systemGreenColor];
