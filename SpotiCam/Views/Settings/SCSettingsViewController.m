@@ -65,6 +65,7 @@
                 [[NSUserDefaults standardUserDefaults] setFloat:value forKey:@"popularity"];
                 self.popularity = value;
             };
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             return cell;
         } else {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
@@ -95,6 +96,10 @@
     [snapshot appendItemsWithIdentifiers:self.settingsRows
                intoSectionWithIdentifier:sections[1]];
     [self.dataSource applySnapshot:snapshot animatingDifferences:NO];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
