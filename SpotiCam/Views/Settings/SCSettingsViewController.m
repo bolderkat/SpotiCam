@@ -10,6 +10,9 @@
 #import "SCPopularityTableViewCell.h"
 #import "SCSettingsTableDataSource.h"
 
+static NSString *const kSliderCellIdentifier = @"SCPopularityTableViewCell";
+static NSString *const kPopularityKey = @"popularity";
+
 @interface SCSettingsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *settingsTable;
 @property (nonatomic) SCSettingsTableDataSource *dataSource;
@@ -50,7 +53,7 @@
 }
 
 - (void)loadPopularityValue {
-    self.popularity = [[NSUserDefaults standardUserDefaults] integerForKey:@"popularity"] ?: 0;
+    self.popularity = [[NSUserDefaults standardUserDefaults] integerForKey:kPopularityKey] ?: 0;
 }
 
 
@@ -62,12 +65,12 @@
                        initWithTableView:self.settingsTable
                        cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCSettingsRowCellViewModel *rowVM) {
         if ([rowVM.title isEqualToString:@"Slider"]) {
-            SCPopularityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SCPopularityTableViewCell"
+            SCPopularityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSliderCellIdentifier
                                                                               forIndexPath:indexPath];
             cell.slider.value = self.popularity;
             cell.numberLabel.text = [NSString stringWithFormat:@"%ld", self.popularity];
             cell.sliderDidChange = ^(long value) {
-                [[NSUserDefaults standardUserDefaults] setInteger:value forKey:@"popularity"];
+                [[NSUserDefaults standardUserDefaults] setInteger:value forKey:kPopularityKey];
                 self.popularity = value;
             };
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -88,8 +91,8 @@
 
 - (void)configureTableView {
     self.settingsTable.delegate = self;
-    [self.settingsTable registerNib:[UINib nibWithNibName:@"SCPopularityTableViewCell" bundle:nil]
-             forCellReuseIdentifier:@"SCPopularityTableViewCell"];
+    [self.settingsTable registerNib:[UINib nibWithNibName:kSliderCellIdentifier bundle:nil]
+             forCellReuseIdentifier:kSliderCellIdentifier];
 }
 
 - (void)applyTableViewSnapshot {
