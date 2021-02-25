@@ -34,10 +34,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPopularityValue];
-    [self configureViewController];
     [self configureTableView];
     [self configureDataSource];
     [self applyTableViewSnapshot];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self configureViewController];
 }
 
 - (void)configureViewController {
