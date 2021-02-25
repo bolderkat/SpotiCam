@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)goToSettingsView;
 - (void)goToProcessingViewWithImage:(UIImage*)image;
 - (void)goToRecommendationsViewWithAPIManager:(SCAPIManager*)apiManager;
+- (void)openGenresFromSettings;
+- (void)openTipJar;
+- (void)logOut;
 
 @end
 

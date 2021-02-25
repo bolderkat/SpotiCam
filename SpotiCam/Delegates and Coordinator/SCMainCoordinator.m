@@ -90,4 +90,20 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)openGenresFromSettings {
+//    SCGenresViewController *vc = [SCGenresViewController new];
+//    vc.coordinator = self;
+//
+//    [self.navigationController pushViewController:vc animated:YES];
+    NSLog(@"Open genres");
+}
+
+- (void)openTipJar {
+    NSLog(@"Open tip jar");
+}
+
+- (void)logOut {
+    NSLog(@"Log out");
+}
+
 @end

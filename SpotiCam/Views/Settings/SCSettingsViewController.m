@@ -100,6 +100,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                [self.coordinator openGenresFromSettings];
+                break;
+            case 1:
+                [self.coordinator openTipJar];
+                break;
+            case 2:
+                [self.coordinator logOut];
+                break;
+            default:
+                break;
+        }
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
