@@ -38,6 +38,11 @@
     [self fetchGenres];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 
 - (void)configureViewController {
     self.title = @"Select Genres";
