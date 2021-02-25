@@ -17,8 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES];
     self.addAccountButton.layer.cornerRadius = 15;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (IBAction)addButtonPressed:(UIButton *)sender {

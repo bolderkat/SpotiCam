@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak, nullable) UIViewController *viewController;
 
 - (void)loadState;
+- (void)setAuthState:(OIDAuthState * _Nullable)authState;
 - (void)doAuthWithAutoCodeExchange;
 
 @end

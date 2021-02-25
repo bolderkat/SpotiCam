@@ -14,6 +14,10 @@
 #import "SCRecommendationsViewController.h"
 #import "SCAPIManager.h"
 
+static NSString *const kAppAuthStateKey = @"authState";
+static NSString *const kSelectedGenresKey = @"selectedGenres";
+static NSString *const kPopularityKey = @"popularity";
+
 @interface SCMainCoordinator ()
 @property NSMutableArray *childCoordinators;
 @end
@@ -39,7 +43,7 @@
     
     
     if (self.authManager.authState == nil) {
-        UIViewController <Coordinated> *vc = [SCAuthViewController new];
+        SCAuthViewController *vc = [SCAuthViewController new];
         self.authManager.viewController = vc;
         vc.coordinator = self;
         [self.navigationController pushViewController:vc animated:NO];
@@ -52,11 +56,10 @@
 
 - (void)proceedAfterAuth {
     UIViewController <Coordinated> *vc;
-    NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"];
+    NSArray *genres = [[NSUserDefaults standardUserDefaults] objectForKey:kSelectedGenresKey];
     
     if (genres == nil || [genres count] == 0) {
         vc = [SCGenresViewController new];
-        [self.navigationController setNavigationBarHidden:NO];
         vc.navigationItem.hidesBackButton = YES;
     } else {
         vc = [SCMainViewController new];
@@ -112,7 +115,20 @@
 }
 
 - (void)logOut {
-    NSLog(@"Log out");
+    [self.authManager setAuthState:nil];
+    [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kSelectedGenresKey];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:kPopularityKey];
+    
+    SCAuthViewController *vc = [SCAuthViewController new];
+    self.authManager.viewController = vc;
+    vc.coordinator = self;
+    
+    // Need to replace nav c stack to be able to pop and animate leftward to auth VC.
+    NSMutableArray *array = [self.navigationController.viewControllers mutableCopy];
+    array[0] = vc;
+    [self.navigationController setViewControllers:array];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 @end
