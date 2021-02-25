@@ -29,7 +29,7 @@
                     </slider>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-mz-644">
                         <rect key="frame" x="30" y="46" width="343" height="82"/>
-                        <string key="text">A lower minimum value will produce more results and is recommended. Values above 70 may result in few or no results depending on your selected genres.</string>
+                        <string key="text">A lower minimum value generally produces more results and is recommended. Values above 70 may result in few or no results depending on your selected genres.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
