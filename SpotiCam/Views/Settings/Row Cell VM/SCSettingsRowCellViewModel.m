@@ -16,38 +16,33 @@
 
 @implementation SCSettingsRowCellViewModel
 + (SCSettingsRowCellViewModel*)sliderRow {
-    return [[SCSettingsRowCellViewModel alloc]
-            initWithTitle:@"Slider"
-            textColor:nil
-            image:nil];
+    return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Slider"
+                                                   textColor:nil
+                                                       image:nil];
 }
 
 + (SCSettingsRowCellViewModel*)genreRow {
-    return [[SCSettingsRowCellViewModel alloc]
-            initWithTitle:@"Change Genres"
-            textColor:[UIColor whiteColor]
-            image:[UIImage systemImageNamed:@"music.note.list"]];
+    return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Change Genres"
+                                                   textColor:[UIColor whiteColor]
+                                                       image:[UIImage systemImageNamed:@"music.note.list"]];
 }
 
 + (SCSettingsRowCellViewModel*)tipJarRow {
-    return [[SCSettingsRowCellViewModel alloc]
-            initWithTitle:@"Tip Jar"
-            textColor:[UIColor whiteColor]
-            image:[UIImage systemImageNamed:@"heart.text.square.fill"]];
+    return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Tip Jar"
+                                                   textColor:[UIColor whiteColor]
+                                                       image:[UIImage systemImageNamed:@"heart.text.square.fill"]];
 }
 
 + (SCSettingsRowCellViewModel*)privacyPolicyRow {
-    return [[SCSettingsRowCellViewModel alloc]
-            initWithTitle:@"Privacy Policy"
-            textColor:[UIColor whiteColor]
-            image:[UIImage systemImageNamed:@"hand.raised.fill"]];
+    return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Privacy Policy"
+                                                   textColor:[UIColor whiteColor]
+                                                       image:[UIImage systemImageNamed:@"hand.raised.fill"]];
 }
 
 + (SCSettingsRowCellViewModel*)logOutRow {
-    return [[SCSettingsRowCellViewModel alloc]
-            initWithTitle:@"Log Out"
-            textColor:[UIColor redColor]
-            image:[UIImage systemImageNamed:@"return"]];
+    return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Log Out"
+                                                   textColor:[UIColor redColor]
+                                                       image:[UIImage systemImageNamed:@"return"]];
 }
 
 - (instancetype)initWithTitle:(NSString*)title textColor:(UIColor*)textColor image:(UIImage*)image {
