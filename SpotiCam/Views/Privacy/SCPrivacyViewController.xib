@@ -27,14 +27,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotiCam Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROE-w0-zr3">
-                                    <rect key="frame" x="20" y="40" width="374" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <rect key="frame" x="20" y="40" width="374" height="25.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                     <color key="textColor" systemColor="systemGreenColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz3-dm-dQJ">
-                                    <rect key="frame" x="20" y="81" width="374" height="446.5"/>
-                                    <mutableString key="text">Here's the quick version up front: SpotiCam does not collect your personal information or data. The app does not track you, nor does it serve you ads.  SpotiCam requests your Spotify login as Spotify's API requires a valid authorization token to allow access to its track recommendation service.   SpotiCam only uses your login details to obtain an authorization token from Spotify. This token is then saved locally on your device, and the app does not keep your login credentials stored anywhere. Additionally, SpotiCam asks for the bare minimum account permissions necessary to get track recommendations from Spotify.  All network requests from this app are made only to Spotify's or Apple's servers for track recommendations or tip jar transactions respectively.</mutableString>
+                                    <rect key="frame" x="20" y="85.5" width="374" height="446.5"/>
+                                    <mutableString key="text">Here's the quick version up front: SpotiCam does not collect your personal information or data. The app does not track you, nor does it serve you ads.  SpotiCam requests your Spotify login, as Spotify's API requires a valid authorization token to allow access to its track recommendation service.   SpotiCam only uses your login details to obtain an authorization token from Spotify. This token is saved locally on your device, and the app does not keep your login credentials stored anywhere. Additionally, SpotiCam only asks for the bare minimum account permissions necessary to get track recommendations from Spotify.  All network requests from this app are made only to Spotify's or Apple's servers for track recommendations or tip jar transactions respectively.</mutableString>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
