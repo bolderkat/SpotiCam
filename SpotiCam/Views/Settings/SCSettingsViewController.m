@@ -84,7 +84,7 @@ static NSString *const kPopularityKey = @"popularity";
             content.image = rowVM.image;
             cell.contentConfiguration = content;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.tintColor = [rowVM.title isEqualToString:@"Log Out"] ? [UIColor systemRedColor] : [UIColor systemGreenColor];
+            cell.tintColor = [rowVM.title isEqualToString:@"Log Out"] ? [UIColor systemRedColor] : [UIColor colorNamed:@"AppGreen"];
             return cell;
         }
     }];

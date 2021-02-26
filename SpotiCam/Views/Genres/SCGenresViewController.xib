@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,7 +61,7 @@
                             <viewLayoutGuide key="frameLayoutGuide" id="5Ar-Uq-b0t"/>
                         </scrollView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <color key="backgroundColor" name="AppGreen"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="HAa-xc-6d2" secondAttribute="trailing" id="Agi-KZ-5hh"/>
                         <constraint firstItem="HAa-xc-6d2" firstAttribute="top" secondItem="j5a-WH-6Pk" secondAttribute="top" constant="8" id="mtD-gV-5Er"/>
@@ -89,6 +90,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="AppGreen">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

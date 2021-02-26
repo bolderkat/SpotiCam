@@ -39,7 +39,7 @@ static NSString *const kPopularityKey = @"popularity";
 - (void)start {
     self.navigationController = [UINavigationController new];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.barTintColor = [UIColor systemGreenColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorNamed:@"AppGreen"];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTranslucent:NO];
     

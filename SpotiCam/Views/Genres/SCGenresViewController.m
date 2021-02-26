@@ -148,7 +148,7 @@
                                                        reuseIdentifier:@"genreCell"];
         cell.textLabel.text = genre.name;
         cell.accessoryType = genre.isChecked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-        cell.tintColor = [UIColor systemGreenColor];
+        cell.tintColor = [UIColor colorNamed:@"AppGreen"];
         return cell;
     }];
 }
@@ -170,7 +170,7 @@
 
 - (void)configureTableView {
     self.genreTable.delegate = self;
-    self.genreTable.sectionIndexColor = [UIColor systemGreenColor];
+    self.genreTable.sectionIndexColor = [UIColor colorNamed:@"AppGreen"];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
