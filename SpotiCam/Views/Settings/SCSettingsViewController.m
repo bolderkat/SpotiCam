@@ -62,17 +62,19 @@ static NSString *const kPopularityKey = @"popularity";
 
 #pragma mark:- Table View Data Source and Delegate
 - (void)configureDataSource {
+    __weak typeof(self) weakSelf = self;
     self.dataSource = [[SCSettingsTableDataSource alloc]
                        initWithTableView:self.settingsTable
                        cellProvider:^UITableViewCell * _Nullable(UITableView *tableView, NSIndexPath *indexPath, SCSettingsRowCellViewModel *rowVM) {
         if ([rowVM.title isEqualToString:@"Slider"]) {
             SCPopularityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kSliderCellIdentifier
                                                                               forIndexPath:indexPath];
-            cell.slider.value = self.popularity;
-            cell.numberLabel.text = [NSString stringWithFormat:@"%ld", self.popularity];
+            cell.slider.value = weakSelf.popularity;
+            cell.numberLabel.text = [NSString stringWithFormat:@"%ld", weakSelf.popularity];
+            
             cell.sliderDidChange = ^(long value) {
                 [[NSUserDefaults standardUserDefaults] setInteger:value forKey:kPopularityKey];
-                self.popularity = value;
+                weakSelf.popularity = value;
             };
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             return cell;
