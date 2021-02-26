@@ -37,7 +37,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-WH-6Pk">
-                    <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                    <rect key="frame" x="0.0" y="802" width="414" height="94"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAa-xc-6d2">
                             <rect key="frame" x="0.0" y="8" width="414" height="44"/>
@@ -63,8 +63,6 @@
                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="HAa-xc-6d2" secondAttribute="trailing" id="Agi-KZ-5hh"/>
-                        <constraint firstAttribute="bottom" secondItem="HAa-xc-6d2" secondAttribute="bottom" constant="8" id="GFy-LI-TvC"/>
-                        <constraint firstAttribute="height" constant="60" id="OyX-J6-25i"/>
                         <constraint firstItem="HAa-xc-6d2" firstAttribute="top" secondItem="j5a-WH-6Pk" secondAttribute="top" constant="8" id="mtD-gV-5Er"/>
                         <constraint firstItem="HAa-xc-6d2" firstAttribute="leading" secondItem="j5a-WH-6Pk" secondAttribute="leading" id="pzg-5h-KqK"/>
                     </constraints>
@@ -80,9 +78,10 @@
                 <constraint firstItem="kff-vn-mwj" firstAttribute="top" secondItem="8iC-dl-WHw" secondAttribute="bottom" id="Jme-KK-kzZ"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="OIf-La-SkE"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="XSL-eN-05s"/>
-                <constraint firstItem="j5a-WH-6Pk" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="f4x-hF-SFt"/>
+                <constraint firstItem="j5a-WH-6Pk" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="f4x-hF-SFt"/>
                 <constraint firstItem="j61-Bv-zW4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fik-GE-ZoV"/>
                 <constraint firstItem="j61-Bv-zW4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qK5-nl-LGE"/>
+                <constraint firstItem="HAa-xc-6d2" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" constant="-8" id="url-Aq-hk1"/>
                 <constraint firstItem="j5a-WH-6Pk" firstAttribute="top" secondItem="kff-vn-mwj" secondAttribute="bottom" id="wJf-vi-aCL"/>
                 <constraint firstItem="kff-vn-mwj" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="xrk-yx-Bdq"/>
             </constraints>
