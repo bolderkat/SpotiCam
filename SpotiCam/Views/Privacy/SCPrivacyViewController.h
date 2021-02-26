@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SCPrivacyViewController : UIViewController <Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 
+- (void)setAppearanceForAuthScreen;
+
 @end
 
 NS_ASSUME_NONNULL_END

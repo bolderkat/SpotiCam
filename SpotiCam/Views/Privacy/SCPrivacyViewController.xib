@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCPrivacyViewController">
             <connections>
+                <outlet property="bodyTextLabel" destination="Qz3-dm-dQJ" id="5UQ-aX-fHf"/>
+                <outlet property="contentView" destination="4Ur-gR-eed" id="0WB-uP-Orn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,12 +24,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ur-gR-eed" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotiCam Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROE-w0-zr3">
                                     <rect key="frame" x="20" y="40" width="374" height="21"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" systemColor="systemGreenColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz3-dm-dQJ">
@@ -46,7 +48,7 @@
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qz3-dm-dQJ" secondAttribute="bottom" constant="40" id="JJC-E9-WvE"/>
                                 <constraint firstItem="ROE-w0-zr3" firstAttribute="leading" secondItem="4Ur-gR-eed" secondAttribute="leading" constant="20" id="ROi-f4-EKP"/>
                                 <constraint firstAttribute="trailing" secondItem="ROE-w0-zr3" secondAttribute="trailing" constant="20" id="cxL-3D-Tel"/>
-                                <constraint firstAttribute="height" constant="700" id="eIF-Ba-K4R"/>
+                                <constraint firstAttribute="height" constant="750" id="eIF-Ba-K4R"/>
                                 <constraint firstItem="Qz3-dm-dQJ" firstAttribute="leading" secondItem="4Ur-gR-eed" secondAttribute="leading" constant="20" id="mTi-7n-Tcr"/>
                             </constraints>
                         </view>
@@ -74,6 +76,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
