@@ -10,14 +10,9 @@
 
 @interface SCProcessingViewController ()
 @property (nonatomic) SCAPIManager *apiManager;
-@property (weak, nonatomic) IBOutlet UILabel *danceabilityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *energyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *valenceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bLabel;
 @property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (nonatomic) UIColor *dominantColor;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -25,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imageView.image = self.image;
     self.dominantColor = [self getDominantColorFromPhoto];
     self.colorView.backgroundColor = self.dominantColor;
     [self calculateTrackAttributesFromColor:self.dominantColor];
@@ -33,7 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (UIColor*)getDominantColorFromPhoto {
@@ -68,15 +62,13 @@
     
     CGFloat h, s, b, a;
     [self.dominantColor getHue:&h saturation:&s brightness:&b alpha:&a];
-    self.danceabilityLabel.text = [NSString stringWithFormat:@"Danceability: %.2f", self.apiManager.danceability];
-    self.energyLabel.text = [NSString stringWithFormat:@"Energy: %.2f", self.apiManager.energy];
-    self.valenceLabel.text = [NSString stringWithFormat:@"Valence: %.2f", self.apiManager.valence];
-    self.hLabel.text = [NSString stringWithFormat:@"H: %.2f", h];
-    self.sLabel.text = [NSString stringWithFormat:@"S: %.2f", s];
-    self.bLabel.text = [NSString stringWithFormat:@"B: %.2f", b];
 }
-- (IBAction)getTracksTapped:(UIButton *)sender {
+- (IBAction)getTracksPressed:(UIButton *)sender {
     [self.coordinator goToRecommendationsViewWithAPIManager:self.apiManager];
+}
+
+- (IBAction)backButtonPressed:(UIButton *)sender {
+    [self.coordinator popViewControllerAnimated:YES];
 }
 
 @end

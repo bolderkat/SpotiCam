@@ -28,6 +28,12 @@
     [self configureTableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES
+     ];
+}
+
 - (instancetype)initWithNibName:( NSString * _Nullable)nibNameOrNil
                          bundle:(NSBundle * _Nullable)nibBundleOrNil
                      apiManager:(SCAPIManager *)apiManager {

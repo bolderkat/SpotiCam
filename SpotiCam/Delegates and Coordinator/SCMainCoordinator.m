@@ -100,7 +100,10 @@ static NSString *const kPopularityKey = @"popularity";
     SCProcessingViewController *vc = [SCProcessingViewController new];
     vc.coordinator = self;
     vc.image = image;
-    
+    CATransition* transition = [CATransition animation];
+    transition.duration = 0.2;
+    transition.type = kCATransitionFade;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
     [self.navigationController pushViewController:vc animated:NO];
 }
 

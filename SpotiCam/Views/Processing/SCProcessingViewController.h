@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SCProcessingViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 @property UIImage *image;
 
