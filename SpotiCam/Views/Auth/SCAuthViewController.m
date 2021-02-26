@@ -11,6 +11,8 @@
 
 @interface SCAuthViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *addAccountButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTopConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 
 @end
 
@@ -20,7 +22,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureForSizeClass];
     self.addAccountButton.layer.cornerRadius = 15;
+}
+
+- (void)configureForSizeClass {
+    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat iPhone8Height = 667.0;
+    CGFloat iPhoneXHeight = 812.0;
+    CGFloat iPhone12Height = 844.0;
+    
+    if (screenHeight < iPhone8Height) {
+        self.headerTopConstraint.constant = 140;
+        self.headerLabel.adjustsFontSizeToFitWidth = YES;
+    } else if (screenHeight >= iPhoneXHeight && screenHeight <= iPhone12Height) {
+        self.headerTopConstraint.constant = 240;
+    } else if (screenHeight > iPhone12Height) {
+        self.headerTopConstraint.constant = 320;
+    } else {
+        self.headerTopConstraint.constant = 200;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

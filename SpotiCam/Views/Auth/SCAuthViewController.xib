@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCAuthViewController">
             <connections>
                 <outlet property="addAccountButton" destination="xAp-SS-fkv" id="Hse-K9-mSN"/>
+                <outlet property="headerLabel" destination="WJt-QM-bbg" id="hlV-tG-kB5"/>
+                <outlet property="headerTopConstraint" destination="qOY-Oo-anf" id="ijS-hN-7Xn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -71,7 +73,7 @@
                         <constraint firstItem="3cX-Gk-Fd7" firstAttribute="top" secondItem="WJt-QM-bbg" secondAttribute="bottom" constant="30" id="fhI-aq-uLG"/>
                         <constraint firstAttribute="trailing" secondItem="WJt-QM-bbg" secondAttribute="trailing" constant="40" id="kwk-TK-t2n"/>
                         <constraint firstAttribute="bottom" secondItem="0Mm-eA-x8J" secondAttribute="bottom" constant="56" id="lrl-zp-U7h"/>
-                        <constraint firstItem="WJt-QM-bbg" firstAttribute="top" secondItem="RRf-St-6HO" secondAttribute="top" priority="999" constant="200" id="qOY-Oo-anf"/>
+                        <constraint firstItem="WJt-QM-bbg" firstAttribute="top" secondItem="RRf-St-6HO" secondAttribute="top" constant="200" id="qOY-Oo-anf"/>
                         <constraint firstAttribute="trailing" secondItem="3cX-Gk-Fd7" secondAttribute="trailing" constant="40" id="wis-oR-G6M"/>
                     </constraints>
                 </view>
