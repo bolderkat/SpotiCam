@@ -13,6 +13,7 @@
 #import "SCGenresViewController.h"
 #import "SCRecommendationsViewController.h"
 #import "SCTipViewController.h"
+#import "SCPrivacyViewController.h"
 #import "SCAPIManager.h"
 
 static NSString *const kAppAuthStateKey = @"authState";
@@ -113,6 +114,13 @@ static NSString *const kPopularityKey = @"popularity";
 
 - (void)openTipJar {
     SCTipViewController *vc = [SCTipViewController new];
+    vc.coordinator = self;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)openPrivacyPolicy {
+    SCPrivacyViewController *vc = [SCPrivacyViewController new];
     vc.coordinator = self;
     
     [self.navigationController pushViewController:vc animated:YES];

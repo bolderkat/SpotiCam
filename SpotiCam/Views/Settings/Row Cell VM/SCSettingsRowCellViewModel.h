@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (SCSettingsRowCellViewModel*)sliderRow;
 + (SCSettingsRowCellViewModel*)genreRow;
 + (SCSettingsRowCellViewModel*)tipJarRow;
++ (SCSettingsRowCellViewModel*)privacyPolicyRow;
 + (SCSettingsRowCellViewModel*)logOutRow;
 @end
 

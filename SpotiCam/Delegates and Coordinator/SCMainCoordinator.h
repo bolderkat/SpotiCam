@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)goToRecommendationsViewWithAPIManager:(SCAPIManager*)apiManager;
 - (void)openGenresFromSettings;
 - (void)openTipJar;
+- (void)openPrivacyPolicy;
 - (void)logOut;
 
 @end

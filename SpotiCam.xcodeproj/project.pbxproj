@@ -17,6 +17,8 @@
 		6505306925D3BB5100BF6521 /* SpotiCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505306825D3BB5100BF6521 /* SpotiCamTests.m */; };
 		6505307425D3BB5100BF6521 /* SpotiCamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505307325D3BB5100BF6521 /* SpotiCamUITests.m */; };
 		6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6505308625D4871D00BF6521 /* SCMainCoordinator.m */; };
+		650616A525E88863000683B2 /* SCPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650616A325E88863000683B2 /* SCPrivacyViewController.m */; };
+		650616A625E88863000683B2 /* SCPrivacyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650616A425E88863000683B2 /* SCPrivacyViewController.xib */; };
 		651B0BDE25E4A5F000A93B34 /* SCRecommendationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651B0BDC25E4A5F000A93B34 /* SCRecommendationsViewController.m */; };
 		651B0BDF25E4A5F000A93B34 /* SCRecommendationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651B0BDD25E4A5F000A93B34 /* SCRecommendationsViewController.xib */; };
 		652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BD6F225D4B388004F8198 /* SCProcessingViewController.m */; };
@@ -84,6 +86,9 @@
 		6505307525D3BB5100BF6521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6505308525D4871D00BF6521 /* SCMainCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMainCoordinator.h; sourceTree = "<group>"; };
 		6505308625D4871D00BF6521 /* SCMainCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMainCoordinator.m; sourceTree = "<group>"; };
+		650616A225E88863000683B2 /* SCPrivacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCPrivacyViewController.h; sourceTree = "<group>"; };
+		650616A325E88863000683B2 /* SCPrivacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCPrivacyViewController.m; sourceTree = "<group>"; };
+		650616A425E88863000683B2 /* SCPrivacyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCPrivacyViewController.xib; sourceTree = "<group>"; };
 		651B0BDB25E4A5F000A93B34 /* SCRecommendationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRecommendationsViewController.h; sourceTree = "<group>"; };
 		651B0BDC25E4A5F000A93B34 /* SCRecommendationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRecommendationsViewController.m; sourceTree = "<group>"; };
 		651B0BDD25E4A5F000A93B34 /* SCRecommendationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCRecommendationsViewController.xib; sourceTree = "<group>"; };
@@ -241,10 +246,21 @@
 				65A4C63F25E6D185009A3259 /* Settings */,
 				653AF21325DDA418005F532C /* Genres */,
 				6581510B25E84E3900D0F154 /* Tip Jar */,
+				650616A125E8884A000683B2 /* Privacy */,
 				652BD6F025D4B377004F8198 /* Processing */,
 				651B0BD725E4A5A300A93B34 /* Recommendations */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		650616A125E8884A000683B2 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				650616A225E88863000683B2 /* SCPrivacyViewController.h */,
+				650616A325E88863000683B2 /* SCPrivacyViewController.m */,
+				650616A425E88863000683B2 /* SCPrivacyViewController.xib */,
+			);
+			path = Privacy;
 			sourceTree = "<group>";
 		};
 		651B0BD725E4A5A300A93B34 /* Recommendations */ = {
@@ -522,6 +538,7 @@
 				651B0BDF25E4A5F000A93B34 /* SCRecommendationsViewController.xib in Resources */,
 				65A4C64425E6D1B8009A3259 /* SCSettingsViewController.xib in Resources */,
 				65A4C65125E71A13009A3259 /* SCPopularityTableViewCell.xib in Resources */,
+				650616A625E88863000683B2 /* SCPrivacyViewController.xib in Resources */,
 				652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */,
 				652E18B625D48B1500692F5C /* SCMainView.xib in Resources */,
 				653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */,
@@ -660,6 +677,7 @@
 				65A4C65825E733F3009A3259 /* SCSettingsRowCellViewModel.m in Sources */,
 				65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
+				650616A525E88863000683B2 /* SCPrivacyViewController.m in Sources */,
 				6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */,
 				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
 				653AF23525DF630A005F532C /* SCGenreTableDataSource.m in Sources */,

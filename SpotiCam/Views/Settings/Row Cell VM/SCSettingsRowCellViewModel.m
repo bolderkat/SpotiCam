@@ -36,6 +36,13 @@
             image:[UIImage systemImageNamed:@"heart.text.square.fill"]];
 }
 
++ (SCSettingsRowCellViewModel*)privacyPolicyRow {
+    return [[SCSettingsRowCellViewModel alloc]
+            initWithTitle:@"Privacy Policy"
+            textColor:[UIColor whiteColor]
+            image:[UIImage systemImageNamed:@"hand.raised.fill"]];
+}
+
 + (SCSettingsRowCellViewModel*)logOutRow {
     return [[SCSettingsRowCellViewModel alloc]
             initWithTitle:@"Log Out"

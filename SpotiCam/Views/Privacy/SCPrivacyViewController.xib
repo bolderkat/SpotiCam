@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCPrivacyViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYc-wb-B87">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ur-gR-eed" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SpotiCam Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROE-w0-zr3">
+                                    <rect key="frame" x="20" y="40" width="374" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz3-dm-dQJ">
+                                    <rect key="frame" x="20" y="81" width="374" height="446.5"/>
+                                    <mutableString key="text">Here's the quick version up front: SpotiCam does not collect your personal information or data. The app does not track you, nor does it serve you ads.  SpotiCam requests your Spotify login as Spotify's API requires a valid authorization token to allow access to its track recommendation service.   SpotiCam only uses your login details to obtain an authorization token from Spotify. This token is then saved locally on your device, and the app does not keep your login credentials stored anywhere. Additionally, SpotiCam asks for the bare minimum account permissions necessary to get track recommendations from Spotify.  All network requests from this app are made only to Spotify's or Apple's servers for track recommendations or tip jar transactions respectively.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Qz3-dm-dQJ" firstAttribute="top" secondItem="ROE-w0-zr3" secondAttribute="bottom" constant="20" id="26u-Q9-Yoi"/>
+                                <constraint firstItem="ROE-w0-zr3" firstAttribute="top" secondItem="4Ur-gR-eed" secondAttribute="top" constant="40" id="2J2-BK-Ps7"/>
+                                <constraint firstAttribute="trailing" secondItem="Qz3-dm-dQJ" secondAttribute="trailing" constant="20" id="7aH-Ie-SXp"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qz3-dm-dQJ" secondAttribute="bottom" constant="40" id="JJC-E9-WvE"/>
+                                <constraint firstItem="ROE-w0-zr3" firstAttribute="leading" secondItem="4Ur-gR-eed" secondAttribute="leading" constant="20" id="ROi-f4-EKP"/>
+                                <constraint firstAttribute="trailing" secondItem="ROE-w0-zr3" secondAttribute="trailing" constant="20" id="cxL-3D-Tel"/>
+                                <constraint firstAttribute="height" constant="700" id="eIF-Ba-K4R"/>
+                                <constraint firstItem="Qz3-dm-dQJ" firstAttribute="leading" secondItem="4Ur-gR-eed" secondAttribute="leading" constant="20" id="mTi-7n-Tcr"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="4Ur-gR-eed" firstAttribute="top" secondItem="IYc-wb-B87" secondAttribute="top" id="61o-Uy-AfS"/>
+                        <constraint firstItem="4Ur-gR-eed" firstAttribute="leading" secondItem="IYc-wb-B87" secondAttribute="leading" id="Gvy-c3-yfh"/>
+                        <constraint firstAttribute="trailing" secondItem="4Ur-gR-eed" secondAttribute="trailing" id="dFu-E0-Yue"/>
+                        <constraint firstAttribute="bottom" secondItem="4Ur-gR-eed" secondAttribute="bottom" id="oE8-zz-S03"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4Ur-gR-eed" firstAttribute="width" secondItem="Q5M-cg-NOt" secondAttribute="width" id="G9h-Mh-9GS"/>
+                <constraint firstItem="IYc-wb-B87" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="HeC-ko-5iI"/>
+                <constraint firstAttribute="bottom" secondItem="IYc-wb-B87" secondAttribute="bottom" id="Ydm-bf-idy"/>
+                <constraint firstItem="IYc-wb-B87" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="lWP-O4-nb9"/>
+                <constraint firstItem="IYc-wb-B87" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wB6-iB-6fw"/>
+            </constraints>
+            <point key="canvasLocation" x="-91.304347826086968" y="120.53571428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
