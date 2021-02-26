@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)start;
 - (void)proceedAfterAuth;
 - (void)dismissGenresView;
+- (void)goToCameraView;
 - (void)goToSettingsView;
 - (void)goToProcessingViewWithImage:(UIImage*)image;
 - (void)goToRecommendationsViewWithAPIManager:(SCAPIManager*)apiManager;
@@ -30,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)openTipJar;
 - (void)openPrivacyPolicy;
 - (void)logOut;
+- (void)popViewControllerAnimated:(BOOL)animated;
 
 @end
 

@@ -7,6 +7,7 @@
 
 #import "SCMainCoordinator.h"
 #import "SCMainViewController.h"
+#import "SCCameraViewController.h"
 #import "SCProcessingViewController.h"
 #import "SCAuthViewController.h"
 #import "SCSettingsViewController.h"
@@ -80,6 +81,13 @@ static NSString *const kPopularityKey = @"popularity";
     }
 }
 
+- (void)goToCameraView {
+    SCCameraViewController *vc = [SCCameraViewController new];
+    vc.coordinator = self;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)goToSettingsView {
     SCSettingsViewController *vc = [SCSettingsViewController new];
     vc.coordinator = self;
@@ -140,7 +148,10 @@ static NSString *const kPopularityKey = @"popularity";
     array[0] = vc;
     [self.navigationController setViewControllers:array];
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
+}
+
+- (void)popViewControllerAnimated:(BOOL)animated; {
+    [self.navigationController popViewControllerAnimated:animated];
 }
 
 @end

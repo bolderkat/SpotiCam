@@ -24,15 +24,15 @@
 
 
 - (IBAction)takePictureTapped:(UIButton *)sender {
-    self.imagePicker = [UIImagePickerController new];
-    self.imagePicker.delegate = self;
-    self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
+    [self.coordinator goToCameraView];
 }
 
 - (IBAction)chooseFromLibraryTapped:(UIButton *)sender {
-    NSLog(@"Gray");
+    self.imagePicker = [UIImagePickerController new];
+    self.imagePicker.delegate = self;
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 - (IBAction)settingsButtonTapped:(UIButton *)sender {

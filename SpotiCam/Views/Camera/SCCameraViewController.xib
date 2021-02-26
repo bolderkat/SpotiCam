@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCCameraViewController">
+            <connections>
+                <outlet property="backButton" destination="AlN-AV-Kpi" id="YbL-Qv-eU4"/>
+                <outlet property="previewView" destination="CZ6-Nc-r7J" id="njX-Uk-KUm"/>
+                <outlet property="takePhotoButton" destination="czq-wz-J7i" id="bI4-Vn-I40"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZ6-Nc-r7J">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </view>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlN-AV-Kpi">
+                    <rect key="frame" x="30" y="84" width="40" height="40"/>
+                    <color key="backgroundColor" name="AppGreen"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Fu1-2G-Lzb"/>
+                        <constraint firstAttribute="height" constant="40" id="hvH-cb-o8s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <imageReference key="image" image="arrow.backward.circle" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="0Px-ub-cV5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czq-wz-J7i">
+                    <rect key="frame" x="157" y="722" width="100" height="100"/>
+                    <color key="backgroundColor" name="AppGreen"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="J6t-Bf-fjI"/>
+                        <constraint firstAttribute="height" constant="100" id="PlA-6t-iB3"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <imageReference key="image" image="camera.fill" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="didTakePhoto:" destination="-1" eventType="touchUpInside" id="e96-Rp-yx4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="czq-wz-J7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="G8F-31-W9v"/>
+                <constraint firstItem="CZ6-Nc-r7J" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Iyv-KJ-YS1"/>
+                <constraint firstItem="CZ6-Nc-r7J" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="JNF-2e-5ts"/>
+                <constraint firstItem="AlN-AV-Kpi" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="WDo-yL-Jc0"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="czq-wz-J7i" secondAttribute="bottom" constant="40" id="av8-ji-onl"/>
+                <constraint firstItem="AlN-AV-Kpi" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="cd9-EO-Mu7"/>
+                <constraint firstAttribute="bottom" secondItem="CZ6-Nc-r7J" secondAttribute="bottom" id="dg9-Xe-O5i"/>
+                <constraint firstItem="CZ6-Nc-r7J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jWN-hY-UdM"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.backward.circle" catalog="system" width="128" height="121"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <namedColor name="AppGreen">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
