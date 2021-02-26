@@ -12,6 +12,7 @@
 #import "SCSettingsViewController.h"
 #import "SCGenresViewController.h"
 #import "SCRecommendationsViewController.h"
+#import "SCTipViewController.h"
 #import "SCAPIManager.h"
 
 static NSString *const kAppAuthStateKey = @"authState";
@@ -111,7 +112,10 @@ static NSString *const kPopularityKey = @"popularity";
 }
 
 - (void)openTipJar {
-    NSLog(@"Open tip jar");
+    SCTipViewController *vc = [SCTipViewController new];
+    vc.coordinator = self;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)logOut {

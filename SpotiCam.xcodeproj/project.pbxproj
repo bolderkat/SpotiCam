@@ -27,6 +27,8 @@
 		653AF22525DE4CAE005F532C /* SCGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF22425DE4CAE005F532C /* SCGenre.m */; };
 		653AF23525DF630A005F532C /* SCGenreTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AF23425DF630A005F532C /* SCGenreTableDataSource.m */; };
 		657969EA25E4E03000CA377C /* SCTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 657969E925E4E03000CA377C /* SCTrack.m */; };
+		6581510F25E84F5F00D0F154 /* SCTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6581510D25E84F5F00D0F154 /* SCTipViewController.m */; };
+		6581511025E84F5F00D0F154 /* SCTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6581510E25E84F5F00D0F154 /* SCTipViewController.xib */; };
 		6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FCF825DC84F900AA5541 /* SCAuthManager.m */; };
 		6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FD0E25DCB14A00AA5541 /* SCAuthViewController.m */; };
 		6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6587FD0F25DCB14A00AA5541 /* SCAuthViewController.xib */; };
@@ -98,6 +100,9 @@
 		653AF23425DF630A005F532C /* SCGenreTableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCGenreTableDataSource.m; sourceTree = "<group>"; };
 		657969E825E4E03000CA377C /* SCTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTrack.h; sourceTree = "<group>"; };
 		657969E925E4E03000CA377C /* SCTrack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTrack.m; sourceTree = "<group>"; };
+		6581510C25E84F5F00D0F154 /* SCTipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTipViewController.h; sourceTree = "<group>"; };
+		6581510D25E84F5F00D0F154 /* SCTipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTipViewController.m; sourceTree = "<group>"; };
+		6581510E25E84F5F00D0F154 /* SCTipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCTipViewController.xib; sourceTree = "<group>"; };
 		6587FCF725DC84F900AA5541 /* SCAuthManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthManager.h; sourceTree = "<group>"; };
 		6587FCF825DC84F900AA5541 /* SCAuthManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAuthManager.m; sourceTree = "<group>"; };
 		6587FD0D25DCB14A00AA5541 /* SCAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAuthViewController.h; sourceTree = "<group>"; };
@@ -235,6 +240,7 @@
 				652E18C025D4ABEF00692F5C /* Main */,
 				65A4C63F25E6D185009A3259 /* Settings */,
 				653AF21325DDA418005F532C /* Genres */,
+				6581510B25E84E3900D0F154 /* Tip Jar */,
 				652BD6F025D4B377004F8198 /* Processing */,
 				651B0BD725E4A5A300A93B34 /* Recommendations */,
 			);
@@ -316,6 +322,16 @@
 				657969E925E4E03000CA377C /* SCTrack.m */,
 			);
 			path = SCTrack;
+			sourceTree = "<group>";
+		};
+		6581510B25E84E3900D0F154 /* Tip Jar */ = {
+			isa = PBXGroup;
+			children = (
+				6581510C25E84F5F00D0F154 /* SCTipViewController.h */,
+				6581510D25E84F5F00D0F154 /* SCTipViewController.m */,
+				6581510E25E84F5F00D0F154 /* SCTipViewController.xib */,
+			);
+			path = "Tip Jar";
 			sourceTree = "<group>";
 		};
 		6587FD0025DCAA6000AA5541 /* Auth */ = {
@@ -502,6 +518,7 @@
 			files = (
 				6587FD1125DCB14A00AA5541 /* SCAuthViewController.xib in Resources */,
 				6505305C25D3BB5100BF6521 /* LaunchScreen.storyboard in Resources */,
+				6581511025E84F5F00D0F154 /* SCTipViewController.xib in Resources */,
 				651B0BDF25E4A5F000A93B34 /* SCRecommendationsViewController.xib in Resources */,
 				65A4C64425E6D1B8009A3259 /* SCSettingsViewController.xib in Resources */,
 				65A4C65125E71A13009A3259 /* SCPopularityTableViewCell.xib in Resources */,
@@ -651,6 +668,7 @@
 				6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
 				651B0BDE25E4A5F000A93B34 /* SCRecommendationsViewController.m in Sources */,
+				6581510F25E84F5F00D0F154 /* SCTipViewController.m in Sources */,
 				653AF22525DE4CAE005F532C /* SCGenre.m in Sources */,
 				653AF21725DDA430005F532C /* SCGenresViewController.m in Sources */,
 				6505305125D3BB5000BF6521 /* SceneDelegate.m in Sources */,
