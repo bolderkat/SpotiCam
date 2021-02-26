@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCProcessingViewController : UIViewController
+@interface SCProcessingViewController : UIViewController <Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 @property UIImage *image;
 
