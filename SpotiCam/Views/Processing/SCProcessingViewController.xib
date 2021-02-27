@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="backButton" destination="ELv-rJ-7H4" id="a4g-OQ-fDV"/>
                 <outlet property="colorView" destination="Y7E-TK-z9z" id="4pi-ja-qMN"/>
+                <outlet property="getTracksBackgroundView" destination="wUW-i1-169" id="TNj-0y-jda"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,13 +24,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7E-TK-z9z">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
+                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUW-i1-169" userLabel="Get Tracks Background View">
+                            <rect key="frame" x="107" y="408" width="200" height="80"/>
+                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="I5R-2J-Yva"/>
+                                <constraint firstAttribute="height" constant="80" id="y8x-w5-Ba0"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHf-j2-loS">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="107" y="408" width="200" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="a3t-np-1fB"/>
+                                <constraint firstAttribute="width" constant="200" id="qo9-aM-CqE"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                             <size key="titleShadowOffset" width="1" height="1"/>
                             <state key="normal" title="GET TRACKS!">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="getTracksPressed:" destination="-1" eventType="touchUpInside" id="eRu-io-vwo"/>
@@ -38,10 +50,10 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="eHf-j2-loS" firstAttribute="top" secondItem="Y7E-TK-z9z" secondAttribute="top" id="AN8-qk-H6K"/>
-                        <constraint firstAttribute="bottom" secondItem="eHf-j2-loS" secondAttribute="bottom" id="Wjc-i6-i7E"/>
-                        <constraint firstAttribute="trailing" secondItem="eHf-j2-loS" secondAttribute="trailing" id="g2l-3p-1Ug"/>
-                        <constraint firstItem="eHf-j2-loS" firstAttribute="leading" secondItem="Y7E-TK-z9z" secondAttribute="leading" id="j9y-nz-IvD"/>
+                        <constraint firstItem="eHf-j2-loS" firstAttribute="centerX" secondItem="Y7E-TK-z9z" secondAttribute="centerX" id="GQM-pa-H1o"/>
+                        <constraint firstItem="wUW-i1-169" firstAttribute="centerX" secondItem="Y7E-TK-z9z" secondAttribute="centerX" id="TpV-V3-T4z"/>
+                        <constraint firstItem="eHf-j2-loS" firstAttribute="centerY" secondItem="Y7E-TK-z9z" secondAttribute="centerY" id="aMN-wu-rvp"/>
+                        <constraint firstItem="wUW-i1-169" firstAttribute="centerY" secondItem="Y7E-TK-z9z" secondAttribute="centerY" id="q1l-gU-YzG"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-00-EH7" userLabel="Back Button View">
@@ -93,6 +105,9 @@
         <image name="BackIndicator" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

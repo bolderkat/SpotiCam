@@ -10,9 +10,10 @@
 
 @interface SCProcessingViewController ()
 @property (nonatomic) SCAPIManager *apiManager;
-@property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (nonatomic) UIColor *dominantColor;
+@property (weak, nonatomic) IBOutlet UIView *colorView;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIView *getTracksBackgroundView;
 
 @end
 
@@ -23,6 +24,7 @@
     self.dominantColor = [self getDominantColorFromPhoto];
     self.colorView.backgroundColor = self.dominantColor;
     [self calculateTrackAttributesFromColor:self.dominantColor];
+    self.getTracksBackgroundView.layer.cornerRadius = 15;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
