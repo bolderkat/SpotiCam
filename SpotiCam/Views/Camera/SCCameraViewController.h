@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCCameraViewController : UIViewController <UIGestureRecognizerDelegate, AVCapturePhotoCaptureDelegate, Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
-@property (nonatomic) AVCaptureSession *captureSession;
+@property (nonatomic, nullable) AVCaptureSession *captureSession;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 

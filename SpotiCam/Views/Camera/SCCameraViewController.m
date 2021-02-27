@@ -24,19 +24,20 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    if (!self.captureSession) {
+        [self setUpCaptureSession];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
-    [self setUpCaptureSession];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.captureSession stopRunning];
-    self.previewView.layer.sublayers = @[];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self cleanUpCaptureSession];
 }
 
 - (void)configureViewController {
@@ -89,6 +90,19 @@
         });
     }
 }
+
+- (void)cleanUpCaptureSession {
+    __weak typeof(self) weakSelf = self;
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    dispatch_async(globalQueue, ^{
+        [weakSelf.captureSession stopRunning];
+        weakSelf.captureSession = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.previewView.layer.sublayers = @[];
+        });
+    });
+}
+
 - (IBAction)backButtonPressed:(UIButton *)sender {
     [self.coordinator popViewControllerAnimated:YES];
 }
