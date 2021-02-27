@@ -11,6 +11,9 @@
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *activityIndicatorBackground;
+@property (weak, nonatomic) IBOutlet UILabel *analyzingLabel;
 
 @end
 
@@ -24,6 +27,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self.activityIndicatorBackground setHidden:YES];
+    [self.analyzingLabel setHidden:YES];
+    [self.activityIndicator stopAnimating];
     if (!self.captureSession) {
         [self setUpCaptureSession];
     }
@@ -43,6 +49,8 @@
 - (void)configureViewController {
     self.takePhotoButton.layer.cornerRadius = 40;
     self.backButton.layer.cornerRadius = 20;
+    self.activityIndicator.hidesWhenStopped = YES;
+    self.activityIndicatorBackground.layer.cornerRadius = 15;
 }
 
 - (void)setUpCaptureSession {
@@ -109,6 +117,9 @@
 
 - (IBAction)didTakePhoto:(UIButton *)sender {
     AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey: AVVideoCodecTypeHEVC}];
+    [self.activityIndicator startAnimating];
+    [self.activityIndicatorBackground setHidden:NO];
+    [self.analyzingLabel setHidden:NO];
     [self.stillImageOutput capturePhotoWithSettings:settings delegate:self];
 }
 

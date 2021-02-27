@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCCameraViewController">
             <connections>
+                <outlet property="activityIndicator" destination="Kiz-fr-ZPZ" id="T4h-U0-SFx"/>
+                <outlet property="activityIndicatorBackground" destination="axy-Xk-a6t" id="eRp-Uu-W4L"/>
+                <outlet property="analyzingLabel" destination="9gn-au-X0v" id="jfS-8b-Udy"/>
                 <outlet property="backButton" destination="QjR-on-4r5" id="OxN-Cz-3kA"/>
                 <outlet property="previewView" destination="CZ6-Nc-r7J" id="njX-Uk-KUm"/>
                 <outlet property="takePhotoButton" destination="czq-wz-J7i" id="bI4-Vn-I40"/>
@@ -26,6 +29,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZ6-Nc-r7J">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </view>
+                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axy-Xk-a6t" userLabel="Activity Indicator Background View">
+                    <rect key="frame" x="107" y="408" width="200" height="80"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="doW-Re-c9P"/>
+                        <constraint firstAttribute="height" constant="80" id="pFU-6Z-sLj"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analyzing Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gn-au-X0v">
+                    <rect key="frame" x="157.5" y="460" width="99.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Kiz-fr-ZPZ">
+                    <rect key="frame" x="188.5" y="419.5" width="37" height="37"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
                 <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czq-wz-J7i">
                     <rect key="frame" x="157" y="722" width="100" height="100"/>
                     <color key="backgroundColor" name="AppGreen"/>
@@ -76,13 +97,19 @@
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="axy-Xk-a6t" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9cm-13-nko"/>
+                <constraint firstItem="9gn-au-X0v" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="ARt-le-mrL"/>
+                <constraint firstItem="Kiz-fr-ZPZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-10" id="CZ8-rc-Vz6"/>
+                <constraint firstItem="axy-Xk-a6t" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Fmt-Vi-eUb"/>
                 <constraint firstItem="czq-wz-J7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="G8F-31-W9v"/>
                 <constraint firstItem="CZ6-Nc-r7J" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="Iyv-KJ-YS1"/>
                 <constraint firstItem="CZ6-Nc-r7J" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="JNF-2e-5ts"/>
                 <constraint firstItem="uvP-JO-Kzp" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="NOw-XZ-rle"/>
+                <constraint firstItem="9gn-au-X0v" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="O37-PF-Dov"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="czq-wz-J7i" secondAttribute="bottom" constant="40" id="av8-ji-onl"/>
                 <constraint firstItem="uvP-JO-Kzp" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="caQ-9G-1SB"/>
                 <constraint firstAttribute="bottom" secondItem="CZ6-Nc-r7J" secondAttribute="bottom" id="dg9-Xe-O5i"/>
+                <constraint firstItem="Kiz-fr-ZPZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iIy-y4-EiF"/>
                 <constraint firstItem="CZ6-Nc-r7J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jWN-hY-UdM"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
@@ -96,6 +123,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
