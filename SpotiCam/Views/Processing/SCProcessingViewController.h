@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCProcessingViewController : UIViewController <Coordinated>
+@interface SCProcessingViewController : UIViewController <UIGestureRecognizerDelegate, Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 @property UIImage *image;
 

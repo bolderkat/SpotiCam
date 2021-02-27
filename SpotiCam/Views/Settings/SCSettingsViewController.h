@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCSettingsViewController : UIViewController <UITableViewDelegate, Coordinated>
+@interface SCSettingsViewController : UIViewController <UITableViewDelegate, UIGestureRecognizerDelegate, Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 
 @end

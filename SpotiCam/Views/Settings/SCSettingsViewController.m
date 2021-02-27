@@ -48,6 +48,12 @@ static NSString *const kPopularityKey = @"popularity";
     [self configureViewController];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
+}
+
 - (void)configureViewController {
     self.title = @"Settings";
     [self.navigationController setNavigationBarHidden:NO];

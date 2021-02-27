@@ -22,14 +22,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dominantColor = [self getDominantColorFromPhoto];
-    self.colorView.backgroundColor = self.dominantColor;
-    [self calculateTrackAttributesFromColor:self.dominantColor];
-    self.getTracksBackgroundView.layer.cornerRadius = 15;
+    [self configureViewController];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
+}
+
+- (void)configureViewController {
+    self.colorView.backgroundColor = self.dominantColor;
+    [self calculateTrackAttributesFromColor:self.dominantColor];
+    self.getTracksBackgroundView.layer.cornerRadius = 15;
 }
 
 - (UIColor*)getDominantColorFromPhoto {
