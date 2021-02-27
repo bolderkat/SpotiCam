@@ -24,8 +24,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                     <color key="backgroundColor" name="AppGreen"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                    <size key="titleShadowOffset" width="0.0" height="1"/>
                     <state key="normal" title="TAKE A PICTURE">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="takePictureTapped:" destination="-1" eventType="touchUpInside" id="oHf-ej-LLZ"/>
@@ -35,8 +37,10 @@
                     <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                    <size key="titleShadowOffset" width="0.0" height="1"/>
                     <state key="normal" title="CHOOSE FROM LIBRARY">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="chooseFromLibraryTapped:" destination="-1" eventType="touchUpInside" id="R94-kN-Mfw"/>
