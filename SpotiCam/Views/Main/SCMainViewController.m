@@ -9,6 +9,10 @@
 
 @interface SCMainViewController () 
 @property (nonatomic) UIImagePickerController *imagePicker;
+@property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
+@property (weak, nonatomic) IBOutlet UIButton *topButton;
+@property (weak, nonatomic) IBOutlet UIButton *bottomButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @end
 
 @implementation SCMainViewController
@@ -20,12 +24,20 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [self setButtonsEnabled:YES];
+    [self.selectedImageView setImage:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     [self.navigationController.interactivePopGestureRecognizer setEnabled:NO];
+}
+
+- (void)setButtonsEnabled:(BOOL)enabled {
+    [self.topButton setEnabled:enabled];
+    [self.bottomButton setEnabled:enabled];
+    [self.settingsButton setEnabled:enabled];
 }
 
 - (IBAction)takePictureTapped:(UIButton *)sender {
@@ -45,10 +57,14 @@
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
-    [self.imagePicker dismissViewControllerAnimated:NO completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-    [self.coordinator goToProcessingViewWithImage:image];
+    self.selectedImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.selectedImageView setImage:image];
+    [self setButtonsEnabled:NO];
+    __weak typeof(self) weakSelf = self;
+    [self.imagePicker dismissViewControllerAnimated:YES completion:^{
+        [weakSelf.coordinator performSelector:@selector(goToProcessingViewWithImage:) withObject:image afterDelay:0.5];
+    }];
 }
 
 @end

@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCMainViewController">
             <connections>
+                <outlet property="bottomButton" destination="gXr-8c-Rev" id="3gF-gC-7bN"/>
+                <outlet property="selectedImageView" destination="zFW-Ji-5zK" id="9Ra-uC-yfW"/>
+                <outlet property="settingsButton" destination="m6m-c8-M8U" id="G40-MU-ah6"/>
+                <outlet property="topButton" destination="z68-D1-dcl" id="0ZJ-1b-aMG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="KCm-qP-G0a"/>
             </connections>
         </placeholder>
@@ -61,6 +65,9 @@
                         <action selector="settingsButtonTapped:" destination="-1" eventType="touchUpInside" id="aB1-eK-JhS"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zFW-Ji-5zK">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,15 +75,19 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z68-D1-dcl" secondAttribute="trailing" id="39s-ou-w8J"/>
                 <constraint firstItem="gXr-8c-Rev" firstAttribute="height" secondItem="z68-D1-dcl" secondAttribute="height" id="Nbe-Dw-V0d"/>
                 <constraint firstItem="gXr-8c-Rev" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Pva-TK-twz"/>
+                <constraint firstAttribute="bottom" secondItem="zFW-Ji-5zK" secondAttribute="bottom" id="Sjr-BH-Vy6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gXr-8c-Rev" secondAttribute="trailing" id="W06-Ft-TrT"/>
+                <constraint firstItem="zFW-Ji-5zK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WsJ-ro-TBJ"/>
                 <constraint firstItem="z68-D1-dcl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Zhi-qb-0Tz"/>
                 <constraint firstItem="z68-D1-dcl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="byB-ir-SlH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="m6m-c8-M8U" secondAttribute="trailing" constant="20" id="jLN-ty-epL"/>
+                <constraint firstItem="zFW-Ji-5zK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jX6-xc-lyF"/>
                 <constraint firstItem="gXr-8c-Rev" firstAttribute="top" secondItem="z68-D1-dcl" secondAttribute="bottom" id="q6m-tp-R1J"/>
+                <constraint firstItem="zFW-Ji-5zK" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="tJo-JM-x8c"/>
                 <constraint firstAttribute="bottom" secondItem="gXr-8c-Rev" secondAttribute="bottom" id="x8L-rd-wHp"/>
                 <constraint firstItem="m6m-c8-M8U" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="ypK-oa-Ek0"/>
             </constraints>
-            <point key="canvasLocation" x="74" y="129"/>
+            <point key="canvasLocation" x="73.913043478260875" y="128.57142857142856"/>
         </view>
     </objects>
     <resources>
