@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SCGenresViewController : UIViewController <UITableViewDelegate, UISearchBarDelegate, Coordinated>
+@interface SCGenresViewController : UIViewController <UITableViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate, Coordinated>
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
 
 @end

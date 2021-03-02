@@ -63,7 +63,6 @@ static NSString *const kPopularityKey = @"popularity";
     
     if (genres == nil || [genres count] == 0) {
         vc = [SCGenresViewController new];
-        vc.navigationItem.hidesBackButton = YES;
     } else {
         vc = [SCMainViewController new];
     }
@@ -73,11 +72,11 @@ static NSString *const kPopularityKey = @"popularity";
 
 - (void)dismissGenresView {
     // Proceed to main VC if onboarding, otherwise return user to settings VC
-    NSInteger currentNavIndex = [self.navigationController.viewControllers count];
-    if ([self.navigationController.viewControllers[currentNavIndex - 2] isKindOfClass:[SCAuthViewController class]]) {
-        [self proceedAfterAuth];
-    } else {
+    NSInteger currentNavIndex = [self.navigationController.viewControllers count] - 1;
+    if (currentNavIndex >= 1 && [self.navigationController.viewControllers[currentNavIndex - 1] isKindOfClass:[SCSettingsViewController class]]) {
         [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self proceedAfterAuth];
     }
 }
 

@@ -43,6 +43,12 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    [self.navigationController.interactivePopGestureRecognizer setEnabled:NO];
+}
+
 
 - (void)configureViewController {
     self.title = @"Select Genres";
@@ -51,6 +57,7 @@
                                               style:UIBarButtonItemStyleDone
                                               target:self
                                               action:@selector(doneButtonPressed)];
+    self.navigationItem.hidesBackButton = YES;
     [self updateUI];
 }
 
