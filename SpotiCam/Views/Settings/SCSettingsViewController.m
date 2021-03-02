@@ -38,6 +38,7 @@ static NSString *const kPopularityKey = @"popularity";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPopularityValue];
+    [self configureViewController];
     [self configureTableView];
     [self configureDataSource];
     [self applyTableViewSnapshot];
