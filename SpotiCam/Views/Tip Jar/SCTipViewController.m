@@ -6,7 +6,7 @@
 //
 
 #import "SCTipViewController.h"
-#import "SCIAPHelper.h"
+
 
 static NSString *const kPreviousTips = @"previousTips";
 static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotification";
@@ -25,9 +25,9 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
 
 @implementation SCTipViewController
 
-- (instancetype)init {
+- (instancetype)initWithStore:(SCIAPHelper*)store {
     if (self == [super init]) {
-        self.store = [SCIAPHelper new];
+        self.store = store;
         return self;
     }
     return nil;

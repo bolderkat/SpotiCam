@@ -16,6 +16,7 @@
 #import "SCTipViewController.h"
 #import "SCPrivacyViewController.h"
 #import "SCAPIManager.h"
+#import "SCIAPHelper.h"
 
 static NSString *const kAppAuthStateKey = @"authState";
 static NSString *const kSelectedGenresKey = @"selectedGenres";
@@ -23,6 +24,7 @@ static NSString *const kPopularityKey = @"popularity";
 
 @interface SCMainCoordinator ()
 @property NSMutableArray *childCoordinators;
+@property (nonatomic) SCIAPHelper *store;
 @end
 
 @implementation SCMainCoordinator
@@ -32,6 +34,7 @@ static NSString *const kPopularityKey = @"popularity";
     
     self.window = window;
     self.authManager = [SCAuthManager new];
+    self.store = [SCIAPHelper new];
     self.authManager.coordinator = self;
     [self.authManager loadState];
     return self;
@@ -123,7 +126,7 @@ static NSString *const kPopularityKey = @"popularity";
 }
 
 - (void)openTipJar {
-    SCTipViewController *vc = [SCTipViewController new];
+    SCTipViewController *vc = [[SCTipViewController alloc] initWithStore:self.store];
     vc.coordinator = self;
     
     [self.navigationController pushViewController:vc animated:YES];
