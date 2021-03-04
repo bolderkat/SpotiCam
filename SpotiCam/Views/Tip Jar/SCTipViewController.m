@@ -15,8 +15,11 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
 @property (nonatomic) NSInteger previousTips;
 @property (nonatomic) SCIAPHelper *store;
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *tipLoadingIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *tipLoadingLabel;
+@property (weak, nonatomic) IBOutlet UIView *transactionLoadingView;
+@property (weak, nonatomic) IBOutlet UILabel *transactionLoadingLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *transactionActivityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *topButton;
 @property (weak, nonatomic) IBOutlet UIButton *middleButton;
 @property (weak, nonatomic) IBOutlet UIButton *bottomButton;
@@ -54,9 +57,11 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
     self.topButton.layer.cornerRadius = 10;
     self.middleButton.layer.cornerRadius = 10;
     self.bottomButton.layer.cornerRadius = 10;
+    self.transactionLoadingView.layer.cornerRadius = 15;
+    [self setTransactionLoadingViewHidden:YES];
     [self.stackView setHidden:YES];
-    [self.activityIndicator startAnimating];
-    [self.loadingLabel setHidden:NO];
+    [self.tipLoadingIndicator startAnimating];
+    [self.tipLoadingLabel setHidden:NO];
     [self updatePreviousTipLabel];
 }
 
@@ -73,6 +78,12 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
             self.previousTipLabel.text = [NSString stringWithFormat:@"You have tipped %ld times before. You rock!", self.previousTips];
             break;
     }
+}
+
+- (void)setTransactionLoadingViewHidden:(BOOL)hidden {
+    [self.transactionLoadingView setHidden:hidden];
+    [self.transactionLoadingLabel setHidden:hidden];
+    [self.transactionActivityIndicator setHidden:hidden];
 }
 
 - (void)handleProductRequestWithSuccess:(BOOL)success andProducts:(NSArray<SKProduct*> * _Nullable)products {
@@ -97,8 +108,8 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
     }
-    [self.activityIndicator stopAnimating];
-    [self.loadingLabel setHidden:YES];
+    [self.tipLoadingIndicator stopAnimating];
+    [self.tipLoadingLabel setHidden:YES];
 }
 
 - (void)setButtonsEnabled:(BOOL)enabled {
@@ -110,25 +121,25 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
 - (void)handleNotification:(NSNotification*)notification {
     [self updatePreviousTipLabel];
     [self setButtonsEnabled:YES];
-    [self.activityIndicator stopAnimating];
+    [self setTransactionLoadingViewHidden:YES];
 }
 
 - (IBAction)topButtonPressed:(UIButton *)sender {
     [self.store buySmallTip];
     [self setButtonsEnabled:NO];
-    [self.activityIndicator startAnimating];
+    [self setTransactionLoadingViewHidden:NO];
 }
 
 - (IBAction)middleButtonPressed:(UIButton *)sender {
     [self.store buyMediumTip];
     [self setButtonsEnabled:NO];
-    [self.activityIndicator startAnimating];
+    [self setTransactionLoadingViewHidden:NO];
 }
 
 - (IBAction)bottomButtonPressed:(UIButton *)sender {
     [self.store buyLargeTip];
     [self setButtonsEnabled:NO];
-    [self.activityIndicator startAnimating];
+    [self setTransactionLoadingViewHidden:NO];
 }
 
 

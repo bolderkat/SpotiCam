@@ -11,13 +11,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCTipViewController">
             <connections>
-                <outlet property="activityIndicator" destination="3oA-dH-nBW" id="ALc-wc-zld"/>
                 <outlet property="bottomButton" destination="goq-mU-MWC" id="pPk-r9-iqk"/>
-                <outlet property="loadingLabel" destination="0uE-Ia-rMb" id="ktH-R1-laB"/>
                 <outlet property="middleButton" destination="deQ-BS-1VJ" id="bgS-fP-k8T"/>
                 <outlet property="previousTipLabel" destination="bxN-od-RIJ" id="vi8-ev-KeG"/>
                 <outlet property="stackView" destination="hYM-aH-JC9" id="961-RU-XiM"/>
+                <outlet property="tipLoadingIndicator" destination="3oA-dH-nBW" id="ALc-wc-zld"/>
+                <outlet property="tipLoadingLabel" destination="0uE-Ia-rMb" id="ktH-R1-laB"/>
                 <outlet property="topButton" destination="JNO-g8-lDN" id="fgW-zd-h7l"/>
+                <outlet property="transactionActivityIndicator" destination="2r7-QE-Ekg" id="yps-gM-3tW"/>
+                <outlet property="transactionLoadingLabel" destination="HzP-Xx-4j5" id="HFI-0y-afP"/>
+                <outlet property="transactionLoadingView" destination="unx-ow-rcq" id="WSh-A6-eDq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -170,14 +173,38 @@
                         <constraint firstItem="S3K-Nt-X7y" firstAttribute="top" secondItem="I0P-eH-NAi" secondAttribute="top" id="xpU-Nk-ZhE"/>
                     </constraints>
                 </scrollView>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unx-ow-rcq" userLabel="StoreKit Loading View">
+                    <rect key="frame" x="107" y="373" width="200" height="100"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="PRA-Nh-txz"/>
+                        <constraint firstAttribute="width" constant="200" id="yWL-Xa-40B"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="2r7-QE-Ekg">
+                    <rect key="frame" x="188.5" y="394.5" width="37" height="37"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacting App Store..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzP-Xx-4j5">
+                    <rect key="frame" x="131.5" y="436.5" width="151.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="1"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="unx-ow-rcq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Oj-wj-Zd0"/>
                 <constraint firstItem="S3K-Nt-X7y" firstAttribute="width" secondItem="Q5M-cg-NOt" secondAttribute="width" id="8Hj-Tq-FJA"/>
+                <constraint firstItem="HzP-Xx-4j5" firstAttribute="top" secondItem="2r7-QE-Ekg" secondAttribute="bottom" constant="5" id="BWH-oa-vUX"/>
+                <constraint firstItem="HzP-Xx-4j5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IZ1-RI-9ud"/>
+                <constraint firstItem="unx-ow-rcq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-25" id="OPy-PC-jvv"/>
                 <constraint firstAttribute="trailing" secondItem="I0P-eH-NAi" secondAttribute="trailing" id="P7R-eo-QtN"/>
+                <constraint firstItem="2r7-QE-Ekg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-35" id="Tq0-zm-2Mj"/>
                 <constraint firstAttribute="bottom" secondItem="I0P-eH-NAi" secondAttribute="bottom" id="cNb-86-Lwh"/>
                 <constraint firstItem="I0P-eH-NAi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iJx-z3-t9b"/>
+                <constraint firstItem="2r7-QE-Ekg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jpw-VD-kbh"/>
                 <constraint firstItem="I0P-eH-NAi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xsy-a9-BM2"/>
             </constraints>
             <point key="canvasLocation" x="126.08695652173914" y="138.61607142857142"/>
