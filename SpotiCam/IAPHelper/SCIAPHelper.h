@@ -15,9 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NSString ProductIdentifier;
 typedef void (^ProductsRequestCompletionHandler)(BOOL, NSArray<SKProduct*>* _Nullable);
 
-@interface SCIAPHelper : NSObject <SKProductsRequestDelegate>
+@interface SCIAPHelper : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 - (void)requestProductsWithCompletionHandler:(ProductsRequestCompletionHandler)completionHandler;
+- (void)buySmallTip;
+- (void)buyMediumTip;
+- (void)buyLargeTip;
 - (BOOL)canMakePayments;
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray<SKPaymentTransaction *> *)transactions;
 
 @end
 

@@ -66,6 +66,9 @@
                                                     <state key="normal">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="topButtonPressed:" destination="-1" eventType="touchUpInside" id="oUn-Z7-1fI"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -88,6 +91,9 @@
                                                     <state key="normal">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="middleButtonPressed:" destination="-1" eventType="touchUpInside" id="gzE-BF-HeW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -110,6 +116,9 @@
                                                     <state key="normal">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="bottomButtonPressed:" destination="-1" eventType="touchUpInside" id="iet-hO-MTD"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>

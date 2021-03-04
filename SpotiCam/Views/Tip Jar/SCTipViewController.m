@@ -9,6 +9,7 @@
 #import "SCIAPHelper.h"
 
 static NSString *const kPreviousTips = @"previousTips";
+static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotification";
 
 @interface SCTipViewController ()
 @property (nonatomic) NSInteger previousTips;
@@ -26,7 +27,6 @@ static NSString *const kPreviousTips = @"previousTips";
 
 - (instancetype)init {
     if (self == [super init]) {
-        self.previousTips = [[NSUserDefaults standardUserDefaults] integerForKey:kPreviousTips] ?: 0;
         self.store = [SCIAPHelper new];
         return self;
     }
@@ -42,6 +42,10 @@ static NSString *const kPreviousTips = @"previousTips";
             [weakSelf handleProductRequestWithSuccess:success andProducts:products];
         });
     }];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleNotification:)
+                                                 name:kNotificationName
+                                               object:nil];
 }
 
 - (void)configureViewController {
@@ -55,6 +59,7 @@ static NSString *const kPreviousTips = @"previousTips";
 }
 
 - (void)updatePreviousTipLabel {
+    self.previousTips = [[NSUserDefaults standardUserDefaults] integerForKey:kPreviousTips] ?: 0;
     switch (self.previousTips) {
         case 0:
             self.previousTipLabel.text = nil;
@@ -73,17 +78,10 @@ static NSString *const kPreviousTips = @"previousTips";
         NSNumberFormatter *formatter = [NSNumberFormatter new];
         formatter.formatterBehavior = NSNumberFormatterBehavior10_4;
         formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-        
-        for (SKProduct *product in products) {
-            formatter.locale = product.priceLocale;
-            if ([product.productIdentifier isEqualToString:@"SmallTip"]) {
-                [self.topButton setTitle:[formatter stringFromNumber:product.price] forState:UIControlStateNormal];
-            } else if ([product.productIdentifier isEqualToString:@"MediumTip"]) {
-                [self.middleButton setTitle:[formatter stringFromNumber:product.price] forState:UIControlStateNormal];
-            } else if ([product.productIdentifier isEqualToString:@"LargeTip"]) {
-                [self.bottomButton setTitle:[formatter stringFromNumber:product.price] forState:UIControlStateNormal];
-            }
-        }
+        formatter.locale = products[0].priceLocale;
+        [self.topButton setTitle:[formatter stringFromNumber:products[0].price] forState:UIControlStateNormal];
+        [self.middleButton setTitle:[formatter stringFromNumber:products[1].price] forState:UIControlStateNormal];
+        [self.bottomButton setTitle:[formatter stringFromNumber:products[2].price] forState:UIControlStateNormal];
         [self.contentView setHidden:NO];
     } else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error loading tip options from App Store."
@@ -100,16 +98,34 @@ static NSString *const kPreviousTips = @"previousTips";
     [self.activityIndicator stopAnimating];
 }
 
+- (void)setButtonsEnabled:(BOOL)enabled {
+    [self.topButton setEnabled:enabled];
+    [self.middleButton setEnabled:enabled];
+    [self.bottomButton setEnabled:enabled];
+}
+
+- (void)handleNotification:(NSNotification*)notification {
+    [self updatePreviousTipLabel];
+    [self setButtonsEnabled:YES];
+    [self.activityIndicator stopAnimating];
+}
+
 - (IBAction)topButtonPressed:(UIButton *)sender {
-    
+    [self.store buySmallTip];
+    [self setButtonsEnabled:NO];
+    [self.activityIndicator startAnimating];
 }
 
 - (IBAction)middleButtonPressed:(UIButton *)sender {
-
+    [self.store buyMediumTip];
+    [self setButtonsEnabled:NO];
+    [self.activityIndicator startAnimating];
 }
 
 - (IBAction)bottomButtonPressed:(UIButton *)sender {
-
+    [self.store buyLargeTip];
+    [self setButtonsEnabled:NO];
+    [self.activityIndicator startAnimating];
 }
 
 
