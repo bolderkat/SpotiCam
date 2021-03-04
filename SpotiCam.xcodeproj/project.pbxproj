@@ -43,6 +43,8 @@
 		65A4C65825E733F3009A3259 /* SCSettingsRowCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A4C65725E733F3009A3259 /* SCSettingsRowCellViewModel.m */; };
 		65A4C65F25E741EE009A3259 /* SCSettingsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A4C65E25E741EE009A3259 /* SCSettingsTableDataSource.m */; };
 		65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64F2D25D710CE0083E07C /* SCAPIManager.m */; };
+		65FC1EA425F015D800B50DC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FC1EA325F015D800B50DC1 /* StoreKit.framework */; };
+		65FC1EA925F02B9E00B50DC1 /* SCIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC1EA825F02B9E00B50DC1 /* SCIAPHelper.m */; };
 		AEA943AAA4AFC22114A78144 /* Pods_SpotiCam_SpotiCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */; };
 		B2F3FF80EAFCF03E84915068 /* Pods_SpotiCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */; };
 /* End PBXBuildFile section */
@@ -130,6 +132,9 @@
 		65A4C65E25E741EE009A3259 /* SCSettingsTableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSettingsTableDataSource.m; sourceTree = "<group>"; };
 		65C64F2C25D710CE0083E07C /* SCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAPIManager.h; sourceTree = "<group>"; };
 		65C64F2D25D710CE0083E07C /* SCAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAPIManager.m; sourceTree = "<group>"; };
+		65FC1EA325F015D800B50DC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		65FC1EA725F02B9E00B50DC1 /* SCIAPHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCIAPHelper.h; sourceTree = "<group>"; };
+		65FC1EA825F02B9E00B50DC1 /* SCIAPHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCIAPHelper.m; sourceTree = "<group>"; };
 		670F2CFFF8774E84D9562AC9 /* Pods-SpotiCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCamTests.release.xcconfig"; path = "Target Support Files/Pods-SpotiCamTests/Pods-SpotiCamTests.release.xcconfig"; sourceTree = "<group>"; };
 		6DF2261616169A27C04F9F60 /* Pods_SpotiCamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotiCamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12544D67CC058993DF99A3D /* Pods-SpotiCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiCam.release.xcconfig"; path = "Target Support Files/Pods-SpotiCam/Pods-SpotiCam.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F3FF80EAFCF03E84915068 /* Pods_SpotiCam.framework in Frameworks */,
+				65FC1EA425F015D800B50DC1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +174,7 @@
 		62D3B5F3BE39A85220FC69CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65FC1EA325F015D800B50DC1 /* StoreKit.framework */,
 				F60F523EE4F076C1AC8B19FF /* Pods_SpotiCam.framework */,
 				0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */,
 				6DF2261616169A27C04F9F60 /* Pods_SpotiCamTests.framework */,
@@ -202,6 +209,7 @@
 			children = (
 				657969E625E4E01200CA377C /* Models */,
 				65C64F2B25D710B40083E07C /* APIManager */,
+				65FC1EA625F02B7D00B50DC1 /* IAPHelper */,
 				6505308425D486A000BF6521 /* Delegates and Coordinator */,
 				6505308B25D4898300BF6521 /* Views */,
 				6505305825D3BB5100BF6521 /* Assets.xcassets */,
@@ -426,6 +434,15 @@
 				6587FCF825DC84F900AA5541 /* SCAuthManager.m */,
 			);
 			path = APIManager;
+			sourceTree = "<group>";
+		};
+		65FC1EA625F02B7D00B50DC1 /* IAPHelper */ = {
+			isa = PBXGroup;
+			children = (
+				65FC1EA725F02B9E00B50DC1 /* SCIAPHelper.h */,
+				65FC1EA825F02B9E00B50DC1 /* SCIAPHelper.m */,
+			);
+			path = IAPHelper;
 			sourceTree = "<group>";
 		};
 		F6AF60B220DA4512CEBAC3F1 /* Pods */ = {
@@ -703,6 +720,7 @@
 				652BD6F425D4B388004F8198 /* SCProcessingViewController.m in Sources */,
 				6587FCF925DC84F900AA5541 /* SCAuthManager.m in Sources */,
 				6505305F25D3BB5100BF6521 /* main.m in Sources */,
+				65FC1EA925F02B9E00B50DC1 /* SCIAPHelper.m in Sources */,
 				651B0BDE25E4A5F000A93B34 /* SCRecommendationsViewController.m in Sources */,
 				6581510F25E84F5F00D0F154 /* SCTipViewController.m in Sources */,
 				653AF22525DE4CAE005F532C /* SCGenre.m in Sources */,
