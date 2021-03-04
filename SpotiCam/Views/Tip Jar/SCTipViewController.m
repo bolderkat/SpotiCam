@@ -96,20 +96,35 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
         [self.middleButton setTitle:[formatter stringFromNumber:products[1].price] forState:UIControlStateNormal];
         [self.bottomButton setTitle:[formatter stringFromNumber:products[2].price] forState:UIControlStateNormal];
         [self.stackView setHidden:NO];
+    } else if (![self.store canMakePayments]) {
+        [self displayPaymentsNotAllowedError];
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error loading tip options from App Store."
-                                                                       message:@"Please try again later!"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Return to Settings"
-                                                         style:UIAlertActionStyleDefault
-                                                       handler:^(UIAlertAction * _Nonnull action) {
-            [self.coordinator popViewControllerAnimated:YES];
-        }];
-        [alert addAction:action];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self displayTipLoadingError];
     }
     [self.tipLoadingIndicator stopAnimating];
     [self.tipLoadingLabel setHidden:YES];
+}
+
+- (void)displayPaymentsNotAllowedError {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Payments are not allowed for this user"
+                                                                   message:@"This may be related to your Apple ID/App Store account settings or parental controls."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)displayTipLoadingError {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Unable to load tip options from App Store"
+                                                                   message:@"Please try again later!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)setButtonsEnabled:(BOOL)enabled {
