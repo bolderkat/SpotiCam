@@ -13,9 +13,10 @@
             <connections>
                 <outlet property="activityIndicator" destination="3oA-dH-nBW" id="ALc-wc-zld"/>
                 <outlet property="bottomButton" destination="goq-mU-MWC" id="pPk-r9-iqk"/>
-                <outlet property="contentView" destination="S3K-Nt-X7y" id="plq-fC-X8r"/>
+                <outlet property="loadingLabel" destination="0uE-Ia-rMb" id="ktH-R1-laB"/>
                 <outlet property="middleButton" destination="deQ-BS-1VJ" id="bgS-fP-k8T"/>
                 <outlet property="previousTipLabel" destination="bxN-od-RIJ" id="vi8-ev-KeG"/>
+                <outlet property="stackView" destination="hYM-aH-JC9" id="961-RU-XiM"/>
                 <outlet property="topButton" destination="JNO-g8-lDN" id="fgW-zd-h7l"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -130,6 +131,15 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Tips..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uE-Ia-rMb">
+                                    <rect key="frame" x="159.5" y="432" width="95" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3oA-dH-nBW">
+                                    <rect key="frame" x="188.5" y="397" width="37" height="37"/>
+                                </activityIndicatorView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -137,14 +147,18 @@
                                 <constraint firstItem="iuB-PY-EG9" firstAttribute="top" secondItem="S3K-Nt-X7y" secondAttribute="top" constant="30" id="7eW-3E-wb5"/>
                                 <constraint firstAttribute="height" constant="700" id="Apf-kD-R8r"/>
                                 <constraint firstItem="hYM-aH-JC9" firstAttribute="top" secondItem="O2b-7r-W6i" secondAttribute="bottom" constant="40" id="BJn-Ng-n9x"/>
+                                <constraint firstItem="3oA-dH-nBW" firstAttribute="centerX" secondItem="S3K-Nt-X7y" secondAttribute="centerX" id="BKr-WJ-7Nx"/>
+                                <constraint firstItem="3oA-dH-nBW" firstAttribute="top" secondItem="O2b-7r-W6i" secondAttribute="bottom" constant="70" id="BfB-Aa-rlz"/>
                                 <constraint firstAttribute="trailing" secondItem="bxN-od-RIJ" secondAttribute="trailing" constant="20" id="DcC-Kv-Iel"/>
                                 <constraint firstAttribute="trailing" secondItem="hYM-aH-JC9" secondAttribute="trailing" constant="20" id="G3w-3e-98k"/>
                                 <constraint firstItem="hYM-aH-JC9" firstAttribute="leading" secondItem="S3K-Nt-X7y" secondAttribute="leading" constant="20" id="Ng9-7y-hIm"/>
                                 <constraint firstItem="bxN-od-RIJ" firstAttribute="top" secondItem="hYM-aH-JC9" secondAttribute="bottom" constant="18" id="aqZ-ad-Baf"/>
                                 <constraint firstAttribute="trailing" secondItem="O2b-7r-W6i" secondAttribute="trailing" constant="20" id="cEz-GB-H9g"/>
                                 <constraint firstItem="O2b-7r-W6i" firstAttribute="leading" secondItem="S3K-Nt-X7y" secondAttribute="leading" constant="20" id="fgk-uq-zYK"/>
+                                <constraint firstItem="0uE-Ia-rMb" firstAttribute="centerX" secondItem="S3K-Nt-X7y" secondAttribute="centerX" id="gB3-EK-QiQ"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bxN-od-RIJ" secondAttribute="bottom" constant="40" id="gab-Qq-Qoy"/>
                                 <constraint firstItem="iuB-PY-EG9" firstAttribute="leading" secondItem="S3K-Nt-X7y" secondAttribute="leading" constant="20" id="s3n-AY-h60"/>
+                                <constraint firstItem="0uE-Ia-rMb" firstAttribute="top" secondItem="O2b-7r-W6i" secondAttribute="bottom" constant="105" id="sKT-WK-8e3"/>
                                 <constraint firstItem="bxN-od-RIJ" firstAttribute="leading" secondItem="S3K-Nt-X7y" secondAttribute="leading" constant="20" id="zcP-Ij-zPe"/>
                             </constraints>
                         </view>
@@ -156,19 +170,14 @@
                         <constraint firstItem="S3K-Nt-X7y" firstAttribute="top" secondItem="I0P-eH-NAi" secondAttribute="top" id="xpU-Nk-ZhE"/>
                     </constraints>
                 </scrollView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="3oA-dH-nBW">
-                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="S3K-Nt-X7y" firstAttribute="width" secondItem="Q5M-cg-NOt" secondAttribute="width" id="8Hj-Tq-FJA"/>
-                <constraint firstItem="3oA-dH-nBW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L2N-NI-irc"/>
                 <constraint firstAttribute="trailing" secondItem="I0P-eH-NAi" secondAttribute="trailing" id="P7R-eo-QtN"/>
                 <constraint firstAttribute="bottom" secondItem="I0P-eH-NAi" secondAttribute="bottom" id="cNb-86-Lwh"/>
                 <constraint firstItem="I0P-eH-NAi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iJx-z3-t9b"/>
-                <constraint firstItem="3oA-dH-nBW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="m6b-Eo-N6N"/>
                 <constraint firstItem="I0P-eH-NAi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xsy-a9-BM2"/>
             </constraints>
             <point key="canvasLocation" x="126.08695652173914" y="138.61607142857142"/>

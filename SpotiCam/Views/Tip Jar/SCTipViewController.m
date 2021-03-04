@@ -14,8 +14,9 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
 @interface SCTipViewController ()
 @property (nonatomic) NSInteger previousTips;
 @property (nonatomic) SCIAPHelper *store;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
 @property (weak, nonatomic) IBOutlet UIButton *topButton;
 @property (weak, nonatomic) IBOutlet UIButton *middleButton;
 @property (weak, nonatomic) IBOutlet UIButton *bottomButton;
@@ -53,8 +54,9 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
     self.topButton.layer.cornerRadius = 10;
     self.middleButton.layer.cornerRadius = 10;
     self.bottomButton.layer.cornerRadius = 10;
-    [self.contentView setHidden:YES];
+    [self.stackView setHidden:YES];
     [self.activityIndicator startAnimating];
+    [self.loadingLabel setHidden:NO];
     [self updatePreviousTipLabel];
 }
 
@@ -82,7 +84,7 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
         [self.topButton setTitle:[formatter stringFromNumber:products[0].price] forState:UIControlStateNormal];
         [self.middleButton setTitle:[formatter stringFromNumber:products[1].price] forState:UIControlStateNormal];
         [self.bottomButton setTitle:[formatter stringFromNumber:products[2].price] forState:UIControlStateNormal];
-        [self.contentView setHidden:NO];
+        [self.stackView setHidden:NO];
     } else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error loading tip options from App Store."
                                                                        message:@"Please try again later!"
@@ -96,6 +98,7 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
         [self presentViewController:alert animated:YES completion:nil];
     }
     [self.activityIndicator stopAnimating];
+    [self.loadingLabel setHidden:YES];
 }
 
 - (void)setButtonsEnabled:(BOOL)enabled {
