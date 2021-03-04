@@ -11,6 +11,7 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)dict {
     self.uri = dict[@"uri"];
+    self.url = [NSURL URLWithString:dict[@"external_urls"][@"spotify"]];
     self.trackTitle = dict[@"name"];
     self.albumTitle = dict[@"album"][@"name"];
     self.albumArtURLs = dict[@"album"][@"images"];

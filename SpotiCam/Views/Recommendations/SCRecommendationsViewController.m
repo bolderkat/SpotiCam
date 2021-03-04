@@ -95,6 +95,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSURL *url = self.tracks[indexPath.row].url;
+    [[UIApplication sharedApplication] openURL:url
+                                       options:@{}
+                             completionHandler:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

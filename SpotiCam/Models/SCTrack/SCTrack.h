@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCTrack : NSObject
 @property (nonatomic) NSString *uri;
+@property (nonatomic) NSURL *url;
 @property (nonatomic) NSString *trackTitle;
 @property (nonatomic) NSString *albumTitle;
 @property (nonatomic) NSArray<NSDictionary*> *albumArtURLs; // 3 URLs at key "url": 640x640, 300x300, 64x64
