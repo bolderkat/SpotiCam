@@ -17,6 +17,7 @@ typedef void (^ProductsRequestCompletionHandler)(BOOL, NSArray<SKProduct*>* _Nul
 
 @interface SCIAPHelper : NSObject <SKProductsRequestDelegate>
 - (void)requestProductsWithCompletionHandler:(ProductsRequestCompletionHandler)completionHandler;
+- (BOOL)canMakePayments;
 
 @end
 

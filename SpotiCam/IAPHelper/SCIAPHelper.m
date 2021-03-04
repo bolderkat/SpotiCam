@@ -33,6 +33,10 @@
     [self.productsRequest start];
 }
 
+- (BOOL)canMakePayments {
+    return SKPaymentQueue.canMakePayments;
+}
+
 
 #pragma mark:- SKProductsRequestDelegate
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response {

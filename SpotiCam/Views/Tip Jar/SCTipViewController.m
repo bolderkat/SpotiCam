@@ -69,7 +69,7 @@ static NSString *const kPreviousTips = @"previousTips";
 }
 
 - (void)handleProductRequestWithSuccess:(BOOL)success andProducts:(NSArray<SKProduct*> * _Nullable)products {
-    if (success && [products count] == 3) {
+    if ([self.store canMakePayments] && success && [products count] == 3) {
         NSNumberFormatter *formatter = [NSNumberFormatter new];
         formatter.formatterBehavior = NSNumberFormatterBehavior10_4;
         formatter.numberStyle = NSNumberFormatterCurrencyStyle;
