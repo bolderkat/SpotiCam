@@ -45,10 +45,9 @@
 
 - (void)fetchTrackRecommendations {
     [self.activityIndicator startAnimating];
+    __weak typeof(self) weakSelf = self;
     [self.apiManager fetchTrackRecommendationsWithCompletion:^(NSArray<SCTrack*> *tracks) {
-        self.tracks = tracks;
-        
-        __weak typeof(self) weakSelf = self;
+        weakSelf.tracks = tracks;
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.trackTable setHidden:NO];
             [weakSelf.activityIndicator stopAnimating];
