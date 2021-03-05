@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat energy;
 @property (nonatomic) CGFloat valence;
 
-+ (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*))completion;
++ (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*, NSDictionary* _Nullable))completion;
 - (instancetype)initWithColor:(UIColor *)color coordinator:(SCMainCoordinator*)coordinator;
 - (void)fetchTrackRecommendationsWithCompletion:(void (^)(NSArray<SCTrack*>*, NSDictionary* _Nullable))completion;
 

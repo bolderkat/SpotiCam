@@ -17,7 +17,7 @@
 
 @implementation SCAPIManager
 
-+ (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*))completion {
++ (void)fetchGenreSeedsWithToken:(NSString*)token completion:(void (^)(NSArray<NSString*>*, NSDictionary* _Nullable))completion {
     NSString *urlString = @"https://api.spotify.com/v1/recommendations/available-genre-seeds";
     NSURL *url = [NSURL URLWithString:urlString];
     NSString *authValue = [NSString stringWithFormat:@"Bearer %@", token];
@@ -42,7 +42,8 @@
         }
         
         NSArray *genreSeeds = dict[@"genres"];
-        completion(genreSeeds);
+        NSDictionary *apiError = dict[@"error"];
+        completion(genreSeeds, apiError);
     }] resume];
 }
 

@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.genreTable setHidden:YES];
     [self loadSelectedGenres];
     [self configureViewController];
     [self configureDataSource];
@@ -73,37 +72,93 @@
 }
 
 - (void)fetchGenres {
+    [self.genreTable setHidden:YES];
+    [self.activityIndicator setHidden:NO];
+    [self.activityLabel setHidden:NO];
     [self.activityIndicator startAnimating];
+    __weak typeof(self) weakSelf = self;
     [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
         if (error) {
-            NSLog(@"Error fetching fresh tokens: %@", [error localizedDescription]);
+            [weakSelf showTokenError:error];
+            [weakSelf showRefreshButton];
         }
-        [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array) {
+        [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array, NSDictionary *apiError) {
             NSMutableArray *capitalizedArray = [NSMutableArray array];
             for (NSString *item in array) {
                 NSString *capitalizedName = [item capitalizedString];
                 BOOL isChecked = NO;
                 
-                if ([self.selectedGenres containsObject:capitalizedName]) {
+                if ([weakSelf.selectedGenres containsObject:capitalizedName]) {
                     isChecked = YES;
                 }
                 
                 SCGenre *genre = [[SCGenre alloc] initWithName:capitalizedName isChecked:isChecked];
                 [capitalizedArray addObject:genre];
             }
-            self.genres = [NSArray arrayWithArray:capitalizedArray];
-            [self indexGenresByFirstLetter];
+            weakSelf.genres = [NSArray arrayWithArray:capitalizedArray];
+            [weakSelf indexGenresByFirstLetter];
             
-            __weak typeof(self) weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf.genreTable setHidden:NO];
                 [weakSelf.activityIndicator stopAnimating];
                 [weakSelf.activityIndicator setHidden:YES];
                 [weakSelf.activityLabel setHidden:YES];
-                [weakSelf applyTableViewSnapshot];
+                
+                if (apiError) {
+                    [weakSelf showRefreshButton];
+                    [weakSelf showAlertForApiError:apiError];
+                } else if ([weakSelf.genres count] == 0) {
+                    [weakSelf showRefreshButton];
+                    [weakSelf showNoGenresAlert];
+                } else {
+                    [weakSelf applyTableViewSnapshot];
+                    weakSelf.navigationItem.leftBarButtonItem = nil;
+                }
             });
         }];
     }];
+}
+
+- (void)showTokenError:(NSError*)error {
+    NSString *alertMessage = [NSString stringWithFormat:@"%@. Try fetching genres again. If that does not work, try quitting the app or logging out and back in.", [error localizedDescription]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error getting authorization from Spotify"
+                                                                    message:alertMessage
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                              style:UIAlertActionStyleDefault
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showAlertForApiError:(NSDictionary*)apiError {
+    NSNumber *status = apiError[@"status"];
+    NSString *message = apiError[@"message"];
+    NSString *alertMessage = [NSString stringWithFormat:@"Error code %@: %@. It looks like the Spotify API may be having issues. Please try again later.", status, message];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Received error from Spotify"
+                                                                    message:alertMessage
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                              style:UIAlertActionStyleDefault
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showNoGenresAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No genres received"
+                                                                   message:@"Succesfully connected to Spotify API but received no genres. There may be an issue with the Spotify API."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                              style:UIAlertActionStyleDefault
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showRefreshButton {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"arrow.clockwise.circle.fill"]
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(fetchGenres)];
+    self.navigationItem.leftBarButtonItem = button;
 }
 
 - (void)indexGenresByFirstLetter {
