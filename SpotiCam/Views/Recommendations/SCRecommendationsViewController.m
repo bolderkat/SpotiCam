@@ -11,6 +11,7 @@
 
 @interface SCRecommendationsViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property (weak, nonatomic) IBOutlet UITableView *trackTable;
 @property (nonatomic) NSArray<SCTrack*> *tracks;
 @property UITableViewDiffableDataSource *dataSource;
@@ -33,6 +34,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.activityIndicator startAnimating];
     [self.activityIndicator setHidden:NO];
+    [self.activityLabel setHidden:NO];
     [self fetchTrackRecommendations];
 }
 
@@ -73,17 +75,51 @@
 - (void)fetchTrackRecommendations {
     [self.activityIndicator startAnimating];
     __weak typeof(self) weakSelf = self;
-    [self.apiManager fetchTrackRecommendationsWithCompletion:^(NSArray<SCTrack*> *tracks) {
+    [self.apiManager fetchTrackRecommendationsWithCompletion:^(NSArray<SCTrack*> *tracks, NSDictionary *apiError) {
         weakSelf.tracks = tracks;
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.trackTable setHidden:NO];
             [weakSelf.activityIndicator stopAnimating];
             [weakSelf.activityIndicator setHidden:YES];
-            [weakSelf applyTableViewSnapshot];
+            [weakSelf.activityLabel setHidden:YES];
+            if (apiError) {
+                [weakSelf showAlertForApiError:apiError];
+            } else if ([weakSelf.tracks count] == 0) {
+                [weakSelf showNoTracksAlert];
+            } else {
+                [weakSelf applyTableViewSnapshot];
+            }
         });
     }];
 }
 
+- (void)showAlertForApiError:(NSDictionary*)apiError {
+    NSNumber *status = apiError[@"status"];
+    NSString *message = apiError[@"message"];
+    NSString *alertMessage = [NSString stringWithFormat:@"Error code %@: %@. It looks like the Spotify API may be having issues. Please try again later.", status, message];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Received error from Spotify"
+                                                                    message:alertMessage
+                                                             preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                              style:UIAlertActionStyleDefault
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showNoTracksAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No tracks received"
+                                                                   message:@"Succesfully connected to Spotify API but received no tracks. Try lowering your minimum track popularity or changing your selected genres. If you repeatedly get this error even after changing settings, the Spotify API may be having issues."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull action) {
+        [self.coordinator goToSettingsView];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Dismiss"
+                                              style:UIAlertActionStyleDefault
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 
 #pragma mark - Table View Diffable Data Source and Delegate

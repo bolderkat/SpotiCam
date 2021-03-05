@@ -56,7 +56,7 @@
     return self;
 }
 
-- (void)fetchTrackRecommendationsWithCompletion:(void (^)(NSArray<SCTrack*>*))completion {
+- (void)fetchTrackRecommendationsWithCompletion:(void (^)(NSArray<SCTrack*>*, NSDictionary* _Nullable))completion {
     [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
         if (error) {
             NSLog(@"Error fetching fresh tokens for track recommendations: %@", [error localizedDescription]);
@@ -94,7 +94,8 @@
                 return;
             }
             NSArray<SCTrack*> *tracks = [self parseTracksFromJSON:dict];
-            completion(tracks);
+            NSDictionary *apiError = dict[@"error"];
+            completion(tracks, apiError);
         }] resume];
     }];
 }
