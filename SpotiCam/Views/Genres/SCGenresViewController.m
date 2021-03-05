@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *selectedGenreLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property SCGenreTableDataSource *dataSource;
 
 @end
@@ -98,6 +99,7 @@
                 [weakSelf.genreTable setHidden:NO];
                 [weakSelf.activityIndicator stopAnimating];
                 [weakSelf.activityIndicator setHidden:YES];
+                [weakSelf.activityLabel setHidden:YES];
                 [weakSelf applyTableViewSnapshot];
             });
         }];
@@ -172,7 +174,7 @@
         [snapshot appendSectionsWithIdentifiers:@[@"Main"]];
         [snapshot appendItemsWithIdentifiers:self.searchResults];
     }
-    [self.dataSource applySnapshot:snapshot animatingDifferences:YES];
+    [self.dataSource applySnapshot:snapshot animatingDifferences:NO];
 }
 
 - (void)configureTableView {

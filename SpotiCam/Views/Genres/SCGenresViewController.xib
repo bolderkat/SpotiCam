@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCGenresViewController">
             <connections>
                 <outlet property="activityIndicator" destination="j61-Bv-zW4" id="rms-HP-IVP"/>
+                <outlet property="activityLabel" destination="W5t-DQ-TOS" id="XdB-tP-m41"/>
                 <outlet property="genreTable" destination="kff-vn-mwj" id="h4B-06-fLF"/>
                 <outlet property="searchBar" destination="8iC-dl-WHw" id="bp1-WF-07S"/>
                 <outlet property="selectedGenreLabel" destination="3MF-is-l14" id="nnt-WT-76l"/>
@@ -26,6 +27,12 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="j61-Bv-zW4">
                     <rect key="frame" x="197" y="438" width="20" height="20"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching Genres..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5t-DQ-TOS">
+                    <rect key="frame" x="148" y="466" width="118" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" systemColor="systemGrayColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kff-vn-mwj">
                     <rect key="frame" x="0.0" y="104" width="414" height="698"/>
                 </tableView>
@@ -77,8 +84,10 @@
                 <constraint firstItem="j5a-WH-6Pk" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="CAs-Nh-yQ5"/>
                 <constraint firstItem="j5a-WH-6Pk" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="JCy-PM-Myc"/>
                 <constraint firstItem="kff-vn-mwj" firstAttribute="top" secondItem="8iC-dl-WHw" secondAttribute="bottom" id="Jme-KK-kzZ"/>
+                <constraint firstItem="W5t-DQ-TOS" firstAttribute="top" secondItem="j61-Bv-zW4" secondAttribute="bottom" constant="8" id="Lp3-JM-OPj"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="OIf-La-SkE"/>
                 <constraint firstItem="8iC-dl-WHw" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="XSL-eN-05s"/>
+                <constraint firstItem="W5t-DQ-TOS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Zie-RJ-wj3"/>
                 <constraint firstItem="j5a-WH-6Pk" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="f4x-hF-SFt"/>
                 <constraint firstItem="j61-Bv-zW4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fik-GE-ZoV"/>
                 <constraint firstItem="j61-Bv-zW4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qK5-nl-LGE"/>
@@ -95,6 +104,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
