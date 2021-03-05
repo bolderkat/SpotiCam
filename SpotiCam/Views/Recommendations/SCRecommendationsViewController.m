@@ -12,6 +12,7 @@
 @interface SCRecommendationsViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *activityLabel;
+@property (weak, nonatomic) IBOutlet UIView *activityBackgroundView;
 @property (weak, nonatomic) IBOutlet UITableView *trackTable;
 @property (nonatomic) NSArray<SCTrack*> *tracks;
 @property UITableViewDiffableDataSource *dataSource;
@@ -25,6 +26,7 @@
     self.title = @"Recommendations";
     [self.trackTable setHidden:YES];
     [self configureRightBarButton];
+    self.activityBackgroundView.layer.cornerRadius = 15;
     [self configureDataSource];
     [self configureTableView];
 }
@@ -35,6 +37,7 @@
     [self.activityIndicator startAnimating];
     [self.activityIndicator setHidden:NO];
     [self.activityLabel setHidden:NO];
+    [self.activityBackgroundView setHidden:NO];
     [self fetchTrackRecommendations];
 }
 
@@ -82,6 +85,7 @@
             [weakSelf.activityIndicator stopAnimating];
             [weakSelf.activityIndicator setHidden:YES];
             [weakSelf.activityLabel setHidden:YES];
+            [weakSelf.activityBackgroundView setHidden:YES];
             if (apiError) {
                 [weakSelf showAlertForApiError:apiError];
             } else if ([weakSelf.tracks count] == 0) {

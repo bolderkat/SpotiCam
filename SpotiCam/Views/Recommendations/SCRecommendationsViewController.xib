@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCRecommendationsViewController">
             <connections>
+                <outlet property="activityBackgroundView" destination="Gir-0S-set" id="AVd-e8-sgc"/>
                 <outlet property="activityIndicator" destination="Be4-sY-QYQ" id="lRf-Dd-KmW"/>
                 <outlet property="activityLabel" destination="Pgb-C5-5e7" id="18O-OT-zlN"/>
                 <outlet property="trackTable" destination="p3p-yO-TrT" id="c7E-fm-lYu"/>
@@ -25,14 +26,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gir-0S-set">
+                    <rect key="frame" x="137" y="418" width="140" height="80"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="GAX-2o-RBy"/>
+                        <constraint firstAttribute="width" constant="140" id="con-JH-96i"/>
+                    </constraints>
+                </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Be4-sY-QYQ">
                     <rect key="frame" x="197" y="438" width="20" height="20"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Tracks..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-C5-5e7">
                     <rect key="frame" x="152" y="466" width="110" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" systemColor="systemGrayColor"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="1"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
@@ -42,20 +52,22 @@
                 <constraint firstItem="Pgb-C5-5e7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D7t-AM-qeS"/>
                 <constraint firstItem="Pgb-C5-5e7" firstAttribute="top" secondItem="Be4-sY-QYQ" secondAttribute="bottom" constant="8" id="MvS-hm-6Gf"/>
                 <constraint firstItem="Be4-sY-QYQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Olg-CO-83q"/>
+                <constraint firstItem="Gir-0S-set" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YZt-vi-7Xd"/>
                 <constraint firstItem="p3p-yO-TrT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f77-qp-baB"/>
                 <constraint firstItem="Be4-sY-QYQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gqF-uR-71V"/>
                 <constraint firstAttribute="bottom" secondItem="p3p-yO-TrT" secondAttribute="bottom" id="hgm-Pq-t0H"/>
+                <constraint firstItem="Gir-0S-set" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="10" id="kCb-Iw-MEj"/>
                 <constraint firstItem="p3p-yO-TrT" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="nQr-Gi-jQz"/>
             </constraints>
             <point key="canvasLocation" x="-259.4202898550725" y="109.82142857142857"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
