@@ -115,7 +115,13 @@ static NSString *const kPopularityKey = @"popularity";
                                            bundle:nil
                                            apiManager:apiManager];
     vc.coordinator = self;
+    
     [self.navigationController pushViewController:vc animated:YES];
+    
+    // Remove ProcessingVC from nav stack to allow user to retake/reselect photo more quickly
+    NSMutableArray *vcs = [self.navigationController.viewControllers mutableCopy];
+    [vcs removeObjectAtIndex:[vcs count] - 2];
+    [self.navigationController setViewControllers:vcs];
 }
 
 - (void)openGenresFromSettings {
