@@ -15,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIView *activityBackgroundView;
 @property (weak, nonatomic) IBOutlet UITableView *trackTable;
 @property (nonatomic) NSArray<SCTrack*> *tracks;
-@property UITableViewDiffableDataSource *dataSource;
+@property (nonatomic) UITableViewDiffableDataSource *dataSource;
+@property (nonatomic) BOOL isReturningFromSettings;
 
 @end
 
@@ -27,6 +28,7 @@
     [self.trackTable setHidden:YES];
     [self configureRightBarButton];
     self.activityBackgroundView.layer.cornerRadius = 15;
+    [self fetchTrackRecommendations];
     [self configureDataSource];
     [self configureTableView];
 }
@@ -34,11 +36,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.activityIndicator startAnimating];
-    [self.activityIndicator setHidden:NO];
-    [self.activityLabel setHidden:NO];
-    [self.activityBackgroundView setHidden:NO];
-    [self fetchTrackRecommendations];
+    if (self.isReturningFromSettings) {
+        [self fetchTrackRecommendations];
+        self.activityBackgroundView.alpha = 0.75;
+        self.activityLabel.textColor = [UIColor labelColor];
+        self.isReturningFromSettings = NO;
+    }
 }
 
 - (instancetype)initWithNibName:( NSString * _Nullable)nibNameOrNil
@@ -46,13 +49,14 @@
                      apiManager:(SCAPIManager *)apiManager {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         self.apiManager = apiManager;
+        self.isReturningFromSettings = NO;
         return self;
     }
     return nil;
 }
 
 - (void)configureRightBarButton {
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"ellipsis.circle.fill"]
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"gearshape.fill"]
                                                                style:UIBarButtonItemStylePlain
                                                               target:self
                                                               action:@selector(showOptions)];
@@ -61,22 +65,29 @@
 }
 
 - (void)showOptions {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Options"
-                                                                   message:@"Open settings to change minimum track popularity and your selected genres. Returning to this page will request new tracks with updated settings."
-                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
-                                              style:UIAlertActionStyleDefault
-                                            handler:^(UIAlertAction * _Nonnull action) {
-        [self.coordinator goToSettingsView];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
-                                              style:UIAlertActionStyleCancel
-                                            handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    self.isReturningFromSettings = YES;
+    [self.coordinator goToSettingsView];
+    // In a future release, will show an action sheet with options for going to settings and to make a playlist with recommended tracks.
+    
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Options"
+//                                                                   message:@"Open settings to change minimum track popularity and your selected genres. Returning to this page will request new tracks with updated settings."
+//                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
+//                                              style:UIAlertActionStyleDefault
+//                                            handler:^(UIAlertAction * _Nonnull action) {
+//        [self.coordinator goToSettingsView];
+//    }]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+//                                              style:UIAlertActionStyleCancel
+//                                            handler:nil]];
+//    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)fetchTrackRecommendations {
     [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidden:NO];
+    [self.activityLabel setHidden:NO];
+    [self.activityBackgroundView setHidden:NO];
     __weak typeof(self) weakSelf = self;
     [self.apiManager fetchTrackRecommendationsWithCompletion:^(NSArray<SCTrack*> *tracks, NSDictionary *apiError) {
         weakSelf.tracks = tracks;
