@@ -65,9 +65,6 @@
     self.selectedGenres = [[[NSUserDefaults standardUserDefaults] objectForKey:@"selectedGenres"] mutableCopy];
     if (self.selectedGenres == nil) {
         self.selectedGenres = [NSMutableArray arrayWithCapacity:5];
-        
-        
-        // TODO: remove genre from array if no longer present among genres fetched from Spotify
     }
 }
 
@@ -82,8 +79,10 @@
             [weakSelf showTokenError:error];
             [weakSelf showRefreshButton];
         }
+        
         [SCAPIManager fetchGenreSeedsWithToken:accessToken completion:^(NSArray<NSString *> *array, NSDictionary *apiError) {
-            NSMutableArray *capitalizedArray = [NSMutableArray array];
+            NSMutableArray<SCGenre*> *capitalizedArray = [NSMutableArray array];
+            NSMutableArray<NSString*> *capitalizedNames = [NSMutableArray array];
             for (NSString *item in array) {
                 NSString *capitalizedName = [item capitalizedString];
                 BOOL isChecked = NO;
@@ -94,11 +93,21 @@
                 
                 SCGenre *genre = [[SCGenre alloc] initWithName:capitalizedName isChecked:isChecked];
                 [capitalizedArray addObject:genre];
+                [capitalizedNames addObject:capitalizedName];
+            }
+            
+            // Discard previously selected genres that no longer exist if Spotify's genre list changes.
+            NSArray<NSString*> *selectedGenres = [NSArray arrayWithArray:weakSelf.selectedGenres];
+            for (NSString *genre in selectedGenres) {
+                if (![capitalizedNames containsObject:genre]) {
+                    [weakSelf.selectedGenres removeObject:genre];
+                }
             }
             weakSelf.genres = [NSArray arrayWithArray:capitalizedArray];
             [weakSelf indexGenresByFirstLetter];
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf updateUI];
                 [weakSelf.genreTable setHidden:NO];
                 [weakSelf.activityIndicator stopAnimating];
                 [weakSelf.activityIndicator setHidden:YES];
