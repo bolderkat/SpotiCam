@@ -33,6 +33,12 @@
                                                        image:[UIImage systemImageNamed:@"heart.text.square.fill"]];
 }
 
++ (SCSettingsRowCellViewModel*)infoRow {
+    return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Info"
+                                                   textColor:[UIColor whiteColor]
+                                                       image:[UIImage systemImageNamed:@"info.circle.fill"]];
+}
+
 + (SCSettingsRowCellViewModel*)privacyPolicyRow {
     return [[SCSettingsRowCellViewModel alloc] initWithTitle:@"Privacy Policy"
                                                    textColor:[UIColor whiteColor]

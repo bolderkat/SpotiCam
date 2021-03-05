@@ -14,6 +14,7 @@
 #import "SCGenresViewController.h"
 #import "SCRecommendationsViewController.h"
 #import "SCTipViewController.h"
+#import "SCInfoViewController.h"
 #import "SCPrivacyViewController.h"
 #import "SCAPIManager.h"
 #import "SCIAPHelper.h"
@@ -133,6 +134,13 @@ static NSString *const kPopularityKey = @"popularity";
 
 - (void)openTipJar {
     SCTipViewController *vc = [[SCTipViewController alloc] initWithStore:self.store];
+    vc.coordinator = self;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)openInfo {
+    SCInfoViewController *vc = [SCInfoViewController new];
     vc.coordinator = self;
     
     [self.navigationController pushViewController:vc animated:YES];

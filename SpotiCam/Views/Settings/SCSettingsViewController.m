@@ -27,6 +27,7 @@ static NSString *const kPopularityKey = @"popularity";
         self.settingsRows = @[
             [SCSettingsRowCellViewModel genreRow],
             [SCSettingsRowCellViewModel tipJarRow],
+            [SCSettingsRowCellViewModel infoRow],
             [SCSettingsRowCellViewModel privacyPolicyRow],
             [SCSettingsRowCellViewModel logOutRow]
         ];
@@ -126,9 +127,12 @@ static NSString *const kPopularityKey = @"popularity";
                 [self.coordinator openTipJar];
                 break;
             case 2:
-                [self.coordinator openPrivacyPolicy];
+                [self.coordinator openInfo];
                 break;
             case 3:
+                [self.coordinator openPrivacyPolicy];
+                break;
+            case 4:
                 [self.coordinator logOut];
             default:
                 break;

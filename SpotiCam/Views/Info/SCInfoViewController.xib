@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCInfoViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nA-1e-7ER">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORz-os-bYV" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does SpotiCam work?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slD-oc-ppo">
+                                    <rect key="frame" x="20" y="40" width="374" height="26"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                    <color key="textColor" name="AppGreen"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iox-h3-Kxp">
+                                    <rect key="frame" x="20" y="86" width="374" height="446.5"/>
+                                    <mutableString key="text">First, you take a picture. SpotiCam takes that picture and calculates the average color in the center portion of the picture. Then, that color value gets fed through SpotiCam’s mathematical model to generate track attribute values for Spotify’s recommendation engine: danceability, energy, and mood.
+
+SpotiCam then makes a request to Spotify for track recommendations that most closely match these values and your selected genres. Spotify’s track database is absolutely massive, and each track’s attribute values are algorithmically generated on their end.   You may get some surprising results, especially when it comes to which genres Spotify has assigned to certain tracks. Just keep taking pictures and see what you get— you just might discover something interesting.
+
+Have fun!</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="slD-oc-ppo" secondAttribute="trailing" constant="20" id="4w3-Fn-tby"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Iox-h3-Kxp" secondAttribute="bottom" constant="40" id="9la-Qw-Fxe"/>
+                                <constraint firstAttribute="height" constant="750" id="TwT-ad-EwS"/>
+                                <constraint firstItem="Iox-h3-Kxp" firstAttribute="leading" secondItem="ORz-os-bYV" secondAttribute="leading" constant="20" id="XI2-2N-WBR"/>
+                                <constraint firstItem="slD-oc-ppo" firstAttribute="top" secondItem="ORz-os-bYV" secondAttribute="top" constant="40" id="iyy-mE-MVk"/>
+                                <constraint firstItem="Iox-h3-Kxp" firstAttribute="top" secondItem="slD-oc-ppo" secondAttribute="bottom" constant="20" id="shi-BG-Xwy"/>
+                                <constraint firstItem="slD-oc-ppo" firstAttribute="leading" secondItem="ORz-os-bYV" secondAttribute="leading" constant="20" id="vBi-6u-Dct"/>
+                                <constraint firstAttribute="trailing" secondItem="Iox-h3-Kxp" secondAttribute="trailing" constant="20" id="vgi-GF-ixr"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ORz-os-bYV" firstAttribute="top" secondItem="7nA-1e-7ER" secondAttribute="top" id="DfA-yC-Bec"/>
+                        <constraint firstAttribute="bottom" secondItem="ORz-os-bYV" secondAttribute="bottom" id="FXb-er-zT9"/>
+                        <constraint firstAttribute="trailing" secondItem="ORz-os-bYV" secondAttribute="trailing" id="R34-Uw-41w"/>
+                        <constraint firstItem="ORz-os-bYV" firstAttribute="leading" secondItem="7nA-1e-7ER" secondAttribute="leading" id="gSc-94-Kn6"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7nA-1e-7ER" secondAttribute="bottom" id="Bcz-tP-8IX"/>
+                <constraint firstItem="7nA-1e-7ER" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="O1S-UM-UaQ"/>
+                <constraint firstItem="7nA-1e-7ER" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="QH1-rT-Kel"/>
+                <constraint firstItem="7nA-1e-7ER" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nWS-Il-qfY"/>
+                <constraint firstItem="ORz-os-bYV" firstAttribute="width" secondItem="Q5M-cg-NOt" secondAttribute="width" id="tBH-6m-G2x"/>
+            </constraints>
+            <point key="canvasLocation" x="101" y="100"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AppGreen">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

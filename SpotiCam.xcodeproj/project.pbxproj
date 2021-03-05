@@ -43,6 +43,8 @@
 		65A4C65825E733F3009A3259 /* SCSettingsRowCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A4C65725E733F3009A3259 /* SCSettingsRowCellViewModel.m */; };
 		65A4C65F25E741EE009A3259 /* SCSettingsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A4C65E25E741EE009A3259 /* SCSettingsTableDataSource.m */; };
 		65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C64F2D25D710CE0083E07C /* SCAPIManager.m */; };
+		65DF196B25F2E69A00733D61 /* SCInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DF196925F2E69A00733D61 /* SCInfoViewController.m */; };
+		65DF196C25F2E69A00733D61 /* SCInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DF196A25F2E69A00733D61 /* SCInfoViewController.xib */; };
 		65FC1EA425F015D800B50DC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65FC1EA325F015D800B50DC1 /* StoreKit.framework */; };
 		65FC1EA925F02B9E00B50DC1 /* SCIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC1EA825F02B9E00B50DC1 /* SCIAPHelper.m */; };
 		AEA943AAA4AFC22114A78144 /* Pods_SpotiCam_SpotiCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4927FC066FFA952C0C3CB2 /* Pods_SpotiCam_SpotiCamUITests.framework */; };
@@ -132,6 +134,9 @@
 		65A4C65E25E741EE009A3259 /* SCSettingsTableDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCSettingsTableDataSource.m; sourceTree = "<group>"; };
 		65C64F2C25D710CE0083E07C /* SCAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAPIManager.h; sourceTree = "<group>"; };
 		65C64F2D25D710CE0083E07C /* SCAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAPIManager.m; sourceTree = "<group>"; };
+		65DF196825F2E69A00733D61 /* SCInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCInfoViewController.h; sourceTree = "<group>"; };
+		65DF196925F2E69A00733D61 /* SCInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCInfoViewController.m; sourceTree = "<group>"; };
+		65DF196A25F2E69A00733D61 /* SCInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SCInfoViewController.xib; sourceTree = "<group>"; };
 		65FC1EA325F015D800B50DC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		65FC1EA725F02B9E00B50DC1 /* SCIAPHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCIAPHelper.h; sourceTree = "<group>"; };
 		65FC1EA825F02B9E00B50DC1 /* SCIAPHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCIAPHelper.m; sourceTree = "<group>"; };
@@ -259,6 +264,7 @@
 				651C58ED25E98FCF00AF0207 /* Camera */,
 				65A4C63F25E6D185009A3259 /* Settings */,
 				653AF21325DDA418005F532C /* Genres */,
+				65DF196625F2E66400733D61 /* Info */,
 				6581510B25E84E3900D0F154 /* Tip Jar */,
 				650616A125E8884A000683B2 /* Privacy */,
 				652BD6F025D4B377004F8198 /* Processing */,
@@ -436,6 +442,16 @@
 			path = APIManager;
 			sourceTree = "<group>";
 		};
+		65DF196625F2E66400733D61 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				65DF196825F2E69A00733D61 /* SCInfoViewController.h */,
+				65DF196925F2E69A00733D61 /* SCInfoViewController.m */,
+				65DF196A25F2E69A00733D61 /* SCInfoViewController.xib */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
 		65FC1EA625F02B7D00B50DC1 /* IAPHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +589,7 @@
 				65A4C64425E6D1B8009A3259 /* SCSettingsViewController.xib in Resources */,
 				65A4C65125E71A13009A3259 /* SCPopularityTableViewCell.xib in Resources */,
 				650616A625E88863000683B2 /* SCPrivacyViewController.xib in Resources */,
+				65DF196C25F2E69A00733D61 /* SCInfoViewController.xib in Resources */,
 				652BD6F525D4B388004F8198 /* SCProcessingViewController.xib in Resources */,
 				652E18B625D48B1500692F5C /* SCMainView.xib in Resources */,
 				653AF21825DDA430005F532C /* SCGenresViewController.xib in Resources */,
@@ -712,6 +729,7 @@
 				65C64F2E25D710CE0083E07C /* SCAPIManager.m in Sources */,
 				6505304E25D3BB5000BF6521 /* AppDelegate.m in Sources */,
 				650616A525E88863000683B2 /* SCPrivacyViewController.m in Sources */,
+				65DF196B25F2E69A00733D61 /* SCInfoViewController.m in Sources */,
 				6587FD1025DCB14A00AA5541 /* SCAuthViewController.m in Sources */,
 				651C58F125E98FED00AF0207 /* SCCameraViewController.m in Sources */,
 				6505308725D4871D00BF6521 /* SCMainCoordinator.m in Sources */,
