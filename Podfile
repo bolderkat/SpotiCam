@@ -8,6 +8,7 @@ target 'SpotiCam' do
   # Pods for SpotiCam
   pod 'AppAuth'
   pod 'SDWebImage', '~> 5.0'
+  pod 'UICKeyChainStore'
 
   target 'SpotiCamTests' do
     inherit! :search_paths

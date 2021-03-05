@@ -7,20 +7,24 @@ PODS:
   - SDWebImage (5.10.2):
     - SDWebImage/Core (= 5.10.2)
   - SDWebImage/Core (5.10.2)
+  - UICKeyChainStore (2.2.1)
 
 DEPENDENCIES:
   - AppAuth
   - SDWebImage (~> 5.0)
+  - UICKeyChainStore
 
 SPEC REPOS:
   trunk:
     - AppAuth
     - SDWebImage
+    - UICKeyChainStore
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
+  UICKeyChainStore: ba3bff2c762b12db1e516f395c837dd25298b05e
 
-PODFILE CHECKSUM: 06dca0cbe6e26d0a0f31e6f13149d3861879028e
+PODFILE CHECKSUM: a1745988ed10ef722a330ac28624a51fd5cfd3c7
 
 COCOAPODS: 1.10.1
