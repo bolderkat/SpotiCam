@@ -23,7 +23,7 @@
     [super viewDidLoad];
     self.title = @"Recommendations";
     [self.trackTable setHidden:YES];
-    [self fetchTrackRecommendations];
+    [self configureRightBarButton];
     [self configureDataSource];
     [self configureTableView];
 }
@@ -31,6 +31,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidden:NO];
+    [self fetchTrackRecommendations];
 }
 
 - (instancetype)initWithNibName:( NSString * _Nullable)nibNameOrNil
@@ -41,6 +44,30 @@
         return self;
     }
     return nil;
+}
+
+- (void)configureRightBarButton {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"ellipsis.circle.fill"]
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:self
+                                                              action:@selector(showOptions)];
+    self.navigationItem.rightBarButtonItem = button;
+    
+}
+
+- (void)showOptions {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Options"
+                                                                   message:@"Open settings to change minimum track popularity and your selected genres. Returning to this page will request new tracks with updated settings."
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull action) {
+        [self.coordinator goToSettingsView];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)fetchTrackRecommendations {
@@ -86,7 +113,7 @@
     NSDiffableDataSourceSnapshot *snapshot = [NSDiffableDataSourceSnapshot new];
     [snapshot appendSectionsWithIdentifiers:@[@"Main"]];
     [snapshot appendItemsWithIdentifiers:self.tracks];
-    [self.dataSource applySnapshot:snapshot animatingDifferences:YES];
+    [self.dataSource applySnapshot:snapshot animatingDifferences:NO];
 }
 
 - (void)configureTableView {
