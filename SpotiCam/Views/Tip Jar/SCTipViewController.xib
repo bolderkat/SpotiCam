@@ -173,9 +173,9 @@
                         <constraint firstItem="S3K-Nt-X7y" firstAttribute="top" secondItem="I0P-eH-NAi" secondAttribute="top" id="xpU-Nk-ZhE"/>
                     </constraints>
                 </scrollView>
-                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unx-ow-rcq" userLabel="StoreKit Loading View">
+                <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unx-ow-rcq" userLabel="StoreKit Loading View">
                     <rect key="frame" x="107" y="373" width="200" height="100"/>
-                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="PRA-Nh-txz"/>
                         <constraint firstAttribute="width" constant="200" id="yWL-Xa-40B"/>
@@ -214,6 +214,9 @@
         <namedColor name="AppGreen">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
