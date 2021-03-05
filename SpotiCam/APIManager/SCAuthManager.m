@@ -7,6 +7,7 @@
 
 #import "SCAuthManager.h"
 #import "AppAuth.h"
+#import <UICKeyChainStore/UICKeyChainStore.h>
 #import "AppDelegate.h"
 #import "SCMainCoordinator.h"
 
@@ -18,6 +19,7 @@ static NSString *const kTokenEndpoint = @"https://accounts.spotify.com/api/token
 static NSString *const kClientID = @"38c7c609489149489ca5736800605f90";
 static NSString *const kRedirectURI = @"io.dangiesoft.SpotiCam:/oauth2redirect/spotify";
 static NSString *const kAppAuthStateKey = @"authState";
+static NSString *const kKeyChainService = @"com.spotify.accounts";
 
 @interface SCAuthManager () <OIDAuthStateChangeDelegate, OIDAuthStateErrorDelegate>
 @end
@@ -26,7 +28,6 @@ static NSString *const kAppAuthStateKey = @"authState";
 
 
 - (void)saveState {
-    // TODO: persist with keychain instead
     NSError *error = nil;
     NSData *archivedAuthState = [NSKeyedArchiver archivedDataWithRootObject:self.authState
                                                       requiringSecureCoding:NO
@@ -36,13 +37,15 @@ static NSString *const kAppAuthStateKey = @"authState";
         return;
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:archivedAuthState forKey:kAppAuthStateKey];
+    UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:kKeyChainService];
+    [keychain setData:archivedAuthState forKey:kAppAuthStateKey];
 }
 
 - (void)loadState {
     // Loads from OIDAuthState from NSUserDefaults
     NSError *error = nil;
-    NSData *archivedAuthState = [[NSUserDefaults standardUserDefaults] objectForKey:kAppAuthStateKey];
+    UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:kKeyChainService];
+    NSData *archivedAuthState = [keychain dataForKey:kAppAuthStateKey];
     OIDAuthState *authState = [NSKeyedUnarchiver unarchivedObjectOfClass:[OIDAuthState class]
                                                                 fromData:archivedAuthState
                                                                    error:&error];
