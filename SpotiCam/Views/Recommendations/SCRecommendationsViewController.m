@@ -111,7 +111,7 @@
 - (void)showAlertForApiError:(NSDictionary*)apiError {
     NSNumber *status = apiError[@"status"];
     NSString *message = apiError[@"message"];
-    NSString *alertMessage = [NSString stringWithFormat:@"Error code %@: %@. It looks like the Spotify API may be having issues. Please try again later.", status, message];
+    NSString *alertMessage = [NSString stringWithFormat:@"Error code %@: %@. Please try again later.", status, message];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Received error from Spotify"
                                                                     message:alertMessage
                                                              preferredStyle:UIAlertControllerStyleAlert];
