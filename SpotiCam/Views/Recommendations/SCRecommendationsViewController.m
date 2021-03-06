@@ -148,14 +148,16 @@
         content.image = [UIImage systemImageNamed:@"music.note"];
         cell.contentConfiguration = content;
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        NSString *imageURLString = track.albumArtURLs[2][@"url"]; // 64x64 image
-        [manager loadImageWithURL:[NSURL URLWithString:imageURLString]
-                          options:0
-                         progress:nil
-                        completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
-            content.image = image;
-            cell.contentConfiguration = content;
-        }];
+        if ([track.albumArtURLs count] == 3) {
+            NSString *imageURLString = track.albumArtURLs[2][@"url"]; // 64x64 image
+            [manager loadImageWithURL:[NSURL URLWithString:imageURLString]
+                              options:0
+                             progress:nil
+                            completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                content.image = image;
+                cell.contentConfiguration = content;
+            }];
+        }
         return cell;
     }];
 }
