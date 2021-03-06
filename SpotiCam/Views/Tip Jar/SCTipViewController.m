@@ -30,7 +30,7 @@ static NSNotificationName const kNotificationName = @"IAPHelperFinishedNotificat
 @implementation SCTipViewController
 
 - (instancetype)initWithStore:(SCIAPHelper*)store {
-    if (self == [super init]) {
+    if (self = [super init]) {
         self.store = store;
         return self;
     }

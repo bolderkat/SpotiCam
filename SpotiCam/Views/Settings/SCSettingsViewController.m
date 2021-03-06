@@ -23,7 +23,7 @@ static NSString *const kPopularityKey = @"popularity";
 @implementation SCSettingsViewController
 
 - (instancetype)init {
-    if (self == [super init]) {
+    if (self = [super init]) {
         self.settingsRows = @[
             [SCSettingsRowCellViewModel genreRow],
             [SCSettingsRowCellViewModel tipJarRow],
