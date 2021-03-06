@@ -13,7 +13,7 @@ You may get some surprising results, especially when it comes to which genres Sp
 
 ### Sounds cool. Where can I get it?
 
-SpotiCam is currently undergoing the App Store review process. Check back here soon for a link to the App Store page!
+SpotiCam is currently undergoing the App Store review process. Check back here soon for a link to the App Store page! Note you will also need a Spotify account (Free or Premium) to get track recommendations.
 
 ## Housekeeping
 
