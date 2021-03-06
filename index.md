@@ -8,19 +8,18 @@ First, you take a picture. SpotiCam takes that picture and calculates the averag
 
 SpotiCam then makes a request to Spotify for track recommendations that most closely match these values and your selected genres. Spotify’s track database is absolutely massive, and each track’s attribute values are algorithmically generated on their end. 
 
-You may get some surprising results, especially when it comes to which genres Spotify has assigned to certain tracks. Just keep taking pictures and see what you get— you just might discover something interesting.
+You may get some surprising results, especially when it comes to which genres Spotify has assigned to certain tracks. Just keep taking pictures and see what you get— you just might discover something interesting. <br/><br/>
 
 
 ### Sounds cool. Where can I get it?
 
-SpotiCam is currently undergoing the App Store review process. Check back here soon for a link to the App Store page! Note you will also need a Spotify account (Free or Premium) to get track recommendations.
+SpotiCam is currently undergoing the App Store review process. Check back here soon for a link to the App Store page! Note you will also need a Spotify account (Free or Premium) to get track recommendations. <br/><br/>
 
 ## Housekeeping
-
-
+<br/><br/><br/>
 ### Get in touch!
 
-SpotiCam is my first app on the App Store. Please do submit any feedback or comments to SpotiCam's [GitHub issues page](https://github.com/bolderkat/SpotiCam/issues). I'd love to hear what you think!
+SpotiCam is my first app on the App Store. Please do submit any feedback or comments to SpotiCam's [GitHub issues page](https://github.com/bolderkat/SpotiCam/issues). I'd love to hear what you think! <br/><br/>
 
 
 ### SpotiCam Privacy Policy
