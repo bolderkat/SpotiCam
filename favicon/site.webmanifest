@@ -3,12 +3,12 @@
     "short_name": "",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "https://github.com/bolderkat/SpotiCam/blob/gh-pages/favicon/android-chrome-192x192.png?raw=true",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
+            "src": "https://github.com/bolderkat/SpotiCam/blob/gh-pages/favicon/android-chrome-256x256.png?raw=true",
             "sizes": "256x256",
             "type": "image/png"
         }
