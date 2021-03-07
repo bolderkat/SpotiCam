@@ -2,7 +2,7 @@
 <browserconfig>
     <msapplication>
         <tile>
-            <square150x150logo src="https://github.com/bolderkat/SpotiCam/blob/gh-pages/favicon/mstile-150x150.png?raw=true"/>
+            <square150x150logo src="https://raw.githubusercontent.com/bolderkat/SpotiCam/gh-pages/favicon/mstile-150x150.png"/>
             <TileColor>#da532c</TileColor>
         </tile>
     </msapplication>
