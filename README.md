@@ -1,7 +1,9 @@
 # SpotiCam
 <img src = "SpotiCam Demo.gif" align = "right">
 
-A camera-based experience that calculates the dominant color in a photo and uses the color to fetch track recommendations from Spotify's Web API.
+Turn your photos into music.
+
+SpotiCam is a camera-based experience that calculates the dominant color in a photo and uses the color to fetch track recommendations from Spotify's Web API.
 
 Through working on SpotiCam, I developed the following skills:
 
