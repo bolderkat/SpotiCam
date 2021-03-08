@@ -7,9 +7,12 @@ SpotiCam is a camera-based experience that calculates the dominant color in a ph
 
 Through working on SpotiCam, I developed the following skills:
 
-* Objective-C
-* Familiarity with AVCaptureSession
-* Familiarity Core Image/Core Graphics
+* Writing an app in 100% Objective-C
+* Use of AVCaptureSession
+* Use of Core Image/Core Graphics
 * REST API queries and JSON Parsing
+* OAuth token management with AppAuth and Keychain
+* StoreKit, in-app purchases
+* App Store review and release process
 
-SpotiCam is nearly ready for App Store release, and it will also feature StoreKit integration for tip jar in-app purchases.
+SpotiCam is [available now on the App Store.](https://apps.apple.com/us/app/spoticam/id1556162433)
