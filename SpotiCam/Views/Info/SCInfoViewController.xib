@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SCInfoViewController">
             <connections>
+                <outlet property="linkLabel" destination="0k4-ze-DEl" id="437-4i-ZHj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,12 +33,16 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iox-h3-Kxp">
-                                    <rect key="frame" x="20" y="86" width="374" height="446.5"/>
+                                    <rect key="frame" x="20" y="86" width="374" height="406"/>
                                     <mutableString key="text">First, you take a picture. SpotiCam takes that picture and calculates the average color in the center portion of the picture. Then, that color value gets fed through SpotiCam’s mathematical model to generate track attribute values for Spotify’s recommendation engine: danceability, energy, and mood.
 
-SpotiCam then makes a request to Spotify for track recommendations that most closely match these values and your selected genres. Spotify’s track database is absolutely massive, and each track’s attribute values are algorithmically generated on their end.   You may get some surprising results, especially when it comes to which genres Spotify has assigned to certain tracks. Just keep taking pictures and see what you get— you just might discover something interesting.
-
-Have fun!</mutableString>
+SpotiCam then makes a request to Spotify for track recommendations that most closely match these values and your selected genres. Spotify’s track database is absolutely massive, and each track’s attribute values are algorithmically generated on their end.   You may get some surprising results, especially when it comes to which genres Spotify has assigned to certain tracks. Just keep taking pictures and see what you get— you just might discover something interesting.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have fun! If you run into any issues or have feedback/comments, please let me know on SpotiCam's GitHub Issues page." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k4-ze-DEl">
+                                    <rect key="frame" x="20" y="509" width="374" height="61"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -48,8 +53,11 @@ Have fun!</mutableString>
                                 <constraint firstAttribute="trailing" secondItem="slD-oc-ppo" secondAttribute="trailing" constant="20" id="4w3-Fn-tby"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Iox-h3-Kxp" secondAttribute="bottom" constant="40" id="9la-Qw-Fxe"/>
                                 <constraint firstAttribute="height" constant="750" id="TwT-ad-EwS"/>
+                                <constraint firstAttribute="trailing" secondItem="0k4-ze-DEl" secondAttribute="trailing" constant="20" id="WVT-G0-4rk"/>
                                 <constraint firstItem="Iox-h3-Kxp" firstAttribute="leading" secondItem="ORz-os-bYV" secondAttribute="leading" constant="20" id="XI2-2N-WBR"/>
+                                <constraint firstItem="0k4-ze-DEl" firstAttribute="leading" secondItem="ORz-os-bYV" secondAttribute="leading" constant="20" id="iQF-Rl-2wr"/>
                                 <constraint firstItem="slD-oc-ppo" firstAttribute="top" secondItem="ORz-os-bYV" secondAttribute="top" constant="40" id="iyy-mE-MVk"/>
+                                <constraint firstItem="0k4-ze-DEl" firstAttribute="top" secondItem="Iox-h3-Kxp" secondAttribute="bottom" constant="17" id="pgC-gS-qZy"/>
                                 <constraint firstItem="Iox-h3-Kxp" firstAttribute="top" secondItem="slD-oc-ppo" secondAttribute="bottom" constant="20" id="shi-BG-Xwy"/>
                                 <constraint firstItem="slD-oc-ppo" firstAttribute="leading" secondItem="ORz-os-bYV" secondAttribute="leading" constant="20" id="vBi-6u-Dct"/>
                                 <constraint firstAttribute="trailing" secondItem="Iox-h3-Kxp" secondAttribute="trailing" constant="20" id="vgi-GF-ixr"/>
