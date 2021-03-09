@@ -1,5 +1,5 @@
 ## What is SpotiCam?
-SpotiCam is an iOS app that analyzes the color in photos to get Spotify track recommendations based on that color.
+SpotiCam is an iOS app that analyzes the color in photos to get Spotify track recommendations based on that color. [Now available on the App Store!](https://apps.apple.com/us/app/spoticam/id1556162433)
 
 
 ### How does SpotiCam work?
