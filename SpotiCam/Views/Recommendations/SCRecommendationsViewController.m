@@ -82,9 +82,8 @@
                 [weakSelf showAlertForApiError:apiError];
             } else if ([weakSelf.tracks count] == 0) {
                 [weakSelf showNoTracksAlert];
-            } else {
-                [weakSelf applyTableViewSnapshot];
             }
+            [weakSelf applyTableViewSnapshot];
         });
     }];
 }
@@ -109,7 +108,7 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * _Nonnull action) {
-        [self.coordinator goToSettingsView];
+        [self openSettings];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Dismiss"
                                               style:UIAlertActionStyleDefault
@@ -127,8 +126,7 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * _Nonnull action) {
-        self.isReturningFromSettings = YES;
-        [self.coordinator goToSettingsView];
+        [self openSettings];
     }]];
     if ([self.tracks count] >= 1) {
         [alert addAction:[UIAlertAction actionWithTitle:@"Create playlist with tracks"
@@ -210,6 +208,10 @@
     }
 }
 
+- (void)openSettings {
+    self.isReturningFromSettings = YES;
+    [self.coordinator goToSettingsView];
+}
 
 #pragma mark - Table View Diffable Data Source and Delegate
 - (void)configureDataSource {
