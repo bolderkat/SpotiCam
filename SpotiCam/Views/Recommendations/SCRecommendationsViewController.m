@@ -129,7 +129,7 @@
         [self openSettings];
     }]];
     if ([self.tracks count] >= 1) {
-        [alert addAction:[UIAlertAction actionWithTitle:@"Create playlist with tracks"
+        [alert addAction:[UIAlertAction actionWithTitle:@"Create Spotify playlist with tracks"
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
             [self showPlaylistDetailEntry];
@@ -142,7 +142,7 @@
 }
 
 - (void)showPlaylistDetailEntry {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Create New Playlist"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Create New Spotify Playlist"
                                                                    message:nil
                                                             preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
