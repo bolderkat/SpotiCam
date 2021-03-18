@@ -28,6 +28,6 @@ Here's the quick version up front: SpotiCam does not collect your personal infor
 
 SpotiCam requests your Spotify login, as Spotify's API requires a valid authorization token to allow access to its track recommendation service.
 
-SpotiCam only uses your login details to obtain an authorization token from Spotify. This token is saved locally on your device, and the app does not keep your login credentials stored anywhere. Additionally, SpotiCam only asks for the bare minimum account permissions necessary to get track recommendations from Spotify.
+SpotiCam only uses your login details to obtain an authorization token from Spotify. This token is saved locally on your device, and the app does not keep your login credentials stored anywhere. Additionally, SpotiCam only asks for the bare minimum account permissions necessary to get track recommendations and make playlists for you on Spotify.
 
 Photo analysis is performed locally, and your photos are never sent off your device. All network requests from this app are made only to Spotify's or Apple's servers for track recommendations or tip jar transactions respectively.
