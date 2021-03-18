@@ -48,8 +48,10 @@ static NSString *const kPopularityKey = @"popularity";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTranslucent:NO];
     
+    BOOL hasUserAuthorizedPlaylistScope = [[NSUserDefaults standardUserDefaults] boolForKey:@"hasUserAuthorizedPlaylistScope"];
     
-    if (self.authManager.authState == nil) {
+    // Need to reauthorize if user has logged in but before v1.1 when playlist creation scope was added to auth
+    if (self.authManager.authState == nil || !hasUserAuthorizedPlaylistScope) {
         SCAuthViewController *vc = [SCAuthViewController new];
         self.authManager.viewController = vc;
         vc.coordinator = self;

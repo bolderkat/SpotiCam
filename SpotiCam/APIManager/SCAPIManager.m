@@ -12,6 +12,7 @@
 
 @interface SCAPIManager ()
 @property (weak, nonatomic) SCMainCoordinator *coordinator;
+@property (nonatomic) void (^playlistCompletionHandler)(NSString* _Nullable, NSDictionary* _Nullable);
 
 @end
 
@@ -73,14 +74,7 @@
         NSString *genreString = [lowercaseGenres componentsJoinedByString:@"%2C"];
         NSString *urlString = [NSString stringWithFormat:@"https://api.spotify.com/v1/recommendations?limit=%ld&seed_genres=%@&target_danceability=%.2f&target_energy=%.2f&min_popularity=%ld&target_valence=%.2f", trackLimit, genreString, self.danceability, self.energy, popularity, self.valence];
         NSURL *url = [NSURL URLWithString:urlString];
-        NSString *authValue = [NSString stringWithFormat:@"Bearer %@", accessToken];
-        
-        
-        // URL session with query
-        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-        sessionConfig.HTTPAdditionalHeaders= @{@"Authorization": authValue};
-        
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig];
+        NSURLSession *session = [self setUpURLSessionWithAccessToken:accessToken];
         
         [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error) {
@@ -109,6 +103,130 @@
         [parsedTracks addObject:[[SCTrack alloc] initWithJSON:track]];
     }
     return [NSArray arrayWithArray:parsedTracks];
+}
+
+
+#pragma mark:- Playlist creation methods
+
+- (void)createPlaylistWithTracks:(NSArray<SCTrack*>*)tracks playlistData:(NSDictionary*)playlistData completionHandler:(void (^)(NSString* _Nullable, NSDictionary* _Nullable))completion {
+    self.playlistCompletionHandler = completion;
+    [self getSpotifyUserIDWithPlaylistData:playlistData tracks:tracks];
+}
+
+- (void)getSpotifyUserIDWithPlaylistData:(NSDictionary*)playlistData tracks:(NSArray<SCTrack*>*)tracks {
+    // First need to retrieve user's Spotify user ID before we can create a playlist on their behalf.
+    [self.coordinator.authManager.authState performActionWithFreshTokens:^(NSString * _Nullable accessToken, NSString * _Nullable idToken, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error fetching fresh tokens to retrieve user ID: %@", [error localizedDescription]);
+        }
+        NSString *urlString = @"https://api.spotify.com/v1/me";
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSURLSession *session = [self setUpURLSessionWithAccessToken:accessToken];
+        
+        [[session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error fetching user profile for ID: %@", [error localizedDescription]);
+                return;
+            }
+            
+            NSError *err;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+            if (err) {
+                NSLog(@"Failed to serialize user profile JSON: %@", [err localizedDescription]);
+                return;
+            }
+            if (dict[@"error"]) {
+                self.playlistCompletionHandler(nil, dict[@"error"]);
+            } else {
+                NSString *uid = dict[@"id"];
+                [self createNewPlaylistForUserID:uid
+                                    playlistData:playlistData
+                                          tracks:tracks
+                                     accessToken:accessToken];
+            }
+        }] resume];
+        
+    }];
+}
+
+- (void)createNewPlaylistForUserID:(NSString*)uid playlistData:(NSDictionary*)playlistData tracks:(NSArray<SCTrack*>*)tracks accessToken:(NSString*)accessToken {
+    NSError *error;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:playlistData
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.spotify.com/v1/users/%@/playlists", uid];
+    [request setURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    NSURLSession *session = [self setUpURLSessionWithAccessToken:accessToken];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error creating new playlist: %@", [error localizedDescription]);
+            return;
+        }
+        
+        NSError *err;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        if (err) {
+            NSLog(@"Failed to serialize new playlist JSON: %@", [err localizedDescription]);
+            return;
+        }
+        if (dict[@"error"]) {
+            self.playlistCompletionHandler(nil, dict[@"error"]);
+        } else {
+            [self addTracksToPlaylist:dict
+                               tracks:tracks
+                          accessToken:accessToken];
+        }
+        
+    }] resume];
+}
+
+- (void)addTracksToPlaylist:(NSDictionary*)receivedPlaylistInfo tracks:(NSArray<SCTrack*>*)tracks accessToken:(NSString*)accessToken {
+    NSMutableArray<NSString*> *trackIDs = [NSMutableArray array];
+    
+    for (SCTrack *track in tracks) {
+        NSString *uriString = [NSString stringWithFormat:@"%@", track.uri];
+        [trackIDs addObject:uriString];
+    }
+    
+    NSString *trackRequestString = [trackIDs componentsJoinedByString:@","];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.spotify.com/v1/playlists/%@/tracks?uris=%@", receivedPlaylistInfo[@"id"], trackRequestString];
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    
+    NSURLSession *session = [self setUpURLSessionWithAccessToken:accessToken];
+    
+    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Error adding tracks to playlist: %@", [error localizedDescription]);
+            return;
+        }
+        
+        NSError *err;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        if (err) {
+            NSLog(@"Failed to serialize playlist JSON after adding tracks: %@", [err localizedDescription]);
+            return;
+        }
+        
+        self.playlistCompletionHandler(receivedPlaylistInfo[@"external_urls"][@"spotify"], dict[@"error"]);
+    }] resume];
+}
+
+- (NSURLSession*)setUpURLSessionWithAccessToken:(NSString*)accessToken {
+    NSString *authValue = [NSString stringWithFormat:@"Bearer %@", accessToken];
+    
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    sessionConfig.HTTPAdditionalHeaders = @{@"Authorization": authValue};
+    
+    return [NSURLSession sessionWithConfiguration:sessionConfig];
 }
 
 

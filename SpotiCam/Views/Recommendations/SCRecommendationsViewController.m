@@ -64,25 +64,6 @@
     
 }
 
-- (void)showOptions {
-    self.isReturningFromSettings = YES;
-    [self.coordinator goToSettingsView];
-    // In a future release, will show an action sheet with options for going to settings and to make a playlist with recommended tracks.
-    
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Options"
-//                                                                   message:@"Open settings to change minimum track popularity and your selected genres. Returning to this page will request new tracks with updated settings."
-//                                                            preferredStyle:UIAlertControllerStyleActionSheet];
-//    [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
-//                                              style:UIAlertActionStyleDefault
-//                                            handler:^(UIAlertAction * _Nonnull action) {
-//        [self.coordinator goToSettingsView];
-//    }]];
-//    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
-//                                              style:UIAlertActionStyleCancel
-//                                            handler:nil]];
-//    [self presentViewController:alert animated:YES completion:nil];
-}
-
 - (void)fetchTrackRecommendations {
     [self.activityIndicator startAnimating];
     [self.activityIndicator setHidden:NO];
@@ -134,6 +115,99 @@
                                               style:UIAlertActionStyleDefault
                                             handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+#pragma mark - Playlist Creation Methods
+
+- (void)showOptions {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Options"
+                                                                   message:@"Open settings to change minimum track popularity and your selected genres. Returning to this page will request new tracks with updated settings."
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Open settings"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull action) {
+        self.isReturningFromSettings = YES;
+        [self.coordinator goToSettingsView];
+    }]];
+    if ([self.tracks count] >= 1) {
+        [alert addAction:[UIAlertAction actionWithTitle:@"Create playlist with tracks"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
+            [self showPlaylistDetailEntry];
+        }]];
+    }
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showPlaylistDetailEntry {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Create New Playlist"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Playlist name";
+        textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Description";
+        textField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    }];
+    
+    __weak typeof(alert) weakAlert = alert;
+    __weak typeof(self) weakSelf = self;
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull action) {
+        NSString *name = weakAlert.textFields.firstObject.text;
+        if ([name isEqualToString: @""]) {
+            name = @"SpotiCam Playlist";
+        }
+        
+        NSString *description = weakAlert.textFields.lastObject.text;
+        if ([description isEqualToString: @""]) {
+            description = @"Playlist created with the SpotiCam app on iOS.";
+        }
+        
+        NSDictionary *playlistData = @{
+            @"name": name,
+            @"description": description,
+            @"public": @"true"
+        };
+        [self.apiManager createPlaylistWithTracks:weakSelf.tracks playlistData:playlistData completionHandler:^(NSString *urlString, NSDictionary * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf showPlaylistCompletionAlertWithURLString:urlString error:error];
+            });
+        }];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)showPlaylistCompletionAlertWithURLString:(NSString* _Nullable)urlString error:(NSDictionary* _Nullable)error {
+    if (error) {
+        [self showAlertForApiError:error];
+    } else {
+        NSURL *url = [NSURL URLWithString:urlString];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Playlist successfully created!"
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Dismiss"
+                                                  style:UIAlertActionStyleCancel
+                                                handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Open Playlist"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * _Nonnull action) {
+            [[UIApplication sharedApplication] openURL:url
+                                               options:@{}
+                                     completionHandler:nil];
+        }]];
+    }
 }
 
 

@@ -93,7 +93,7 @@ static NSString *const kKeyChainService = @"com.spotify.accounts";
     OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientID
-                                                    scopes:nil
+                                                    scopes:@[@"playlist-modify-public"]
                                                redirectURL:redirectURI
                                               responseType:OIDResponseTypeCode
                                       additionalParameters:nil];
@@ -106,10 +106,12 @@ static NSString *const kKeyChainService = @"com.spotify.accounts";
                                                    callback:^(OIDAuthState * _Nullable authState, NSError * _Nullable error) {
         if (authState) {
             NSLog(@"Got authorization tokens. Access token: %@", authState.lastTokenResponse.accessToken);
+            // Flag set to yes once user auths for the first time in v1.1
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasUserAuthorizedPlaylistScope"];
             [self setAuthState:authState];
             [self.coordinator proceedAfterAuth];
         } else {
-            NSLog(@"Authorizationerror: %@", [error localizedDescription]);
+            NSLog(@"Authorization error: %@", [error localizedDescription]);
             [self setAuthState:nil];
         }
     }];
