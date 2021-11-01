@@ -42,7 +42,7 @@ static NSString *const kKeyChainService = @"com.spotify.accounts";
 }
 
 - (void)loadState {
-    // Loads from OIDAuthState from NSUserDefaults
+    // Loads from OIDAuthState from Keychain
     NSError *error = nil;
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:kKeyChainService];
     NSData *archivedAuthState = [keychain dataForKey:kAppAuthStateKey];
